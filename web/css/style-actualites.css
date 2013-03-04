@@ -1,0 +1,479 @@
+
+@import url(default.css);
+
+@font-face {
+    font-family: "Balthazar";
+    src: url('../polices/Balthazar-Regular.ttf');
+	}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+
+	font-family:Balthazar, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#000;
+	text-align:justify;
+	line-height:1.2;
+}
+
+body{
+	background:#bfbfbf;
+	}
+
+
+#papier-gauffre{
+	width:100%;
+	background: url(../images/pattern-providence.jpg);
+	}
+	
+#wrapper-haut{
+	width:100%;
+	height:445px;
+	background:url(../images/wrapper-haut.png) repeat-x;
+	}	
+	
+#bandeau-haut{
+	width:1232px;
+	height:55px;
+	margin:auto;
+	}
+	
+#etablissement-catholique{
+	width:893px;
+	height:55px;
+	cursor:pointer;
+	background:url(../images/boutons/bandeau-haut.png) no-repeat top;
+	float:left;
+	}	
+
+#etablissement-catholique:hover{
+	background:url(../images/boutons/bandeau-haut.png) no-repeat bottom;
+	}	
+
+#bouton-telechargement{
+	width:339px;
+	height:55px;
+	cursor:pointer;
+	background:url(../images/boutons/telechargement.png) top;
+	float:left;
+	}	
+
+#bouton-telechargement:hover{
+	background:url(../images/boutons/telechargement.png) bottom;
+	}	
+
+#header{
+	clear:both;
+	width:1232px;
+	height:304px;
+	cursor:pointer;
+	margin:auto;
+	}
+
+#menu{
+	width:1109px;
+	padding:11px 0 0 123px;
+	height:39px;
+	margin:0 auto 24px auto; 
+	}
+
+#bouton-presentation{
+	width:163px;
+	height:39px;
+	cursor:pointer;
+	background:url(../images/boutons/bouton-presentation.png) top;
+	float:left;
+	}
+
+#bouton-presentation:hover{
+	background:url(../images/boutons/bouton-presentation.png) bottom;
+	}
+
+#bouton-pastorale{
+	width:191px;
+	height:39px;
+	cursor:pointer;
+	background:url(../images/boutons/bouton-pastorale.png) top;
+	float:left;
+	}	
+
+#bouton-pastorale:hover{
+	background:url(../images/boutons/bouton-pastorale.png) bottom;
+	}	
+
+#bouton-organisation{
+	width:341px;
+	height:39px;
+	cursor:pointer;
+	background:url(../images/boutons/bouton-organisation.png) top;
+	float:left;
+	}
+
+#bouton-organisation:hover{
+	background:url(../images/boutons/bouton-organisation.png) bottom;
+	}
+
+#bouton-examens{
+	width:175px;
+	height:39px;
+	cursor:pointer;
+	background:url(../images/boutons/bouton-examens.png) top;
+	float:left;
+	}
+
+#bouton-examens:hover{
+	background:url(../images/boutons/bouton-examens.png) bottom;
+	}
+
+#bouton-medias{
+	width:239px;
+	height:39px;
+	cursor:pointer;
+	background:url(../images/boutons/bouton-medias.png) top;
+	float:left;
+	}
+
+#bouton-medias:hover{
+	background:url(../images/boutons/bouton-medias.png) bottom;
+	}
+
+#wrapper-bas{
+	clear:both;
+	width:100%;
+	height:138px;
+	background:url(../images/wrapper-bas.png) repeat-x;
+	}
+#footer-vague{
+	width:1232px;
+	height:51px;
+	background:url(../images/vague.png);
+	margin:0 auto;
+	padding:0;
+	}
+
+#footer-adresse{
+	width:1232px;
+	height:41px;
+	background:url(../images/boutons/adresse.png) top;
+	margin:0 auto;
+	padding:0;
+	cursor:pointer;
+	}
+
+#footer-adresse:hover{
+	background:url(../images/boutons/adresse.png) bottom;
+	}
+
+#footer-mentions{
+	width:1232px;
+	height:30px;
+	background:url(../images/boutons/mentions.png) top;
+	margin:0 auto;
+	padding:0;
+	cursor:pointer;
+	}
+	
+#footer-mentions:hover{
+	background:url(../images/boutons/mentions.png) bottom;
+	}
+	
+#site{
+	width:1109px;
+	min-height:500px;
+	margin:auto;
+	padding:0 0 0 123px;
+	}
+
+#colonne-gauche{
+	width:242px;
+	float:left;
+	}
+
+#sous-menu-titre{
+	width:242px;
+	min-height:32px;
+	background:url(../images/sous-menu-titre.png) #88A927 no-repeat;
+	color:#f3f2eb;
+	text-align:center;
+	padding:20px 0 0 0;
+	font-size:24px;
+	}
+	
+#sous-menu-bas{
+	width:242px;
+	height:38px;
+	background:url(../images/sous-menu-bas.png);
+	}	
+
+#module-ecole{
+	width:242px;
+	height:134px;
+	cursor:pointer;
+	background:url(../images/modules/module-ecole.png) top;
+	}
+	
+#module-ecole:hover{
+	background:url(../images/modules/module-ecole.png) bottom;
+	}
+	
+#module-apel{
+	width:242px;
+	height:107px;
+	cursor:pointer;
+	background:url(../images/modules/module-apel.png) top;
+	}	
+
+#module-apel:hover{
+	background:url(../images/modules/module-apel.png) bottom;
+	}	
+
+#module-enseignement{
+	width:242px;
+	height:81px;
+	cursor:pointer;
+	background:url(../images/modules/module-enseignement.png) top;
+	}
+
+#module-enseignement:hover{
+	background:url(../images/modules/module-enseignement.png) bottom;
+	}
+
+#module-contact{
+	width:242px;
+	height:147px;
+	cursor:pointer;
+	background:url(../images/modules/module-contact.png) top;
+	}
+
+#module-contact:hover{
+	background:url(../images/modules/module-contact.png) bottom;
+	}
+
+#sous-menu{
+	width:242px;
+	background:#88a927;
+	}
+	
+#sous-menu ul{
+	margin:0;
+	}	
+	
+#sous-menu ul li{
+	list-style:none;
+	margin:0;
+	padding:0 0 6px 0
+	}	
+
+#sous-menu ul li a:link,
+#sous-menu ul li a:visited{
+	background:#64842f;
+	color:#f3f2eb;
+	text-decoration:none;
+	width:242px;
+	display:block;
+	text-align:center;
+	padding:4px 0;
+	font-size:16px;
+	}
+	
+#sous-menu ul li a:hover{
+	background:#427019;
+	color:#fff;
+	}
+	
+#colonne-droite{
+	width:744px;
+	float:left;
+	}
+
+#titre{
+	width:694px;
+	height:48px;
+	background:url(../images/actualites/titre-actualites.png);
+	color:#105a81;
+	font-size:24px;
+	padding:13px 0 0 50px;		
+	}
+
+#contenu{
+	width:716px;
+	padding:1px 28px 1px 28px;
+	background:url(../images/actualites/wrapper-actualites.png) repeat-y;
+	}
+
+#footer-contenu{
+	width:744px;
+	height:24px;
+	background:url(../images/actualites/footer-actualites.png);
+	}
+
+#plan-site ul li{
+		color:#ccc;
+		display:inline;
+		}
+		
+#plan-site a:link,
+#plan-site a:visited{
+	color:#ffff00;
+	}
+
+#plan-site a:hover{
+	color:#ff0000;
+	}
+
+#plan-site li{
+	margin:0;
+	}
+h1 {
+	font-size:1.5em;
+	font-weight:normal;
+	color:#105a81;
+	}
+
+h2 {
+	font-size:1.2em;
+	font-weight:normal;
+	color:#105a81; 
+	}
+
+#contenu p,
+#contenu a:link,
+#contenu a:visited,
+#contenu a:hover,
+#contenu ul li,
+#contenu b, 
+#contenu strong
+	{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#544f4c;	
+	}
+
+ul li{
+	list-style-image:url(../images/puce.jpg);
+	list-style-position:outside;
+	margin:0 0 0 24px;
+	}
+
+#contenu a:link, 
+#contenu a:visited {text-decoration:underline; color:#105a81;}
+#contenu a:hover {text-decoration:none; color: #544f4c;}
+
+.paragrapheOnOff{
+	cursor:pointer;
+	background:url(../images/paragraphe-off.png) no-repeat;
+	width:630px;
+	height:24px;
+	color:#fff;
+	padding:6px 0 0 42px;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+
+.close{
+	background:url(../images/paragraphe-off.png) no-repeat;
+	}	
+	
+.close:hover{
+	background:url(../images/paragraphe-off-over.png) no-repeat;
+	}
+	
+.open{
+	background:url(../images/paragraphe-on.png) no-repeat;
+	}	
+	
+.open:hover{
+	background:url(../images/paragraphe-on-over.png) no-repeat;
+	}	
+	
+.accordeon{
+	padding:0 0 0 40px;
+	color:#399;
+	}	
+
+#w3c{
+	width:180px;
+	clear:both;
+	margin:7px auto;
+	}	
+	
+#captreload img{
+	cursor:pointer;
+	}
+
+/* actualités */
+
+.actualite{
+	width:709px;
+	min-height:149px;
+	background:#fff;
+	position:relative;
+	}
+	
+.vignette-actualites{
+	width:153px;
+	min-height:108px;
+	background: url(../images/actualites/fond-vignette-actualites.png) no-repeat;
+	position:absolute;
+	bottom:-10px;
+	left:-29px;
+	padding:10px 0 0 38px;
+	}	
+	
+.actualites-gauche{
+	width:530px;
+	float:right;
+	padding:0 17px 48px 0;
+	}	
+	
+.actualites-gauche p{
+	margin:0 0 4px 0;
+	}
+
+	
+.lire-suite{
+	width:553px;
+	height:68px;
+	position:absolute;
+	bottom:0px;
+	left:162px;
+	cursor:pointer;
+	}	
+	
+.actu-masquee{
+		background:url(../images/actualites/lire-suite.png) no-repeat bottom;
+	}	
+
+.actu-visible{
+		background:url(../images/actualites/reduire.png) no-repeat bottom;
+	}	
+
+.suite-actualite{
+	width:530px;
+	padding:0 0 60px 0;
+
+	}
+
+.titre-actualites{
+	padding:10px 0 0 10px;
+	color:#528027;
+	font-size:18px;
+	}	
+	
+.photo-vignette-actualites{
+	width:121px;
+	height:83px;
+	}	
+	
+.vignettes-pormo{
+	float:left;
+	margin:0;
+	padding:0;
+	}	
+	

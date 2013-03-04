@@ -1,0 +1,36 @@
+.voyage-gauche{
+	width:50px;
+	min-height:77px;
+	float:left;
+	padding:12px 0;
+	}	
+	
+.voyage-droite{
+	width:540px;
+	padding:0 0 0 16px;
+	float:left;
+	}	
+
+.voyage-vignette{
+	width:146px;
+	min-height:82px;
+	float:left;
+	clear:both;
+	padding:14px 0 0 0;
+	}
+	
+.voyage-compte-rendu{
+	width:470px;
+	float:left;
+	padding:0 0 0 8px;
+	}
+	
+.voyage-compte-rendu a{
+	float:right;
+	}	
+	
+.voyage-quotidien{
+	padding:0 0 8px 0;
+	width:100%;
+	}	
+

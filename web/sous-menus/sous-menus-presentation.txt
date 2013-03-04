@@ -1,0 +1,8 @@
+<ul>
+    <li><a href="presentation-historique.php">HISTORIQUE</a></li>
+    <li><a href="presentation-projet-etablissement.php">PROJET D'ETABLISSEMENT</a></li>
+    <li><a href="presentation-structure.php">STRUCTURE</a></li>
+    <li><a href="presentation-equipement.php">EQUIPEMENT</a></li>
+    <li><a href="presentation-ogec.php">OGEC</a></li>
+    <li><a href="presentation-apel.php">APEL</a></li>	
+</ul> 

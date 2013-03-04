@@ -1,0 +1,5 @@
+<ul>
+    <li><a href="medias-photos.php">PHOTOS</a></li>
+    <li><a href="medias-videos.php">VIDEOS</a></li>
+    <li><a href="medias-presse.php">PRESSE</a></li>
+</ul> 

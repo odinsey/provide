@@ -1,0 +1,9 @@
+<ul>
+    <li><a href="organisation-enseignement-anglais.php">ENSEIGNEMENT DE L'ANGLAIS</a></li>
+    <li><a href="organisation-formation-oral.php">FORMATION A L'ORAL</a></li>
+    <li><a href="organisation-clubs-ateliers.php">CLUBS ET ATELIERS</a></li>
+    <li><a href="organisation-stages-entreprise.php">STAGES EN ENTREPRISE</a></li>
+    <li><a href="organisation-bdi.php">BDI</a></li>
+    <li><a href="organisation-rencontres-professeurs.php">RENCONTRES AVEC LES PROFESSEURS</a></li>
+    <li><a href="organisation-sorties-pedagogiques.php">SORTIES PEDAGOGIQUES</a></li>
+</ul> 

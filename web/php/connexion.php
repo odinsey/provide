@@ -1,0 +1,1 @@
+<?php mysql_connect('mysql5-3.60gp', 'collegelr', 'amandine45');mysql_select_db('collegelr');?>

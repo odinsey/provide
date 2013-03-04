@@ -1,0 +1,7 @@
+<ul>
+    <li><a href="examen-bdr.php">BDR</a></li>
+    <li><a href="examen-assr.php">ASSR1 ET 2</a></li>
+    <li><a href="examen-psc.php">PSC 1</a></li>
+    <li><a href="examen-ket.php">KET</a></li>
+    <li><a href="examen-pet.php">PET</a></li>
+</ul> 

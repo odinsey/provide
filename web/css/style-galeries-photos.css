@@ -1,0 +1,55 @@
+
+.galerie-photo-intro{
+	width:636px;
+	margin:auto;
+	padding:8px 16px 8px 16px;
+	cursor:pointer;
+	}
+
+.galerie-photo-intro:hover{
+	background:#eee;
+	}
+
+.galerie-photo-titre{
+	width:100%
+	}
+
+.galerie-photo-titre p{
+	font-size:1.2em;
+	font-weight:normal;
+	color:#105a81;
+	}
+.galerie-photo-intro-gauche{
+		width:146px;
+		float:left;
+		margin:0;
+		padding:16px 0 0 0;
+	}
+
+.galerie-photo-intro-droite{
+	width:480px;
+	float:left;
+	padding:0 0 0 10px;
+	}
+
+
+.galerie-photos-fond{
+	width:652px;
+	margin:auto;
+	padding:8px 0 0 16px;
+	background:#7a7571;
+	}	
+	
+.galerie-photos-vignette{
+	width:146px;
+	height:82px;
+	padding:0 15px 16px 0;
+	}	
+	
+.galerie-photos-vignette-lien{
+	width:146px;
+	height:82px;
+	display:block;
+	padding:0 15px 16px 0;
+	float:left;
+	}

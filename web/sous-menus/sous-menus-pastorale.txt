@@ -1,0 +1,5 @@
+<ul>
+    <li><a href="pastorale-projet-pastorale.php">PROJET PASTORALE</a></li>
+    <li><a href="pastorale-preparation-sacrements.php">PREPARATION AUX SACREMENTS</a></li>
+    <li><a href="pastorale-ressources-liens.php">RESSOURCES ET LIENS</a></li>
+</ul> 

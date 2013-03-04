@@ -1,0 +1,23 @@
+.telechargement-bloc{
+	width:631px;
+	margin:0 0 8px 0;
+	}
+	
+.telechargement-bloc:hover{
+	background:#eee;
+	}	
+	
+.telechargement-gauche{
+	width:50px;
+	min-height:77px;
+	float:left;
+	padding:12px 0;
+	}	
+	
+.telechargement-droite{
+	width:540px;
+	padding:0 0 0 16px;
+	float:left;
+	}	
+
+
