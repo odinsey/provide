@@ -9,5 +9,7 @@ jQuery(document).ready(function(){
 //	});
 	jQuery('input.colorpicker').colorpicker().on('changeColor', function(ev){
 		jQuery(this).css( 'background-color', ev.color.toHex() );
-	});;
+	});
+        
+        jQuery('.table-order tbody').sortable().disableSelection();
 });

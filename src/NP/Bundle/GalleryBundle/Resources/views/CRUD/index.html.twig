@@ -28,6 +28,7 @@
             {% block index_list_other_actions %}
             <div class="other-actions">
                 {% block index_list_other_actions_list %}
+                <a class="btn" href="{{ path(route_order) }}">{{ 'gallery.index.order'|trans([], 'NPGalleryBundle') }}</a>
                 <a class="btn" href="{{ path(route_new) }}">{{ 'gallery.index.new'|trans([], 'NPGalleryBundle') }}</a>
                 {% endblock %}
             </div>
