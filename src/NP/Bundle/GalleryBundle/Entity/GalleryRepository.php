@@ -11,6 +11,8 @@ use Gedmo\Sortable\Entity\Repository\SortableRepository;
  * repository methods below.
  */
 class GalleryRepository extends SortableRepository {
+    
+    protected $config = array('groups'=>null);
 
     public function deleteOne($id)
     {
@@ -26,6 +28,35 @@ class GalleryRepository extends SortableRepository {
                 ->getQuery()
                 ->execute();
 
+        $this->_em->flush();
+    }
+
+    public function publishGroup($ids)
+    {
+        foreach($this->findBy(array('id'=>$ids)) as $entity) {
+            $entity->setPublished(true);
+            $this->_em->persist($entity);
+        }
+        
+        $this->_em->flush();
+    }
+
+    public function unpublishGroup($ids)
+    {
+        foreach($this->findBy(array('id'=>$ids)) as $entity) {
+            $entity->setPublished(false);
+            $this->_em->persist($entity);
+        }
+        
+        $this->_em->flush();
+    }
+    
+    public function orderGroup($ids) {
+        foreach($this->findBy(array('id'=>$ids)) as $i=>$entity) {
+            $entity->setPosition($i);
+            $this->_em->persist($entity);
+        }
+        
         $this->_em->flush();
     }
 }

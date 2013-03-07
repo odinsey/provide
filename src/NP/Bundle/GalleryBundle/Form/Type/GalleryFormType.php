@@ -10,6 +10,7 @@ class GalleryFormType extends AbstractType {
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
 		$builder->add('title', null, array('label' => 'Nom'))
+                        ->add('published', null, array('label'=>'Publié', 'required'=>false))
 			->add('description', 'richeditor', array('label' => 'Description'))
 			->add('pictures', 'picture_collection', array(
                                 'label' => 'Photos',
