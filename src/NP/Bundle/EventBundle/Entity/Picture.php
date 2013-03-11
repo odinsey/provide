@@ -210,7 +210,7 @@ class Picture {
     }
 
     public function getFolderName() {
-	return sprintf('gallery-%d', $this->getParent()->getId());
+	return sprintf('sortie-%d', $this->getParent()->getId());
     }
 
     /**

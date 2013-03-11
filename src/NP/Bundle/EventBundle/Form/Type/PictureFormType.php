@@ -1,6 +1,6 @@
 <?php
 
-namespace NP\Bundle\GalleryBundle\Form\Type;
+namespace NP\Bundle\EventBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,12 +17,12 @@ class PictureFormType extends AbstractType {
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
 	$resolver->setDefaults(array(
-	    'data_class' => 'NP\Bundle\GalleryBundle\Entity\Picture'
+	    'data_class' => 'NP\Bundle\EventBundle\Entity\Picture'
 	));
     }
 
     public function getName() {
-	return 'np_gallery_picture';
+	return 'np_event_picture';
     }
 
 }

@@ -5,6 +5,7 @@ namespace NP\Bundle\EventBundle\Entity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -96,13 +97,13 @@ class Event {
     private $published;
 
     /**
-     * @ORM\OneToMany(targetEntity="\NP\Bundle\EventBundle\Entity\EventStep", mappedBy="event", cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="\NP\Bundle\EventBundle\Entity\Step", mappedBy="event", cascade={"all"}, orphanRemoval=true)
      * @ORM\OrderBy({"date" = "ASC"})
      */
     protected $steps;
 
     public function __construct() {
-	$this->pictures = new ArrayCollection();
+	$this->steps = new ArrayCollection();
     }
 
     /*
@@ -234,6 +235,37 @@ class Event {
 	return $this;
     }
 
+    /**
+     * Get steps
+     *
+     * @return array_collection
+     */
+    public function getSteps() {
+	return $this->steps;
+    }
+
+    /**
+     * Add step
+     *
+     * @param \NP\Bundle\EventBundle\Entity\Step $step
+     */
+    public function addStep(Step $step) {
+	if (!$this->steps->contains($step) && $step->getFile() ) {
+            $step->setParent($this);
+	    $this->steps->add($step);
+	}
+    }
+
+    /**
+     * Remove step
+     *
+     * @param \NP\Bundle\EventBundle\Entity\Step $step
+     */
+    public function removeStep(Step $step) {
+	if ($this->steps->contains($step)) {
+	    $this->steps->removeElement($step);
+	}
+    }
 
     /**
      * Get extension

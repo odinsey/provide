@@ -5,15 +5,16 @@ namespace NP\Bundle\EventBundle\Entity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Event
  *
  * @ORM\Table("event_step")
- * @ORM\Entity(repositoryClass="NP\Bundle\EventBundle\Entity\EventStepRepository")
+ * @ORM\Entity(repositoryClass="NP\Bundle\EventBundle\Entity\StepRepository")
  */
-class EventStep {
+class Step {
     /**
      * Hook timestampable behavior
      * updates createdAt, updatedAt fields
@@ -59,7 +60,7 @@ class EventStep {
     private $published;
 
     /**
-     * @ORM\OneToMany(targetEntity="\NP\Bundle\GalleryBundle\Entity\Picture", mappedBy="event", cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="\NP\Bundle\EventBundle\Entity\Picture", mappedBy="step", cascade={"all"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
      */
     protected $pictures;
@@ -219,6 +220,37 @@ class EventStep {
 	return $this;
     }
 
+    /**
+     * Get pictures
+     *
+     * @return array_collection
+     */
+    public function getPictures() {
+	return $this->pictures;
+    }
+
+    /**
+     * Add picture
+     *
+     * @param \NP\Bundle\EventBundle\Entity\Picture $picture
+     */
+    public function addPicture(Picture $picture) {
+	if (!$this->pictures->contains($picture) && $picture->getFile() ) {
+            $picture->setParent($this);
+	    $this->pictures->add($picture);
+	}
+    }
+
+    /**
+     * Remove picture
+     *
+     * @param \NP\Bundle\EventBundle\Entity\Picture $picture
+     */
+    public function removePicture(Picture $picture) {
+	if ($this->pictures->contains($picture)) {
+	    $this->pictures->removeElement($picture);
+	}
+    }
 
     /**
      * Set file

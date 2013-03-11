@@ -5,9 +5,9 @@ namespace NP\Bundle\EventBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use NP\Bundle\GalleryBundle\Form\Type\PictureFormType;
+use NP\Bundle\EventBundle\Form\Type\PictureFormType;
 
-class EventFormType extends AbstractType {
+class StepFormType extends AbstractType {
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
 		$builder->add('title', null, array('label' => 'Nom'))
@@ -28,12 +28,12 @@ class EventFormType extends AbstractType {
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver){
 		$resolver->setDefaults(array(
-			'data_class' => 'NP\Bundle\EventBundle\Entity\Event',
+			'data_class' => 'NP\Bundle\EventBundle\Entity\Step',
 			'cascade_validation' => true
 		));
 	}
 
 	public function getName(){
-		return 'np_event_event';
+		return 'np_event_step';
 	}
 }

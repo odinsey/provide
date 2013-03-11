@@ -5,16 +5,26 @@ namespace NP\Bundle\EventBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use NP\Bundle\GalleryBundle\Form\Type\PictureFormType;
+use NP\Bundle\EventBundle\Form\Type\StepFormType;
+use NP\Bundle\EventBundle\Enum\StatusEnum;
 
 class EventFormType extends AbstractType {
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
+            $choices = array(''=>'');
+            foreach (StatusEnum::getValues() as $action) {
+                $choices[$action] = 'event.form.status.'.$action;
+            }
+
 		$builder->add('title', null, array('label' => 'Nom'))
 			->add('description', 'richeditor', array('label' => 'Description'))
+			->add('file', 'file', array('label' => 'Programme'))
+			->add('state', 'choice', array('choices' => $choices, 'label' => 'Statut'))
+			->add('start', null, array('label' => 'Début'))
+			->add('stop', null, array('label' => 'Fin'))
 			->add('published', null, array('label' => 'Publié'))
-			->add('pictures', 'picture_collection', array(
-				'type' => new PictureFormType(),
+			->add('steps', 'collection', array(
+				'type' => new StepFormType(),
 				'allow_add' => true,
 				'allow_delete' => true,
 				'by_reference' => false,
