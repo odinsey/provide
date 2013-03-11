@@ -12,6 +12,10 @@ np_gallery_gallery_new:
     pattern: /new
     defaults: { _controller: NPGalleryBundle:Gallery:new }
 
+np_gallery_gallery_order:
+    pattern: /order
+    defaults: { _controller: NPGalleryBundle:Gallery:order }
+
 np_gallery_gallery_edit:
     pattern: /{id}/edit
     defaults: { _controller: NPGalleryBundle:Gallery:edit }
@@ -27,3 +31,9 @@ np_gallery_gallery_delete:
 np_gallery_gallery_groupprocess:
     pattern: /groupprocess
     defaults: { _controller: NPGalleryBundle:Gallery:groupProcess }
+
+np_gallery_gallery_publish_toggle:
+    pattern: /{id}/publish_toggle
+    defaults: { _controller: NPGalleryBundle:Gallery:publish_toggle }
+    requirements:
+      id: \d+

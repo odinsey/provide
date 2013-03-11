@@ -3,8 +3,7 @@
 namespace NP\Bundle\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\DoctrineBundle\Mapping\DisconnectedMetadataFactory;
+use NP\Bundle\CoreBundle\Form\Type\OrderGroupFormType;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 abstract class BaseAdminController extends Controller {
@@ -24,6 +23,7 @@ abstract class BaseAdminController extends Controller {
     protected $group_form_type_name = 'FooGroupFormType';
     protected $group_form_handler_name = 'FooGroupFormHandler';
     protected $route_index = 'np_foo_foo_index';
+    protected $route_order = 'np_foo_foo_order';
     protected $route_new = 'np_foo_foo_new';
     protected $route_edit = 'np_foo_foo_edit';
     protected $route_show = 'np_foo_foo_show';
@@ -32,6 +32,7 @@ abstract class BaseAdminController extends Controller {
     protected $route_groupprocess = 'np_foo_foo_groupprocess';
     //Default values
     protected $template_index = 'NPCoreBundle:CRUD:index.html.twig';
+    protected $template_order = 'NPCoreBundle:CRUD:order.html.twig';
     protected $template_new = 'NPCoreBundle:CRUD:new.html.twig';
     protected $template_edit = 'NPCoreBundle:CRUD:edit.html.twig';
     protected $template_show = 'NPCoreBundle:CRUD:show.html.twig';
@@ -75,6 +76,7 @@ abstract class BaseAdminController extends Controller {
             $this->translation_prefix = $this->container->underscore($class_name);
             $route_prefix = $this->container->underscore(preg_replace('#Bundle$#', '', $this->bundle_name));
             $this->route_index = ($this->route_index != 'np_foo_foo_index') ? $this->route_index : $route_prefix . '_' . $this->translation_prefix . '_index';
+            $this->route_order = ($this->route_order != 'np_foo_foo_order') ? $this->route_order : $route_prefix . '_' . $this->translation_prefix . '_order';
             $this->route_new = ($this->route_new != 'np_foo_foo_new') ? $this->route_new : $route_prefix . '_' . $this->translation_prefix . '_new';
             $this->route_edit = ($this->route_edit != 'np_foo_foo_edit') ? $this->route_new : $route_prefix . '_' . $this->translation_prefix . '_edit';
             $this->route_show = ($this->route_show != 'np_foo_foo_show') ? $this->route_new : $route_prefix . '_' . $this->translation_prefix . '_show';
@@ -90,6 +92,10 @@ abstract class BaseAdminController extends Controller {
 
     protected function getGroupForm($entity) {
         return $this->createForm(new $this->group_form_type_name($this->get('translator')), $entity);
+    }
+
+    protected function getOrderGroupForm($entity) {
+        return $this->createForm(new OrderGroupFormType(), $entity);
     }
 
     protected function getForm($entity) {
@@ -129,11 +135,41 @@ abstract class BaseAdminController extends Controller {
                     'bundle_name' => $this->bundle_name,
                     'route_new' => $this->route_new,
                     'route_index' => $this->route_index,
+                    'route_order' => $this->route_order,
                     'route_edit' => $this->route_edit,
                     'route_show' => $this->route_show,
                     'route_delete' => $this->route_delete,
                     'route_publish' => $this->route_publish,
                     'route_form_action' => $this->route_groupprocess
+                ));
+    }
+
+    public function orderAction() {
+        $form = $this->getOrderGroupForm(new $this->group_object_name());
+
+        $entity_list = $this->getClassRepository()->findBy(array(), array('position'=>'ASC'));
+        
+        $handler = new $this->group_form_handler_name(
+                        $this->getRequest(),
+                        $this->getDoctrine()->getEntityManager()
+        );
+        
+        $process = $handler->process($form, $this->getRequest()->get('ids'));
+        
+        if ($process != false) {
+            $this->get('session')->setFlash('success', $this->get('translator')->trans(
+                $this->translation_prefix . '.flash.success.group.'.$process, array(), $this->bundle_name)
+            );
+        }
+
+        return $this->render($this->template_order, array(
+                    'entity_list'=>$entity_list,
+                    'groupForm' => $form->createView(),
+                    'translation_prefix' => $this->translation_prefix,
+                    'bundle_name' => $this->bundle_name,
+                    'route_new' => $this->route_new,
+                    'route_index' => $this->route_index,
+                    'route_form_action' => $this->route_order
                 ));
     }
 
@@ -282,16 +318,16 @@ abstract class BaseAdminController extends Controller {
                         $this->getRequest(),
                         $this->getDoctrine()->getEntityManager()
         );
-
+        
         $process = $handler->process($form, $this->getRequest()->get('ids'));
         if ($process != false) {
             $this->get('session')->setFlash('success', $this->get('translator')->trans(
                 $this->translation_prefix . '.flash.success.group.'.$process, array(), $this->bundle_name)
             );
         }
-
-        return $this->indexAction();
-        //return $this->redirect($this->generateUrl($this->route_index));
+        
+        //return $this->indexAction();
+        return $this->redirect($this->generateUrl($this->route_index));
     }
 
 }

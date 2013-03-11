@@ -15,7 +15,10 @@ abstract class BaseAdminGroup
     {
         return array(
             'none',
-            'delete'
+            'delete',
+            'unpublish',
+            'publish',
+            'order'
         );
     }
 }

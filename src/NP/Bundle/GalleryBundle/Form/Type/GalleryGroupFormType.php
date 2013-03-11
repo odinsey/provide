@@ -20,7 +20,9 @@ class GalleryGroupFormType extends AbstractType
         $builder->add('action', 'choice', array(
             'choices'   => array(
                 'none'   => '',
-                'delete' => $this->translator->trans('global.form_action.group.delete', array(), 'NPCoreBundle')
+                'delete' => $this->translator->trans('global.form_action.group.delete', array(), 'NPCoreBundle'),
+                'publish' => $this->translator->trans('global.form_action.group.publish', array(), 'NPCoreBundle'),
+                'unpublish' => $this->translator->trans('global.form_action.group.unpublish', array(), 'NPCoreBundle')
             ),
             'multiple'  => false,
             'attr' => array('class' => 'medium')
