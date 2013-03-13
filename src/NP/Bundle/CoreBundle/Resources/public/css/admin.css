@@ -9,6 +9,15 @@
 	float: none;
 	padding: 5px;
 }
+.form-horizontal label.entity-collections.pictures {
+	background-color: #E20026;
+        margin: 0 15px 15px;
+}
+.form-horizontal .list-photos.thumbnails,
+.form-horizontal fieldset.entity-collections.pictures {
+	padding: 0 15px;
+        margin-bottom: 15px;
+}
 .form-horizontal label.entity-collection {
 	display: none;
 }
@@ -29,7 +38,7 @@
 }
 .delete-collection-row.btn {
     position: absolute;
-    bottom: 0;
+/*  bottom: 0; */
     right: 0;
 }
 /*.collection-field-row:after {

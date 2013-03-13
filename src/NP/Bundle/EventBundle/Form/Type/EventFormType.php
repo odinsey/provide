@@ -18,13 +18,14 @@ class EventFormType extends AbstractType {
 
 		$builder->add('title', null, array('label' => 'Nom'))
 			->add('description', 'richeditor', array('label' => 'Description'))
-			->add('file', 'file', array('label' => 'Programme'))
+			->add('file', 'file', array('label' => 'Programme','required'=>false))
 			->add('state', 'choice', array('choices' => $choices, 'label' => 'Statut'))
-			->add('start', null, array('label' => 'Début'))
-			->add('stop', null, array('label' => 'Fin'))
+			->add('start', 'date', array('label' => 'Début'))
+			->add('stop', 'date', array('label' => 'Fin'))
 			->add('published', null, array('label' => 'Publié'))
 			->add('steps', 'collection', array(
 				'type' => new StepFormType(),
+                                'label' => 'Etapes',
 				'allow_add' => true,
 				'allow_delete' => true,
 				'by_reference' => false,

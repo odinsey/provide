@@ -365,22 +365,36 @@ jQuery(document).ready(function() {
     jQuery('.collection-fields').each(function() {
         var index = 0,
             $c = jQuery(this),
-            data_prototype = $c.parent().attr('data-prototype');
+            object;
+            //data_prototype = $c.attr('data-prototype');
         /**
             * Add a new row to the collection
             *
             * @context null
             */
-        var add_row = function() {
-            var del_btn = jQuery('.delete-collection-row:first', $c.parent());
+        var add_row = function(el) {
+            var data_prototype = el.data('prototype');
+            var del_btn = jQuery('.delete-collection-row:first', el.parent());
             if (del_btn) {
                     del_btn = del_btn.clone().css('display', 'inline-block');
             }
-            var html = jQuery('<div class="collection-field-row new" />')
-                    .append(data_prototype.replace(/__name__/g, index))
+            object = el.attr('id');
+            object = object.substring(object.lastIndexOf('_')+1);
+            console.info(object);
+            var re = new RegExp(object+'___name__','g');
+            var re2 = new RegExp("\\["+object+"\\]\\[__name__\\]","g");
+
+            console.info(re2);
+            var index1 = object+"_"+index;
+            var index2 = "["+object+"]["+index+"]";
+
+            console.info(data_prototype.replace(re, index1).replace(re2,index2));
+
+            var html = jQuery('<div class="collection-field-row new '+object+'" />')
+                    .append(data_prototype.replace(re, index1).replace(re2,index2))
                     .append(del_btn);
 
-            $c.append(html);
+            el.parent().find('.collection-fields').html(html);
             del_btn.click(function(e) {
                     e.preventDefault();
                     del_row(jQuery(this));
@@ -407,14 +421,12 @@ jQuery(document).ready(function() {
             index = jQuery('#list-photos .thumbnail').size() + 1;
         }
 
-        jQuery('.add-collection-row', $c.parent()).click(function(e) {
+        jQuery('.add-collection-row').live('click',function(e) {
             e.preventDefault();
-            if( jQuery('#np_gallery_gallery_pictures input[type=file]').last().val() != '' ){
-                initAllTiny(add_row());
-            }
+            initAllTiny(add_row(jQuery(this)));
         });
 
-        jQuery('.delete-collection-row', $c.parent()).click(function(e) {
+        jQuery('.delete-collection-row').click(function(e) {
             e.preventDefault();
             removeAllTiny(this);
             del_row(jQuery(this));

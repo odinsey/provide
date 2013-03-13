@@ -9,10 +9,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Event
+ * Step
  *
  * @ORM\Table("event_step")
- * @ORM\Entity(repositoryClass="NP\Bundle\EventBundle\Entity\StepRepository")
+ * @ORM\Entity(repositoryClass="StepRepository")
  */
 class Step {
     /**
@@ -33,22 +33,21 @@ class Step {
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
-
 
     /**
      * @var string
      *
-     * @ORM\Column(name="start", type="date")
+     * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
 
@@ -59,8 +58,17 @@ class Step {
      */
     private $published;
 
+
     /**
-     * @ORM\OneToMany(targetEntity="\NP\Bundle\EventBundle\Entity\Picture", mappedBy="step", cascade={"all"}, orphanRemoval=true)
+     * @ORM\ManyToOne(targetEntity="Event", inversedBy="steps")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     *
+     * @var Event
+     */
+    private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Picture", mappedBy="parent", cascade={"all"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
      */
     protected $pictures;
@@ -77,14 +85,6 @@ class Step {
     }
 
     /**
-     * Get published
-     *
-     * @return boolean
-     */
-    public function isPublished() {
-	return $this->published ? true : false;
-    }
-    /**
      * Get id
      *
      * @return integer
@@ -94,33 +94,12 @@ class Step {
     }
 
     /**
-     * Get state
-     *
-     * @return string
-     */
-    public function getState() {
-	return $this->state;
-    }
-
-    /**
-     * Set start
-     *
-     * @param string $start
-     * @return Event
-     */
-    public function setState($state) {
-	$this->state = $state;
-
-	return $this;
-    }
-
-    /**
      * Get start
      *
      * @return string
      */
-    public function getStart() {
-	return $this->start;
+    public function getDate() {
+	return $this->date;
     }
 
     /**
@@ -129,33 +108,12 @@ class Step {
      * @param string $start
      * @return Event
      */
-    public function setStart($start) {
-	$this->start = $start;
+    public function setDate($date) {
+	$this->date = $date;
 
 	return $this;
     }
 
-
-    /**
-     * Get stop
-     *
-     * @return string
-     */
-    public function getStop() {
-	return $this->stop;
-    }
-
-    /**
-     * Set stop
-     *
-     * @param string $stop
-     * @return Event
-     */
-    public function setStop($stop) {
-	$this->stop = $stop;
-
-	return $this;
-    }
     /**
      * Get title
      *
@@ -198,28 +156,6 @@ class Step {
 	return $this;
     }
 
-
-    /**
-     * Get extension
-     *
-     * @return string
-     */
-    public function getExtension() {
-	return $this->extension;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $extension
-     * @return Resources
-     */
-    public function setExtension($extension) {
-	$this->extension = $extension;
-
-	return $this;
-    }
-
     /**
      * Get pictures
      *
@@ -232,7 +168,7 @@ class Step {
     /**
      * Add picture
      *
-     * @param \NP\Bundle\EventBundle\Entity\Picture $picture
+     * @param Picture $picture
      */
     public function addPicture(Picture $picture) {
 	if (!$this->pictures->contains($picture) && $picture->getFile() ) {
@@ -244,7 +180,7 @@ class Step {
     /**
      * Remove picture
      *
-     * @param \NP\Bundle\EventBundle\Entity\Picture $picture
+     * @param Picture $picture
      */
     public function removePicture(Picture $picture) {
 	if ($this->pictures->contains($picture)) {
@@ -253,98 +189,49 @@ class Step {
     }
 
     /**
-     * Set file
+     * Set Event
      *
-     * @param mixed $file
+     * @param Event $event
+     * @return Step
      */
-    public function setFile($file) {
-	if ($file != $this->file) {
-	    $this->updated_at = new \DateTime();
-	    $this->file = $file;
-	}
+    public function setParent($event = null) {
+	$this->parent = $event;
+
+	return $this;
     }
 
     /**
-     * Get file
+     * Get Event
      *
-     * @return string
+     * @return Event
      */
-    public function getFile() {
-	return $this->file;
+    public function getParent() {
+	return $this->parent;
     }
 
     /**
-     * Get url for a type of image
+     * Get published
      *
-     * @param string $type
-     * @return string
+     * @return boolean
      */
-    public function getUrl($type = 'small') {
-	return $this->getWebPath() . '/' . $this->getFileName();
+    public function isPublished() {
+	return $this->published ? true : false;
     }
 
     /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
+     * Get published
+     *
+     * @return boolean
      */
-    public function preUpload() {
-	if (null !== $this->file) {
-            $this->extension = $this->file->guessExtension();
-            $this->path = $this->file->getClientOriginalName();
-	    if (!is_dir($this->getFilePath())) {
-		$filesystem = new Filesystem();
-		$filesystem->mkdir($this->getFilePath());
-	    }
-	}
+    public function getPublished() {
+	return $this->published ? true : false;
     }
 
     /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
+     * Set published
+     *
      */
-    public function upload() {
-	if (null === $this->file) {
-	    return;
-	}
-        $this->extension = $this->file->guessExtension();
-        $this->path = $this->file->getClientOriginalName();
-	$this->file->move( $this->getFilePath(), $this->file->getClientOriginalName() );
-
-	unset($this->file);
-    }
-
-    /**
-     * @ORM\PreRemove()
-     */
-    public function removeUpload() {
-	$filesystem = new Filesystem();
-	$filesystem->remove($this->getFilePath() . '/' . $this->getFileName());
-    }
-
-
-    public function getFileName() {
-	return $this->path;
-    }
-
-    public function getAbsolutePath() {
-	return $this->getFilePath() . '/' . $this->getFileName();
-    }
-
-    public function getWebPath() {
-	return $this->getUploadDir();
-    }
-
-    public function getFilePath() {
-	return $this->getUploadRootDir();
-    }
-
-    protected function getUploadRootDir() {
-	// the absolute directory path where uploaded documents should be saved
-	return __DIR__ . '/../../../../../www' . $this->getUploadDir();
-    }
-
-    protected function getUploadDir() {
-	// get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-	return '/upload/sorties';
+    public function setPublished($published) {
+	$this->published = $published;
     }
 }

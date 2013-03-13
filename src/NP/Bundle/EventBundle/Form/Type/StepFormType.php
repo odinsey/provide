@@ -11,14 +11,16 @@ class StepFormType extends AbstractType {
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
 		$builder->add('title', null, array('label' => 'Nom'))
+                        ->add('date', 'date', array('label' => 'Date'))
 			->add('description', 'richeditor', array('label' => 'Description'))
 			->add('published', null, array('label' => 'Publié'))
 			->add('pictures', 'picture_collection', array(
 				'type' => new PictureFormType(),
+                                'label' => 'Photos',
 				'allow_add' => true,
 				'allow_delete' => true,
 				'by_reference' => false,
-				'attr' => array('class' => 'entity-collections sortable'),
+				'attr' => array('class' => 'pictures entity-collections sortable'),
 				//label for each team form type
 				'options' => array(
 					'attr' => array('class' => 'entity-collection')

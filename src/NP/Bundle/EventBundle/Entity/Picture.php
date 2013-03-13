@@ -17,7 +17,7 @@ use Imagine\Image\ImageInterface;
  * Picture
  *
  * @ORM\Table("event_picture")
- * @ORM\Entity(repositoryClass="NP\Bundle\EventBundle\Entity\PictureRepository")
+ * @ORM\Entity(repositoryClass="PictureRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Picture {
@@ -56,10 +56,10 @@ class Picture {
     private $position;
 
     /**
-     * @ORM\ManyToOne(targetEntity="EventStep", inversedBy="pictures")
+     * @ORM\ManyToOne(targetEntity="Step", inversedBy="pictures")
      * @ORM\JoinColumn(onDelete="SET NULL")
      *
-     * @var Gallery
+     * @var Step
      */
     private $parent;
 
@@ -185,13 +185,13 @@ class Picture {
     }
 
     /**
-     * Set gallery
+     * Set Step
      *
-     * @param \NP\Bundle\GalleryBundle\Entity\Gallery $gallery
+     * @param Step $step
      * @return Picture
      */
-    public function setParent($gallery = null) {
-	$this->parent = $gallery;
+    public function setParent($step = null) {
+	$this->parent = $step;
 
 	return $this;
     }
@@ -199,7 +199,7 @@ class Picture {
     /**
      * Get EventStep
      *
-     * @return \NP\Bundle\EventBundle\Entity\EventStep
+     * @return Step
      */
     public function getParent() {
 	return $this->parent;
@@ -300,7 +300,7 @@ class Picture {
 
     protected function getUploadRootDir() {
 	// the absolute directory path where uploaded documents should be saved
-	return __DIR__ . '/../../../../../www' . $this->getUploadDir();
+	return __DIR__ . '/../../../../../web' . $this->getUploadDir();
     }
 
     protected function getUploadDir() {

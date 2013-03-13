@@ -17,7 +17,7 @@
 <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
 <script type="text/javascript" src="scripts/routines.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="scripts/gmap3.js"></script> 
+<script type="text/javascript" src="scripts/gmap3.js"></script>
 <script type="text/javascript" src="scripts/gmap3-include.js"></script>
 <!-- InstanceBeginEditable name="head" -->
 <link href="css/style-sorties.css" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@
                     <param name="allowFullScreen" value="true" />
                     <param name="wmode" value="transparent" />
                     <img src="images/header.png" width="1232" height="301" alt="Collège La Providence - Olivet" />
-                    </object>		
+                    </object>
 			<!-- InstanceEndEditable -->
 			</div>
             <div id="menu">
@@ -46,16 +46,16 @@
                 <div id="bouton-examens"></div>
                 <div id="bouton-medias"></div>
 			</div>
-            <div id="site">                
+            <div id="site">
                 <div id="colonne-gauche">
                     <div id="sous-menu-titre"><!-- InstanceBeginEditable name="Titre" -->
                     ORGANISATION ANIMATION
                     <!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
-                        <?php 
-                            include 'sous-menus/sous-menus-organisation.php'; 
-                        ?>                          
+                        <?php
+                            include 'sous-menus/sous-menus-organisation.php';
+                        ?>
 					<!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu-bas"></div>
@@ -63,7 +63,7 @@
                     <div id="module-apel"></div>
                     <div id="module-enseignement"></div>
                     <div id="module-contact"></div>
-                </div>   
+                </div>
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
                     Sorties Pédagogiques (Test PHP)
@@ -71,17 +71,73 @@
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-						<p>Page en construction</p>
-          
-                        
-                        
+<?php
+include dirname(__DIR__) . '/app/autoload.php';
+use Symfony\Component\Yaml\Parser;
+$yaml = new Parser();
+$value = $yaml->parse(file_get_contents(dirname(__DIR__) . '/app/config/parameters.yml'));
+$parameters = $value['parameters'];
+/* Connect to an ODBC database using driver invocation */
+$dsn = 'mysql:dbname=' . $parameters['database_name'] . ';host=' . $parameters['database_host'];
+try {
+    $pdo = new \PDO($dsn, $parameters['database_user'], $parameters['database_password'],array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
+$events = 'SELECT * FROM event as e WHERE e.published = 1 ORDER BY e.position';
+$event_steps = 'SELECT * FROM event_step as es WHERE es.parent_id = :id ORDER BY es.date';
+$step_pictures = 'SELECT * FROM event_picture as ep WHERE ep.parent_id = :id ORDER BY ep.position';
+$results = $pdo->query($events);
+while ($row = $results->fetch()) {?>
+    <div class="paragrapheOnOff"><?php echo $row['title'].' ('.($row['state']=='futur'?'à venir':$row['state']=='during'?'en cours...':'terminé').')'; ?></div>
+        <div class="accordeon">
+            <div class="voyage-gauche">
+                <?php if( $row['title'] ){ ?>
+                <?php $filepath = '/upload/sortie/'.$row['path'] ?>
+                    <a href="<?php echo $filepath; ?>" onclick="window.open('<?php echo $filepath ?>');return false">
+                        <img src="images/PDF.png" alt="Titre de la fiche" width="50" height="77" /></a>
+                <?php } ?>
+            </div>
+            <div class="voyage-droite"><?php echo $row['description'] ?></div>
+            <br class="clearer" />
+        <?php
+        $steps = $pdo->prepare($event_steps);
+        $results_img = $steps->execute(array('id' => $row['id']));
+        while ($step = $steps->fetch()) { ?>
+            <div class="voyage-quotidien">
+                <h2><?php echo strftime('%A %d %B %Y',strtotime($step['date'])) ?> - <?php echo $step['title'] ?></h2>
 
+                <div class="voyage-vignette">
+                    <?php
+                    $photos = $pdo->prepare($step_pictures);
+                    $results_img = $photos->execute(array('id' => $step['id']));
+                    $i = 0;
+                    while ($photo = $photos->fetch()) { ?>
+                        <?php $filepath = '/upload/sortie/sortie-'.$step['id'].'/img-orig-'.$photo['id'].'.'.$photo['extension']; ?>
+                        <a href="<?php echo $filepath ?>" rel="shadowbox[galerie<?php echo $row['id']?>]" title="<?php echo $photo['title']?>" >
+                            <?php if(!$i++){ ?><img src="<?php echo str_replace('orig','thumb',$filepath) ?>" alt="<?php echo $row['title'] ?>" width="146" height="82" /><?php } ?>
+                        </a>
+                    <?php }
+                    $photos->closeCursor();
+                    ?>
+                </div>
+                <div class="voyage-compte-rendu"><?php echo $step['description'] ?></div>
+                <br class="clearer" />
+             </div>
+        <?php }
+        $steps->closeCursor();
+        ?>
+    <br class="clearer" />
+</div>
+<?php }
+$results->closeCursor();
+?>
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>
                     <div id="footer-contenu"></div>
 	            </div>
-			</div>   
+			</div>
 	    </div>
         <br class="clearer" />
         <div id="wrapper-bas">
@@ -89,7 +145,7 @@
             <div id="footer-adresse"></div>
             <div id="footer-mentions"></div>
         </div>
-	</div>    
+	</div>
 	<div id="w3c">
         <a href="http://validator.w3.org/check?uri=referer" onclick="window.open('http://validator.w3.org/check?uri=referer');return false">
         <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>

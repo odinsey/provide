@@ -26,16 +26,16 @@
 		</div>
 	    </li>
     {% endfor %}
-	</ul>
+    </ul>
 
-    {% if prototype is defined %}
-        {% set attr = attr|merge({'data-prototype': form_row(prototype) }) %}
-    {% endif %}
 	<fieldset {{ block('widget_container_attributes') }}>
 	    <div class="collection-fields">
 	    </div>
         {% if allow_add is defined and allow_add %}
-		    <a href="#" class="add-collection-row btn">
+		    <a href="#" class="add-collection-row btn"
+                    {% if prototype is defined %}
+                        {% set attr = {'data-prototype': form_row(prototype)} %}{{ block('widget_container_attributes') }}
+                    {% endif %}>
                 {{ 'global.form_action.add' | trans([], 'NPCoreBundle') }}
 			</a>
         {% endif %}

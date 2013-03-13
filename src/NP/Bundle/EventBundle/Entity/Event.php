@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Event
  *
  * @ORM\Table("event")
- * @ORM\Entity(repositoryClass="NP\Bundle\EventBundle\Entity\EventRepository")
+ * @ORM\Entity(repositoryClass="EventRepository")
  */
 class Event {
     /**
@@ -40,7 +40,7 @@ class Event {
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -54,40 +54,41 @@ class Event {
     /**
      * @var string
      *
-     * @ORM\Column(name="start", type="date")
+     * @ORM\Column(name="start", type="datetime", nullable=true)
      */
     private $start;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="stop", type="date")
+     * @ORM\Column(name="stop", type="datetime", nullable=true)
      */
     private $stop;
 
     /**
      * @var extension
      *
-     * @ORM\Column(name="extension", type="text")
+     * @ORM\Column(name="extension", type="text", nullable=true)
      */
     private $extension;
 
     /**
      * @var path
      *
-     * @ORM\Column(name="path", type="text")
+     * @ORM\Column(name="path", type="text", nullable=true)
      */
     private $path;
 
     /**
-     * @Assert\File(
-     *     maxSize = "10M",
-     *     mimeTypes = {"application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Please upload a valid PDF"
-     * )
-     * @var File $file
+     * @Assert\File()
      */
     private $file;
+
+    /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer")
+     */
+    private $position;
 
     /**
      * @var boolean
@@ -97,7 +98,7 @@ class Event {
     private $published;
 
     /**
-     * @ORM\OneToMany(targetEntity="\NP\Bundle\EventBundle\Entity\Step", mappedBy="event", cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Step", mappedBy="parent", cascade={"all"}, orphanRemoval=true)
      * @ORM\OrderBy({"date" = "ASC"})
      */
     protected $steps;
@@ -114,20 +115,54 @@ class Event {
     }
 
     /**
-     * Get published
-     *
-     * @return boolean
-     */
-    public function isPublished() {
-	return $this->published ? true : false;
-    }
-    /**
      * Get id
      *
      * @return integer
      */
     public function getId() {
 	return $this->id;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle() {
+	return $this->title;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Event
+     */
+    public function setTitle($title) {
+	$this->title = $title;
+
+	return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription() {
+	return $this->description;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Event
+     */
+    public function setDescription($description) {
+	$this->description = $description;
+
+	return $this;
     }
 
     /**
@@ -193,46 +228,31 @@ class Event {
 
 	return $this;
     }
+
     /**
-     * Get title
+     * Get published
      *
-     * @return string
+     * @return boolean
      */
-    public function getTitle() {
-	return $this->title;
+    public function isPublished() {
+	return $this->published ? true : false;
     }
 
     /**
-     * Set title
+     * Get published
      *
-     * @param string $title
-     * @return Event
+     * @return boolean
      */
-    public function setTitle($title) {
-	$this->title = $title;
-
-	return $this;
+    public function getPublished() {
+	return $this->published ? true : false;
     }
 
     /**
-     * Get description
+     * Set published
      *
-     * @return string
      */
-    public function getDescription() {
-	return $this->description;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Event
-     */
-    public function setDescription($description) {
-	$this->description = $description;
-
-	return $this;
+    public function setPublished($published) {
+	$this->published = $published;
     }
 
     /**
@@ -247,10 +267,10 @@ class Event {
     /**
      * Add step
      *
-     * @param \NP\Bundle\EventBundle\Entity\Step $step
+     * @param Step $step
      */
     public function addStep(Step $step) {
-	if (!$this->steps->contains($step) && $step->getFile() ) {
+	if (!$this->steps->contains($step) ) {
             $step->setParent($this);
 	    $this->steps->add($step);
 	}
@@ -259,7 +279,7 @@ class Event {
     /**
      * Remove step
      *
-     * @param \NP\Bundle\EventBundle\Entity\Step $step
+     * @param Step $step
      */
     public function removeStep(Step $step) {
 	if ($this->steps->contains($step)) {
@@ -316,7 +336,7 @@ class Event {
      * @param string $type
      * @return string
      */
-    public function getUrl($type = 'small') {
+    public function getUrl() {
 	return $this->getWebPath() . '/' . $this->getFileName();
     }
 
@@ -377,7 +397,7 @@ class Event {
 
     protected function getUploadRootDir() {
 	// the absolute directory path where uploaded documents should be saved
-	return __DIR__ . '/../../../../../www' . $this->getUploadDir();
+	return __DIR__ . '/../../../../../web' . $this->getUploadDir();
     }
 
     protected function getUploadDir() {

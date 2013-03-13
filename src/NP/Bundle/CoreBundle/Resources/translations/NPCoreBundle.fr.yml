@@ -8,7 +8,11 @@ global.index.new: Nouveau
 global.index_crud.group_action.submit: Exécuter
 global.index.name: Nom
 global.index_crud.actions: Actions
+
 global.form_action.edit: Editer
+global.form_action.delete-picture: Supprimer la photo
+global.form_action.add-picture: Ajouter une photo
+
 global.index.no_result: 'Aucun résultat'
 global.form_action.save: Enregistrer
 global.form_action.save_and_add: 'Sauvegarder et ajouter'
