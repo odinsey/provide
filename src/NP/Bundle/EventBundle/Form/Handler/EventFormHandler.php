@@ -7,9 +7,9 @@ use Symfony\Component\Form\Form;
 
 class EventFormHandler extends BaseFormHandler {
     protected $class_name = 'NP\Bundle\EventBundle\Entity\Event';
-    
+
     protected function preSave(Form $form, $entity, $controller) {
-        $form->getData()->setUpdatedAt(new \Datetime());
+        $entity->setUpdatedAt(new \Datetime());
     }
 
 }
