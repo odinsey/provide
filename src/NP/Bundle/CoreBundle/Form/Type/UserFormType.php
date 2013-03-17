@@ -14,9 +14,9 @@ class UserFormType extends AbstractType {
 			->add('plainPassword', null, array('label' => 'Mot de passe'))
 			->add('roles', 'choice', array(
 			    'label' => 'Permissions',
-			    'choices'   => array(				
-				'ROLE_USER'=>'Rédacteur',
-				'ROLE_ADMIN'=>'Proviseur'
+			    'choices'   => array(
+				'ROLE_ADMIN'=>'Rédacteur',
+				'ROLE_SUPER_ADMIN'=>'Proviseur'
 			    ),
 			    'expanded'=>true,
 			    'multiple'=>true,

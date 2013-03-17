@@ -9,6 +9,11 @@ use NP\Bundle\EventBundle\Form\Type\StepFormType;
 use NP\Bundle\EventBundle\Enum\StatusEnum;
 
 class EventFormType extends AbstractType {
+        private $isGranted;
+
+        public function __construct($roleFlag){
+            $this->isGranted = $roleFlag;
+        }
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
             $choices = array(''=>'');
@@ -18,13 +23,15 @@ class EventFormType extends AbstractType {
 
 		$builder->add('title', null, array('label' => 'Nom'))
 			->add('description', 'richeditor', array('label' => 'Description'))
-			->add('file', 'file', array('label' => 'Programme','required'=>false))
+			->add('file', null, array('label' => 'Programme','required'=>false))
 			->add('state', 'choice', array('choices' => $choices, 'label' => 'Statut'))
 			->add('start', 'date', array('label' => 'Début'))
-			->add('stop', 'date', array('label' => 'Fin'))
-			->add('published', null, array('label' => 'Publié'))
-			->add('steps', 'collection', array(
-				'type' => new StepFormType(),
+			->add('stop', 'date', array('label' => 'Fin'));
+                if($this->isGranted){
+                    $builder->add('published', null, array('label' => 'Publié'));
+                }
+                $builder->add('steps', 'collection', array(
+				'type' => new StepFormType($this->isGranted),
                                 'label' => 'Etapes',
 				'allow_add' => true,
 				'allow_delete' => true,

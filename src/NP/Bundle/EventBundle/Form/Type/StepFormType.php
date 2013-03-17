@@ -8,13 +8,21 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use NP\Bundle\EventBundle\Form\Type\PictureFormType;
 
 class StepFormType extends AbstractType {
+        private $isGranted;
+
+        public function __construct($roleFlag = false){
+            $this->isGranted = $roleFlag;
+        }
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
 		$builder->add('title', null, array('label' => 'Nom'))
                         ->add('date', 'date', array('label' => 'Date'))
-			->add('description', 'richeditor', array('label' => 'Description'))
-			->add('published', null, array('label' => 'Publié'))
-			->add('pictures', 'picture_collection', array(
+			->add('description', 'richeditor', array('label' => 'Description'));
+
+                if($this->isGranted){
+                    $builder->add('published', null, array('label' => 'Publié'));
+                }
+                $builder->add('pictures', 'picture_collection', array(
 				'type' => new PictureFormType(),
                                 'label' => 'Photos',
 				'allow_add' => true,

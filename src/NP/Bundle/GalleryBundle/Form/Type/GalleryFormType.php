@@ -7,11 +7,18 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class GalleryFormType extends AbstractType {
+        private $isGranted;
+
+        public function __construct($roleFlag){
+            $this->isGranted = $roleFlag;
+        }
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
-		$builder->add('title', null, array('label' => 'Nom'))
-                        ->add('published', null, array('label'=>'Publié', 'required'=>false))
-			->add('description', 'richeditor', array('label' => 'Description'))
+		$builder->add('title', null, array('label' => 'Nom'));
+                if($this->isGranted){
+                        $builder->add('published', null, array('label'=>'Publié', 'required'=>false));
+                }
+                $builder->add('description', 'richeditor', array('label' => 'Description'))
 			->add('pictures', 'picture_collection', array(
                                 'label' => 'Photos',
 				'type' => new PictureFormType(),

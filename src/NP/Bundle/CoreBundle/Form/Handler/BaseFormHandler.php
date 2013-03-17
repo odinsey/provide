@@ -43,11 +43,9 @@ abstract class BaseFormHandler {
     }
 
     protected function preSave(Form $form, $entity, $controller) {
-        
     }
 
     protected function postSave(Form $form, $entity, $controller) {
-        
     }
 
 }

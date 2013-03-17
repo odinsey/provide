@@ -14,6 +14,11 @@
             <a href="{{ path('np_news_news_index') }}" class="brand">Actualités</a>
             <a href="{{ path('np_event_event_index') }}" class="brand">Sorties Scolaires</a>
             <a href="{{ path('np_resources_resources_index') }}" class="brand">Téléchargements</a>
+
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+            <a href="{{ path('np_core_user_index') }}" class="brand">Administrateurs</a>
+            {% endif %}
+
             <a href="{{ path('fos_user_security_logout') }}" class="logout">Se déconnecter</a>
         </div>
     </div><!-- /navbar-inner -->

@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table("event")
  * @ORM\Entity(repositoryClass="EventRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Event {
     /**
@@ -319,7 +320,8 @@ class Event {
      */
     public function setFile($file) {
 	if ($file != $this->file) {
-	    $this->updated_at = new \DateTime();
+            var_dump($file);
+	    $this->updatedAt = new \DateTime();
 	    $this->file = $file;
 	}
     }
@@ -405,6 +407,6 @@ class Event {
 
     protected function getUploadDir() {
 	// get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-	return '/upload/sorties';
+	return '/upload/sortie/sortie-'.$this->id;
     }
 }

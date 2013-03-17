@@ -8,12 +8,19 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use NP\Bundle\NewsBundle\Form\Type\PictureFormType;
 
 class NewsFormType extends AbstractType {
+        private $isGranted;
+
+        public function __construct($roleFlag){
+            $this->isGranted = $roleFlag;
+        }
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
 		$builder->add('title', null, array('label' => 'Nom'))
-			->add('description', 'richeditor', array('label' => 'Description'))
-			->add('published', null, array('label' => 'Publié', 'required'=>false))
-			->add('pictures', 'picture_collection', array(
+			->add('description', 'richeditor', array('label' => 'Description'));
+                if($this->isGranted){
+                    $builder->add('published', null, array('label' => 'Publié', 'required'=>false));
+                }
+		$builder->add('pictures', 'picture_collection', array(
                                 'label' => 'Photos',
 				'type' => new PictureFormType(),
 				'allow_add' => true,

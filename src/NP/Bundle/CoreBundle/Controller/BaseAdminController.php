@@ -99,7 +99,7 @@ abstract class BaseAdminController extends Controller {
     }
 
     protected function getForm($entity) {
-        return $this->createForm(new $this->form_type_name(), $entity);
+        return $this->createForm(new $this->form_type_name($this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')), $entity);
     }
 
     protected function getFilterForm($entity) {
@@ -148,14 +148,14 @@ abstract class BaseAdminController extends Controller {
         $form = $this->getOrderGroupForm(new $this->group_object_name());
 
         $entity_list = $this->getClassRepository()->findBy(array(), array('position'=>'ASC'));
-        
+
         $handler = new $this->group_form_handler_name(
                         $this->getRequest(),
                         $this->getDoctrine()->getEntityManager()
         );
-        
+
         $process = $handler->process($form, $this->getRequest()->get('ids'));
-        
+
         if ($process != false) {
             $this->get('session')->setFlash('success', $this->get('translator')->trans(
                 $this->translation_prefix . '.flash.success.group.'.$process, array(), $this->bundle_name)
@@ -318,14 +318,14 @@ abstract class BaseAdminController extends Controller {
                         $this->getRequest(),
                         $this->getDoctrine()->getEntityManager()
         );
-        
+
         $process = $handler->process($form, $this->getRequest()->get('ids'));
         if ($process != false) {
             $this->get('session')->setFlash('success', $this->get('translator')->trans(
                 $this->translation_prefix . '.flash.success.group.'.$process, array(), $this->bundle_name)
             );
         }
-        
+
         //return $this->indexAction();
         return $this->redirect($this->generateUrl($this->route_index));
     }
