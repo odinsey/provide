@@ -1,1 +1,3 @@
-{  }
+event.form.status.ended: 'Terminé'
+event.form.status.during: 'En cours...'
+event.form.status.futur: 'A venir'
