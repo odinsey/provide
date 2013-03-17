@@ -9,7 +9,7 @@ class EventFormHandler extends BaseFormHandler {
     protected $class_name = 'NP\Bundle\EventBundle\Entity\Event';
     
     protected function preSave(Form $form, $entity, $controller) {
-        $entity->setUpdatedAt(new \Datetime());
+        $form->getData()->setUpdatedAt(new \Datetime());
     }
 
 }
