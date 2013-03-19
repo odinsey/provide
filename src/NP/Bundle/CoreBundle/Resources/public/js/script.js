@@ -380,21 +380,17 @@ jQuery(document).ready(function() {
             }
             object = el.attr('id');
             object = object.substring(object.lastIndexOf('_')+1);
-            console.info(object);
             var re = new RegExp(object+'___name__','g');
             var re2 = new RegExp("\\["+object+"\\]\\[__name__\\]","g");
 
-            console.info(re2);
             var index1 = object+"_"+index;
             var index2 = "["+object+"]["+index+"]";
-
-            console.info(data_prototype.replace(re, index1).replace(re2,index2));
 
             var html = jQuery('<div class="collection-field-row new '+object+'" />')
                     .append(data_prototype.replace(re, index1).replace(re2,index2))
                     .append(del_btn);
 
-            el.parent().find('.collection-fields').html(html);
+            el.parent().find('.collection-fields').append(html);
             del_btn.click(function(e) {
                     e.preventDefault();
                     del_row(jQuery(this));

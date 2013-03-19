@@ -6,8 +6,13 @@ vendor/*
 */logs/*
 */cache/*
 web/uploads/*
+web/upload/*
 web/bundles/*
+www/bundles/*
+www/uploads/*
+www/upload/*
 
+*/.AppleDoubl*
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml

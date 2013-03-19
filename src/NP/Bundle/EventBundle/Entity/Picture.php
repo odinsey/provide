@@ -300,7 +300,7 @@ class Picture {
 
     protected function getUploadRootDir() {
 	// the absolute directory path where uploaded documents should be saved
-	return __DIR__ . '/../../../../../web' . $this->getUploadDir();
+	return __DIR__ . '/../../../../../www' . $this->getUploadDir();
     }
 
     protected function getUploadDir() {
