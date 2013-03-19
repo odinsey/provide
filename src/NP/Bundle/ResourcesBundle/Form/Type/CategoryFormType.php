@@ -1,13 +1,12 @@
 <?php
 
-namespace NP\Bundle\NewsBundle\Form\Type;
+namespace NP\Bundle\ResourcesBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use NP\Bundle\NewsBundle\Form\Type\PictureFormType;
 
-class NewsFormType extends AbstractType {
+class CategoryFormType extends AbstractType {
         private $isGranted;
 
         public function __construct($roleFlag){
@@ -20,9 +19,9 @@ class NewsFormType extends AbstractType {
                 if($this->isGranted){
                     $builder->add('published', null, array('label' => 'Publié', 'required'=>false));
                 }
-		$builder->add('pictures', 'picture_collection', array(
-                                'label' => 'Photos',
-				'type' => new PictureFormType($this->isGranted),
+                $builder->add('resources','picture_collection', array(
+                                'label' => 'Téléchargements',
+				'type' => new ResourcesFormType($this->isGranted),
 				'allow_add' => true,
 				'allow_delete' => true,
 				'by_reference' => false,
@@ -36,12 +35,12 @@ class NewsFormType extends AbstractType {
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver){
 		$resolver->setDefaults(array(
-			'data_class' => 'NP\Bundle\NewsBundle\Entity\News',
+			'data_class' => 'NP\Bundle\ResourcesBundle\Entity\Category',
 			'cascade_validation' => true
 		));
 	}
 
 	public function getName(){
-		return 'np_news_news';
+		return 'np_resources_category';
 	}
 }

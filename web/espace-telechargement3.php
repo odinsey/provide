@@ -17,7 +17,7 @@
 <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
 <script type="text/javascript" src="scripts/routines.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="scripts/gmap3.js"></script> 
+<script type="text/javascript" src="scripts/gmap3.js"></script>
 <script type="text/javascript" src="scripts/gmap3-include.js"></script>
 <!-- InstanceBeginEditable name="head" -->
 <link href="css/style-telechargement.css" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@
                     <param name="allowFullScreen" value="true" />
                     <param name="wmode" value="transparent" />
                     <img src="images/header.png" width="1232" height="301" alt="Collège La Providence - Olivet" />
-                    </object>		
+                    </object>
 			<!-- InstanceEndEditable -->
 			</div>
             <div id="menu">
@@ -46,7 +46,7 @@
                 <div id="bouton-examens"></div>
                 <div id="bouton-medias"></div>
 			</div>
-            <div id="site">                
+            <div id="site">
                 <div id="colonne-gauche">
                     <div id="sous-menu-titre"><!-- InstanceBeginEditable name="Titre" -->
                     ESPACE TELECHARGEMENT
@@ -60,23 +60,66 @@
                     <div id="module-apel"></div>
                     <div id="module-enseignement"></div>
                     <div id="module-contact"></div>
-                </div>   
+                </div>
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    TELECHARGEMENT (Test PHP)
-					<!-- InstanceEndEditable -->
+<?php
+include dirname(__DIR__) . '/app/autoload.php';
+use Symfony\Component\Yaml\Parser;
+$yaml = new Parser();
+$value = $yaml->parse(file_get_contents(dirname(__DIR__) . '/app/config/parameters.yml'));
+$parameters = $value['parameters'];
+/* Connect to an ODBC database using driver invocation */
+$dsn = 'mysql:dbname=' . $parameters['database_name'] . ';host=' . $parameters['database_host'];
+try {
+    $pdo = new \PDO($dsn, $parameters['database_user'], $parameters['database_password'],array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
+$sql_categories = 'SELECT * FROM ressource_category as rc ORDER BY rc.position';
+$sql_ressources = 'SELECT * FROM ressource as r WHERE r.published = 1 AND r.category_id = :id ORDER BY r.position';
+$results = $pdo->query($sql_categories);
+while ($row = $results->fetch()) {?>
+    <div class="paragrapheOnOff"><?php echo $row['title'] ?></div>
+    <div class="accordeon">
+        <?php echo $row['description'] ?>
+        <?php
+        $stmt = $pdo->prepare($sql_ressources);
+        $results_resources = $stmt->execute(array('id' => $row['id']));
+        $i = 0;
+        while ($resources = $stmt->fetch()) { ?>
+        <div class="telechargement-bloc">
+            <div class="telechargement-gauche">
+                <a href="pdf/<?php echo $resources['path'].'.'.$resources['extension'] ?>" onclick="window.open('pdf/<?php echo $resources['path'].'.'.$resources['extension'] ?>');return false">
+                    <img src="images/PDF.png" alt="<?php echo $resources['title'] ?>" width="50" height="77" /></a>
+            </div>
+            <div class="telechargement-droite">
+                <h2><?php echo $resources['title'] ?></h2>
+                <?php echo $resources['description'] ?>
+            </div>
+            <br class="clearer" />
+        </div>
+        <?php }
+        if ($stmt->rowCount() > 0) { ?>
+        <?php }
+        $stmt->closeCursor();
+        ?>
+    </div>
+<?php }
+$results->closeCursor();
+?><!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
                   		<p>Page en construction</p>
 
-                        
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>
                     <div id="footer-contenu"></div>
 	            </div>
-			</div>   
+			</div>
 	    </div>
         <br class="clearer" />
         <div id="wrapper-bas">
@@ -84,7 +127,7 @@
             <div id="footer-adresse"></div>
             <div id="footer-mentions"></div>
         </div>
-	</div>    
+	</div>
 	<div id="w3c">
         <a href="http://validator.w3.org/check?uri=referer" onclick="window.open('http://validator.w3.org/check?uri=referer');return false">
         <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>

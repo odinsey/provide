@@ -44,6 +44,6 @@ np_news_news:
 np_event_event:
     resource: "@NPEventBundle/Resources/config/routing/event.yml"
     prefix:   /event
-np_resources_resources:
+np_resources_category:
     resource: "@NPResourcesBundle/Resources/config/routing/resources.yml"
     prefix:   /resources

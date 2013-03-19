@@ -1,33 +1,29 @@
-np_resources_resources_json_list:
-    pattern:  /resources.{format}
-    defaults: { _controller: NPResourcesBundle:Resources:list, _format: json }
-
-np_resources_resources_index:
+np_resources_category_index:
     pattern: /
-    defaults: { _controller: NPResourcesBundle:Resources:index }
+    defaults: { _controller: NPResourcesBundle:Category:index }
 
-np_resources_resources_show:
+np_resources_category_show:
     pattern: /{id}/show
-    defaults: { _controller: NPResourcesBundle:Resources:show }
+    defaults: { _controller: NPResourcesBundle:Category:show }
     requirements:
       id: \d+
 
-np_resources_resources_new:
+np_resources_category_new:
     pattern: /new
-    defaults: { _controller: NPResourcesBundle:Resources:new }
+    defaults: { _controller: NPResourcesBundle:Category:new }
 
-np_resources_resources_edit:
+np_resources_category_edit:
     pattern: /{id}/edit
-    defaults: { _controller: NPResourcesBundle:Resources:edit }
+    defaults: { _controller: NPResourcesBundle:Category:edit }
     requirements:
       id: \d+
 
-np_resources_resources_delete:
+np_resources_category_delete:
     pattern: /{id}/delete
-    defaults: { _controller: NPResourcesBundle:Resources:delete }
+    defaults: { _controller: NPResourcesBundle:Category:delete }
     requirements:
       id: \d+
 
-np_resources_resources_groupprocess:
+np_resources_category_groupprocess:
     pattern: /groupprocess
-    defaults: { _controller: NPResourcesBundle:Resources:groupProcess }
+    defaults: { _controller: NPResourcesBundle:Category:groupProcess }

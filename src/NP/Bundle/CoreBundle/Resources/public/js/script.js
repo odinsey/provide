@@ -398,8 +398,6 @@ jQuery(document).ready(function() {
             .append(data_prototype.replace(re, index1).replace(re2,index2))
             .append(del_btn);
 
-            console.info(html);
-
             el.parent().find('.collection-fields').append(html);
             del_btn.click(function(e) {
                 e.preventDefault();

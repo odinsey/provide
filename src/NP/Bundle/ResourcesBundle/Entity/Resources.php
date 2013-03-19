@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Resources
  *
- * @ORM\Table("ressource")
+ * @ORM\Table("resources")
  * @ORM\Entity(repositoryClass="NP\Bundle\ResourcesBundle\Entity\ResourcesRepository")
  * @ORM\HasLifecycleCallbacks
  */
@@ -68,6 +68,20 @@ class Resources {
      * @ORM\Column(name="published", type="boolean")
      */
     private $published;
+
+    /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer")
+     */
+    private $position;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Resources", inversedBy="resources")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     *
+     * @var Resources
+     */
+    private $parent;
 
     /**
      * @Assert\File(maxSize="5M")
@@ -182,6 +196,47 @@ class Resources {
 	return $this;
     }
 
+    /**
+     * Set category
+     *
+     * @param \NP\Bundle\ResourcesBundle\Entity\Category $category
+     * @return Category
+     */
+    public function setParent($category = null) {
+	$this->parent = $category;
+
+	return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \NP\Bundle\ResourcesBundle\Entity\Category
+     */
+    public function getParent() {
+	return $this->parent;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Resources
+     */
+    public function setPosition($position) {
+	$this->position = $position;
+
+	return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
+    public function getPosition() {
+	return $this->position;
+    }
 
     /**
      * Set file
