@@ -23,28 +23,34 @@
 }
 .form-horizontal .entity-collections .collection-field-row {
 	position: relative;
-/*	margin-top: 25px;*/
+        border-width: 3px 2px;
+        border-style: solid;
+        border-color: #999;
+        padding: 10px;
 }
 .form-horizontal .entity-collections .collection-field-row:before {
 	content: " " attr(data-prop);
-	position: absolute;
 	text-transform: uppercase;
-/*	top: -15px;*/
-/*	height: 20px;*/
+        display: block;
+        height: 28px;
+        line-height: 28px;
 	width: 100%;
-/*	border: 1px #000 solid;*/
-/*	border-width: 2px 0 0 0;*/
+        background-color: #999;
+        color: #FFF;
 	text-align: left;
+}
+.form-horizontal .entity-collections .collection-field-row > div {
+    padding-top: 30px;
 }
 .delete-collection-row.btn {
     position: absolute;
-/*  bottom: 0; */
-    right: 0;
+    right: 10px;
+    top: 10px;
 }
-/*.collection-field-row:after {
+.collection-field-row:after {
 	clear:both;
 	content: '\00a0';
-}*/
+}
 .form-horizontal .control-group {
 	text-align: left;
 }

@@ -4,10 +4,10 @@
             <div class="collection-fields">
                 {{ form_errors(form) }}
                 {% for child in form %}
-                    <div class="collection-field-row" data-prop="">
+                    <div class="collection-field-row" data-prop="{{ child.vars.data.getTitle() }}">
 			{{ form_row(child) }}
                         {% if allow_delete is defined and allow_delete %}
-                        <a href="#" class="delete-collection-row btn">
+                        <a href="#" class="delete-collection-row btn btn-danger delete">
                             {{ 'global.form_action.delete' | trans([], 'NPCoreBundle') }}
                         </a>
                         {% endif %}
@@ -23,7 +23,7 @@
             </a>
         {% endif %}
             {% if allow_delete is defined and allow_delete %}
-            <a href="#" class="delete-collection-row btn" style="display: none">
+            <a href="#" class="delete-collection-row btn btn-danger delete" style="display: none">
                 {{ 'global.form_action.delete' | trans([], 'NPCoreBundle') }}
             </a>
             {% endif %}
@@ -73,7 +73,7 @@
             </a>
         {% endif %}
         {% if allow_delete is defined and allow_delete %}
-            <a href="#" class="delete-collection-row btn" style="display: none">
+            <a href="#" class="delete-collection-row btn btn-danger delete" style="display: none">
                 {{ 'global.form_action.delete-picture' | trans([], 'NPCoreBundle') }}
             </a>
         {% endif %}

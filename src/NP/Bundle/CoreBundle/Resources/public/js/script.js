@@ -2,15 +2,15 @@ jQuery(document).ready(function() {
 
     // Adapt the size of layout
     jQuery(window).on('resize', function() {
-       var bcontent = jQuery('#bwrapper .bcontent');
-       if (bcontent.length > 0) {
-           var width = jQuery('#bwrapper').innerWidth();
-           var bsidebar = jQuery('#bwrapper .bsidebar');
-           if (bsidebar.length > 0) {
-               width -= bsidebar.outerWidth(true);
-           }
-           bcontent.css('max-width', width);
-       }
+        var bcontent = jQuery('#bwrapper .bcontent');
+        if (bcontent.length > 0) {
+            var width = jQuery('#bwrapper').innerWidth();
+            var bsidebar = jQuery('#bwrapper .bsidebar');
+            if (bsidebar.length > 0) {
+                width -= bsidebar.outerWidth(true);
+            }
+            bcontent.css('max-width', width);
+        }
     });
 
     // Trigger on time the Window Resize
@@ -32,73 +32,73 @@ jQuery(document).ready(function() {
     // Apply Tinymce on all the textarea wich active it
     // ===============================
     var initAllTiny = function(context) {
-		jQuery('textarea', context).each(function() {
-			var tinymce = new Array();
-			tinymce['simple'] = {
-				script_url: "/bundles/npcore/js/libs/tiny_mce/tiny_mce.js",
-				mode: "textareas",
-				theme: "advanced",
-				language : "fr",
-				theme_advanced_buttons1: "mylistbox,mysplitbutton,bold,italic,underline,separator,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,sub,sup,undo,redo,link,unlink,anchor,image,cleanup,code",
-				theme_advanced_buttons2: "",
-				theme_advanced_buttons3: "",
-				theme_advanced_toolbar_location: "top",
-				theme_advanced_toolbar_align: "left",
-				theme_advanced_statusbar_location: "bottom",
-				plugins: "advlink,pagebreak,iespell,paste,xhtmlxtras,fullscreen",
-				theme_advanced_buttons1_add: "fullscreen",
-				apply_source_formatting : true,
-                                paste_remove_styles: true,
-                                doctype : '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
-				width : "600",
-				height : "300"
-			};
-			tinymce['advanced'] = {
-				script_url: "/bundles/npcore/js/libs/tiny_mce/tiny_mce.js",
-				theme: "advanced",
-				language : "fr",
-				plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
-				theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,fontselect,fontsizeselect,cite,abbr,acronym",
-				theme_advanced_buttons2: "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,code,|,forecolor,backcolor,|,charmap,emotions,iespell,media,advhr",
-				theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,del,ins,|,ltr,rtl",
-				theme_advanced_toolbar_location: "top",
-				theme_advanced_toolbar_align: "left",
-				theme_advanced_statusbar_location: "bottom",
-				theme_advanced_resizing: true,
-                                apply_source_formatting : true,
-                                paste_remove_styles: true,
-                                doctype : '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
-				width : "600",
-				height : "300"
-			};
+        jQuery('textarea', context).each(function() {
+            var tinymce = new Array();
+            tinymce['simple'] = {
+                script_url: "/bundles/npcore/js/libs/tiny_mce/tiny_mce.js",
+                mode: "textareas",
+                theme: "advanced",
+                language : "fr",
+                theme_advanced_buttons1: "mylistbox,mysplitbutton,bold,italic,underline,separator,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,sub,sup,undo,redo,link,unlink,anchor,image,cleanup,code",
+                theme_advanced_buttons2: "",
+                theme_advanced_buttons3: "",
+                theme_advanced_toolbar_location: "top",
+                theme_advanced_toolbar_align: "left",
+                theme_advanced_statusbar_location: "bottom",
+                plugins: "advlink,pagebreak,iespell,paste,xhtmlxtras,fullscreen",
+                theme_advanced_buttons1_add: "fullscreen",
+                apply_source_formatting : true,
+                paste_remove_styles: true,
+                doctype : '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
+                width : "600",
+                height : "300"
+            };
+            tinymce['advanced'] = {
+                script_url: "/bundles/npcore/js/libs/tiny_mce/tiny_mce.js",
+                theme: "advanced",
+                language : "fr",
+                plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+                theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,fontselect,fontsizeselect,cite,abbr,acronym",
+                theme_advanced_buttons2: "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,code,|,forecolor,backcolor,|,charmap,emotions,iespell,media,advhr",
+                theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,del,ins,|,ltr,rtl",
+                theme_advanced_toolbar_location: "top",
+                theme_advanced_toolbar_align: "left",
+                theme_advanced_statusbar_location: "bottom",
+                theme_advanced_resizing: true,
+                apply_source_formatting : true,
+                paste_remove_styles: true,
+                doctype : '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
+                width : "600",
+                height : "300"
+            };
 
-			var active = jQuery(this).data('richEditorActive');
-			var theme = jQuery(this).data('richEditorTheme');
-			theme = ('undefined' != typeof(tinymce[theme]))?theme:'simple';
+            var active = jQuery(this).data('richEditorActive');
+            var theme = jQuery(this).data('richEditorTheme');
+            theme = ('undefined' != typeof(tinymce[theme]))?theme:'simple';
 
-			if (true == active || 'true' == active) {
-				jQuery(this).tinymce(tinymce[theme]);
-			}
-		});
-	},
-	removeAllTiny = function(context) {
-		jQuery('textarea', context).each(function() {
-			var el = jQuery(this);
-			if (el.tinymce()) {
-				el.tinymce().execCommand('mceRemoveControl', true, this.id);
-			}
-		});
-	}
-	initAllTiny(document.body);
+            if (true == active || 'true' == active) {
+                jQuery(this).tinymce(tinymce[theme]);
+            }
+        });
+    },
+    removeAllTiny = function(context) {
+        jQuery('textarea', context).each(function() {
+            var el = jQuery(this);
+            if (el.tinymce()) {
+                el.tinymce().execCommand('mceRemoveControl', true, this.id);
+            }
+        });
+    }
+    initAllTiny(document.body);
 
     // Twitter Bootstrap
     // add on logic
     // ============
     jQuery('.add-on :checkbox').on('click', function() {
         if (jquery(this).attr('checked')) {
-          jQuery(this).parents('.add-on').addClass('active');
+            jQuery(this).parents('.add-on').addClass('active');
         } else {
-          jQuery(this).parents('.add-on').removeClass('active');
+            jQuery(this).parents('.add-on').removeClass('active');
         }
     });
 
@@ -155,7 +155,10 @@ jQuery(document).ready(function() {
             type: 'GET',
             url: Routing.generate(
                 jQuery(this).data('route'),
-                {num: num, entity: jQuery(this).data('targetEntity')}),
+                {
+                    num: num,
+                    entity: jQuery(this).data('targetEntity')
+                    }),
             async: false
         }).responseText;
 
@@ -179,7 +182,10 @@ jQuery(document).ready(function() {
         var title, $parent, parentSize, $popover, $bui;
 
         title = jQuery(this).data('popoverTitle');
-        parentSize = {width: 0, height: 0};
+        parentSize = {
+            width: 0,
+            height: 0
+        };
 
         // Set link as disabled
         jQuery(this).addClass('disabled');
@@ -282,9 +288,9 @@ jQuery(document).ready(function() {
     // ============
     jQuery('.bui.treesortable').on('click', '.item-container .delete', function() {
         jQuery(this).parentsUntil('.item-global-container').parent()
-            .slideUp('slow', function() {
-                jQuery(this).remove();
-            });
+        .slideUp('slow', function() {
+            jQuery(this).remove();
+        });
     });
 
     // Tree Sortable
@@ -353,9 +359,11 @@ jQuery(document).ready(function() {
     jQuery('.bui.treesortable-save').on('click', function() {
         var $sortable = jQuery( jQuery(this).data('treesortableSelector') );
         jQuery.ajax({
-          type: 'POST',
-          url: Routing.generate(jQuery(this).data('treesortableRoute'), {'menuId':jQuery(this).data('treesortableMenuId')}),
-          data: $sortable.nestedSortable('serialize')
+            type: 'POST',
+            url: Routing.generate(jQuery(this).data('treesortableRoute'), {
+                'menuId':jQuery(this).data('treesortableMenuId')
+                }),
+            data: $sortable.nestedSortable('serialize')
         });
     });
 
@@ -364,9 +372,9 @@ jQuery(document).ready(function() {
     // ============
     jQuery('.collection-fields').each(function() {
         var index = 0,
-            $c = jQuery(this),
-            object;
-            //data_prototype = $c.attr('data-prototype');
+        $c = jQuery(this),
+        object;
+        //data_prototype = $c.attr('data-prototype');
         /**
             * Add a new row to the collection
             *
@@ -376,7 +384,7 @@ jQuery(document).ready(function() {
             var data_prototype = el.data('prototype');
             var del_btn = jQuery('.delete-collection-row:first', el.parent());
             if (del_btn) {
-                    del_btn = del_btn.clone().css('display', 'inline-block');
+                del_btn = del_btn.clone().css('display', 'inline-block');
             }
             object = el.attr('id');
             object = object.substring(object.lastIndexOf('_')+1);
@@ -387,13 +395,15 @@ jQuery(document).ready(function() {
             var index2 = "["+object+"]["+index+"]";
 
             var html = jQuery('<div class="collection-field-row new '+object+'" />')
-                    .append(data_prototype.replace(re, index1).replace(re2,index2))
-                    .append(del_btn);
+            .append(data_prototype.replace(re, index1).replace(re2,index2))
+            .append(del_btn);
+
+            console.info(html);
 
             el.parent().find('.collection-fields').append(html);
             del_btn.click(function(e) {
-                    e.preventDefault();
-                    del_row(jQuery(this));
+                e.preventDefault();
+                del_row(jQuery(this));
             });
             index++;
             return html;
@@ -408,11 +418,11 @@ jQuery(document).ready(function() {
         var del_row = function(el) {
             el.parent().remove();
             if ($c.children().length == 0) {
-                    index = 0;
+                index = 0;
             }
         };
 
-	index = $c.children().length;
+        index = $c.children().length;
         if( jQuery('#list-photos .thumbnail').size() ){
             index = jQuery('#list-photos .thumbnail').size() + 1;
         }
@@ -433,14 +443,14 @@ jQuery(document).ready(function() {
     // On portion area
     // ============
     jQuery('.portion .portion-header').on('click', function() {
-       var parent = jQuery(this).parent();
-       parent.find('.portion-container').slideToggle(1000, function() {
-           if (jQuery(this).is(':hidden')) {
-               parent.removeClass('open');
-           } else {
-               parent.addClass('open');
-           }
-       });
+        var parent = jQuery(this).parent();
+        parent.find('.portion-container').slideToggle(1000, function() {
+            if (jQuery(this).is(':hidden')) {
+                parent.removeClass('open');
+            } else {
+                parent.addClass('open');
+            }
+        });
     });
 
     //
