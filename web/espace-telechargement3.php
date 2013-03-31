@@ -62,8 +62,11 @@
                     <div id="module-contact"></div>
                 </div>
                 <div id="colonne-droite">
-                	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-<?php
+                	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->ESPACE TELECHARGEMENT (tests PHP)<!-- InstanceEndEditable -->
+                  </div>
+                  <div id="contenu">
+				  <!-- InstanceBeginEditable name="Contenu" -->
+                  		<?php
 include dirname(__DIR__) . '/app/autoload.php';
 use Symfony\Component\Yaml\Parser;
 $yaml = new Parser();
@@ -79,6 +82,7 @@ try {
 $sql_categories = 'SELECT * FROM ressource_category as rc ORDER BY rc.position';
 $sql_ressources = 'SELECT * FROM ressource as r WHERE r.published = 1 AND r.category_id = :id ORDER BY r.position';
 $results = $pdo->query($sql_categories);
+if( $results ){
 while ($row = $results->fetch()) {?>
     <div class="paragrapheOnOff"><?php echo $row['title'] ?></div>
     <div class="accordeon">
@@ -87,6 +91,7 @@ while ($row = $results->fetch()) {?>
         $stmt = $pdo->prepare($sql_ressources);
         $results_resources = $stmt->execute(array('id' => $row['id']));
         $i = 0;
+        if($results_resources){
         while ($resources = $stmt->fetch()) { ?>
         <div class="telechargement-bloc">
             <div class="telechargement-gauche">
@@ -103,17 +108,13 @@ while ($row = $results->fetch()) {?>
         if ($stmt->rowCount() > 0) { ?>
         <?php }
         $stmt->closeCursor();
+        }
         ?>
     </div>
 <?php }
 $results->closeCursor();
-?><!-- InstanceEndEditable -->
-                  </div>
-                  <div id="contenu">
-				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
-
-
+}
+?>
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

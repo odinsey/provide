@@ -84,41 +84,45 @@ try {
 $sql_news = 'SELECT * FROM news as n WHERE n.published = 1 ORDER BY n.position';
 $sql_pictures = 'SELECT * FROM news_picture as np WHERE np.parent_id = :id ORDER BY np.position';
 $results = $pdo->query($sql_news);
-while ($row = $results->fetch()) {?>
-    <div class="actualite">
-        <div class="titre-actualites">
-                <?php echo $row['title'] ?>
-        </div>
-            <div class="vignette-actualites">
-        <?php
-        $stmt = $pdo->prepare($sql_pictures);
-        $results_img = $stmt->execute(array('id' => $row['id']));
-        $i = 0;
-        while ($picture = $stmt->fetch()) { ?>
-            <?php if ($i == 0) { ?>
-            <a href="/upload/news-<?php echo $row['id'] . '/img-orig-' . $picture['id'] . '.' . $picture['extension'] ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]"></a>
-            <img src="/upload/news-<?php echo $row['id'] . '/img-thumb-' . $picture['id'] . '.' . $picture['extension'] ?>" alt="<?php echo $picture['title'] ?>" /><?php $i++;
-            }else{ ?>
-                <a href="/upload/news-<?php echo $row['id'] . '/img-orig-' . $picture['id'] . '.' . $picture['extension'] ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]" style="display:none"></a>
+if( $results ){
+    while ($row = $results->fetch()) {?>
+        <div class="actualite">
+            <div class="titre-actualites">
+                    <?php echo $row['title'] ?>
+            </div>
+                <div class="vignette-actualites">
+            <?php
+            $stmt = $pdo->prepare($sql_pictures);
+            $results_img = $stmt->execute(array('id' => $row['id']));
+            $i = 0;
+            if($results_img){
+            while ($picture = $stmt->fetch()) { ?>
+                <?php if ($i == 0) { ?>
+                <a href="/upload/news-<?php echo $row['id'] . '/img-orig-' . $picture['id'] . '.' . $picture['extension'] ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]"></a>
+                <img src="/upload/news-<?php echo $row['id'] . '/img-thumb-' . $picture['id'] . '.' . $picture['extension'] ?>" alt="<?php echo $picture['title'] ?>" /><?php $i++;
+                }else{ ?>
+                    <a href="/upload/news-<?php echo $row['id'] . '/img-orig-' . $picture['id'] . '.' . $picture['extension'] ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]" style="display:none"></a>
+                <?php }
+            }
+            if ($stmt->rowCount() > 0) { ?>
             <?php }
-        }
-        if ($stmt->rowCount() > 0) { ?>
-        <?php }
-        $stmt->closeCursor();
-        ?>
+            $stmt->closeCursor();
+            }
+            ?>
+            </div>
         </div>
-    </div>
-    <div class="actualites-gauche">
-        <?php echo $row['description'] ?>
-        <br class="clearer" />
-        <div class="lire-suite">
-        </div>
-        <div class="suite-actualite">
+        <div class="actualites-gauche">
             <?php echo $row['description'] ?>
+            <br class="clearer" />
+            <div class="lire-suite">
+            </div>
+            <div class="suite-actualite">
+                <?php echo $row['description'] ?>
+            </div>
         </div>
-    </div>
-<?php }
-$results->closeCursor();
+    <?php }
+    $results->closeCursor();
+}
 ?>
                   <!-- InstanceEndEditable -->
                         </div>

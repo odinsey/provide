@@ -1,7 +1,14 @@
-homepage:
-    prefix: /
-    pattern: /
-    defaults: { _controller: NPCoreBundle:Dashboard:index }
+_assetic:
+    resource: .
+    type:     assetic
+
+cms_admin_dashboard:
+    pattern:  /
+    defaults: { _controller: NPAdminBundle:AdminDashboard:index }
+
+fos_user:
+    resource: "@CmsAdminBundle/Resources/config/routing/admin_user.yml"
+    prefix: /user
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -29,21 +36,22 @@ fos_user_change_password:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
 
-fos_user:
-    resource: "@NPCoreBundle/Resources/config/routing/user.yml"
-    prefix: /user
-np_gallery_gallery:
-    resource: "@NPGalleryBundle/Resources/config/routing/gallery.yml"
+np_modulo_gallery:
+    resource: "@NPModuloBundle/Resources/config/routing/gallery.yml"
     prefix:   /gallery
-np_gallery_picture:
-    resource: "@NPGalleryBundle/Resources/config/routing/picture.yml"
+np_modulo_gallery:
+    resource: "@NPModuloBundle/Resources/config/routing/gallery.yml"
+    prefix:   /gallery
+np_modulo_picture:
+    resource: "@NPModuloBundle/Resources/config/routing/picture.yml"
     prefix:   /picture
-np_news_news:
-    resource: "@NPNewsBundle/Resources/config/routing/news.yml"
+np_modulo_news:
+    resource: "@NPModuloBundle/Resources/config/routing/news.yml"
     prefix:   /news
-np_event_event:
-    resource: "@NPEventBundle/Resources/config/routing/event.yml"
+np_modulo_event:
+    resource: "@NPModuloBundle/Resources/config/routing/event.yml"
     prefix:   /event
-np_resources_category:
-    resource: "@NPResourcesBundle/Resources/config/routing/resources.yml"
+np_modulo_resources_category:
+    resource: "@NPModuloBundle/Resources/config/routing/resources.yml"
     prefix:   /resources
+

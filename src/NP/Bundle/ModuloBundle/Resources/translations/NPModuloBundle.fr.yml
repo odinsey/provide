@@ -1,0 +1,59 @@
+gallery.index.title: 'Liste des galeries photo'
+gallery.edit.title: 'Edition de la galerie photo'
+gallery.new.title: 'Nouvelle galerie photo'
+gallery.index.new: 'Nouvelle galerie photo'
+gallery.index.order: 'Ordonner les galeries photos'
+gallery.flash.success.delete: 'Galerie suprimée avec succès'
+gallery.flash.success.new: 'Galerie créée avec succès'
+gallery.flash.success.edit: 'Galerie modifiée avec succès'
+gallery.flash.success.publish: La gallerie a été publié
+gallery.flash.success.unpublish: La gallerie a été dé-publié
+gallery.flash.success.group.publish: Les galleries ont été publiées
+gallery.flash.success.group.unpublish: Les galleries ont été dé-publiées
+gallery.flash.success.group.delete: Les galleries ont été supprimées
+gallery.flash.success.group.order: Les galleries ont été ordonnées
+gallery.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
+gallery.flash.error.new: 'Une erreur est survenue, aucune galerie n''a été créée'
+gallery.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+
+event.index.title: 'Liste des sorties scolaires'
+event.edit.title: 'Edition de la sortie scolaires'
+event.new.title: 'Nouvelle sortie scolaires'
+event.index.new: 'Nouvelle sortie scolaires'
+event.flash.success.delete: 'Sortie suprimée avec succès'
+event.flash.success.new: 'Sortie créée avec succès'
+event.flash.success.edit: 'Sortie modifiée avec succès'
+event.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
+event.flash.error.new: 'Une erreur est survenue, aucune sortie n''a été créée'
+event.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+
+news.index.title: 'Liste des actualités'
+news.index.new: 'Nouvelle actualité'
+news.edit.title: 'Edition de l'' actualités'
+news.new.title: 'Nouvelle actualité'
+news.flash.success.delete: 'Actualité suprimée avec succès'
+news.flash.success.new: 'Actualité créée avec succès'
+news.flash.success.edit: 'Actualité modifiée avec succès'
+news.flash.success.publish: 'Actualité publiée avec succès'
+news.flash.success.unpublish: 'Actualité masquée avec succès'
+news.flash.success.group.publish: 'Actualité(s) publiée(s) avec succès'
+news.flash.success.group.unpublish: 'Actualité(s) masquée(s) avec succès'
+news.flash.success.group.delete: 'Actualité(s) supprimée(s) avec succès'
+news.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
+news.flash.error.new: 'Une erreur est survenue, aucune actualité n''a été créée'
+news.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+
+resources.index.title: 'Liste des fichiers téléchargeables'
+resources.edit.title: 'Edition du fichier téléchargeables'
+resources.new.title: 'Nouveau fichier téléchargeable'
+resources.index.new: 'Nouveau fichier'
+resources.flash.success.delete: 'Fichier suprimée avec succès'
+resources.flash.success.new: 'Fichier créée avec succès'
+resources.flash.success.edit: 'Fichier modifiée avec succès'
+resources.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
+resources.flash.error.new: 'Une erreur est survenue, aucun fichier n''a été créé'
+resources.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+category.new.title: 'Nouveau téléchargements'
+
+global.form_action.delete-picture: Supprimer le fichier
+global.form_action.add-picture: Ajouter un fichier

@@ -1,0 +1,13 @@
+parameters:
+    np_modulo.service.upload: NP\Bundle\ModuloBundle\Service\UploadService
+    np_modulo.subscriber.upload: NP\Bundle\ModuloBundle\Entity\UploadSubscriber
+
+services:
+    np_modulo.service.upload:
+        class: %np_modulo.service.upload%
+        arguments: [@service_container]
+
+    np_modulo.subscriber.upload:
+        class: %np_modulo.subscriber.upload%
+        arguments: [@np_modulo.service.upload, @entity_manager]
+        tags: [{ name: doctrine.event_subscriber }]

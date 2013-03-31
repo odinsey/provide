@@ -1,0 +1,17 @@
+.navbar .brand {
+    margin-left: 0;
+}
+
+
+.form-horizontal .control-group {
+	text-align: left;
+}
+
+.logout {
+    float: right;
+    display: block;
+    width: 30px;
+    height: 40px;
+    background: url(../img/glyphicons-halflings-white.png) no-repeat -377px 14px;
+    text-indent: -500000px;
+}

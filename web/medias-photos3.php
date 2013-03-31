@@ -87,6 +87,7 @@ try {
 $sql_gallery = 'SELECT * FROM gallery as g WHERE g.published = 1 ORDER BY g.position';
 $sql_pictures = 'SELECT * FROM gallery_picture as gp WHERE gp.parent_id = :id ORDER BY gp.position';
 $results = $pdo->query($sql_gallery);
+if($results){
 while ($row = $results->fetch()) {?>
     <div class="galerie-photo-intro">
         <div class="galerie-photo-titre">
@@ -97,6 +98,7 @@ while ($row = $results->fetch()) {?>
         $stmt = $pdo->prepare($sql_pictures);
         $results_img = $stmt->execute(array('id' => $row['id']));
         $i = 0;
+        if($results_img){
         while ( $picture = $stmt->fetch() ) { ?>
             <img src="/upload/news-<?php echo $row['id'] . '/img-thumb-' . $picture['id'] . '.' . $picture['extension'] ?>" alt="<?php echo $picture['title'] ?>" />
         <?php break;
@@ -114,11 +116,13 @@ while ($row = $results->fetch()) {?>
             <img src="/upload/news-<?php echo $row['id'] . '/img-thumb-' . $picture['id'] . '.' . $picture['extension'] ?>" alt="<?php echo $picture['title'] ?>" />
         </a>
         <?php } ?>
-        <?php $stmt->closeCursor(); ?>
+        <?php $stmt->closeCursor();
+        } ?>
         <br class="clearer" />
     </div>
 <?php }
 $results->closeCursor();
+}
 ?>
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />

@@ -1,0 +1,29 @@
+np_modulo_admin_category_index:
+    pattern: /
+    defaults: { _controller: NPModuloBundle:Category:index }
+
+np_modulo_admin_category_show:
+    pattern: /{id}/show
+    defaults: { _controller: NPModuloBundle:Category:show }
+    requirements:
+      id: \d+
+
+np_modulo_admin_category_new:
+    pattern: /new
+    defaults: { _controller: NPModuloBundle:Category:new }
+
+np_modulo_admin_category_edit:
+    pattern: /{id}/edit
+    defaults: { _controller: NPModuloBundle:Category:edit }
+    requirements:
+      id: \d+
+
+np_modulo_admin_category_delete:
+    pattern: /{id}/delete
+    defaults: { _controller: NPModuloBundle:Category:delete }
+    requirements:
+      id: \d+
+
+np_modulo_admin_category_group_process:
+    pattern: /group_process
+    defaults: { _controller: NPModuloBundle:Category:groupProcess }

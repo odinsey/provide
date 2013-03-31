@@ -88,6 +88,7 @@ $events = 'SELECT * FROM event as e WHERE e.published = 1 ORDER BY e.position';
 $event_steps = 'SELECT * FROM event_step as es WHERE es.parent_id = :id ORDER BY es.date';
 $step_pictures = 'SELECT * FROM event_picture as ep WHERE ep.parent_id = :id ORDER BY ep.position';
 $results = $pdo->query($events);
+if( $results ){
 while ($row = $results->fetch()) {?>
     <div class="paragrapheOnOff"><?php echo $row['title'].' ('.($row['state']=='futur'?'à venir':$row['state']=='during'?'en cours...':'terminé').')'; ?></div>
         <div class="accordeon">
@@ -103,6 +104,7 @@ while ($row = $results->fetch()) {?>
         <?php
         $steps = $pdo->prepare($event_steps);
         $results_img = $steps->execute(array('id' => $row['id']));
+        if($results_img){
         while ($step = $steps->fetch()) { ?>
             <div class="voyage-quotidien">
                 <h2><?php echo strftime('%A %d %B %Y',strtotime($step['date'])) ?> - <?php echo $step['title'] ?></h2>
@@ -126,11 +128,13 @@ while ($row = $results->fetch()) {?>
              </div>
         <?php }
         $steps->closeCursor();
+        }
         ?>
     <br class="clearer" />
 </div>
 <?php }
 $results->closeCursor();
+}
 ?>
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
