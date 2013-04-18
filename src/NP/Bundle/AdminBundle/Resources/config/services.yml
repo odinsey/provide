@@ -1,0 +1,18 @@
+parameters:
+    np_admin.form.type.picture_collection.class: NP\Bundle\AdminBundle\Form\Extension\Type\PictureCollectionType
+    np_admin.form.type.file_collection.class: NP\Bundle\AdminBundle\Form\Extension\Type\FileCollectionType
+    np_admin.form.type.customfile.class: NP\Bundle\AdminBundle\Form\Extension\Type\CustomfileType
+
+services:
+    form.type.picture_collection:
+        class: %np_admin.form.type.picture_collection.class%
+        tags:
+            - { name: form.type, alias: picture_collection }
+    form.type.file_collection:
+        class: %np_admin.form.type.file_collection.class%
+        tags:
+            - { name: form.type, alias: file_collection }
+    form.type.customfile:
+        class: %np_admin.form.type.customfile.class%
+        tags:
+            - { name: form.type, alias: customfile }

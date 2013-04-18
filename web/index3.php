@@ -81,27 +81,29 @@ try {
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
-$sql_news = 'SELECT * FROM news as n WHERE n.published = 1 ORDER BY n.position';
-$sql_pictures = 'SELECT * FROM news_picture as np WHERE np.parent_id = :id ORDER BY np.position';
+if( !empty($_GET['newspreview']) ){
+    $sql_news = 'SELECT * FROM news as n WHERE n.id = '.$_GET['newspreview'].' ORDER BY n.position';
+}else{
+    $sql_news = 'SELECT * FROM news as n WHERE n.published = 1 ORDER BY n.position';
+}
+$sql_pictures = 'SELECT p.* FROM news_picture as np, picture as p WHERE p.id = np.picture_id AND np.news_id = :id ORDER BY p.position';
 $results = $pdo->query($sql_news);
 if( $results ){
     while ($row = $results->fetch()) {?>
         <div class="actualite">
-            <div class="titre-actualites">
-                    <?php echo $row['title'] ?>
-            </div>
-                <div class="vignette-actualites">
+            <div class="titre-actualites"><?php echo $row['title'] ?></div>
+            <div class="vignette-actualites">
             <?php
             $stmt = $pdo->prepare($sql_pictures);
-            $results_img = $stmt->execute(array('id' => $row['id']));
+            $results_img = $stmt->execute(array(':id' => $row['id']));
             $i = 0;
             if($results_img){
             while ($picture = $stmt->fetch()) { ?>
                 <?php if ($i == 0) { ?>
-                <a href="/upload/news-<?php echo $row['id'] . '/img-orig-' . $picture['id'] . '.' . $picture['extension'] ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]"></a>
-                <img src="/upload/news-<?php echo $row['id'] . '/img-thumb-' . $picture['id'] . '.' . $picture['extension'] ?>" alt="<?php echo $picture['title'] ?>" /><?php $i++;
+                <a href="<?php echo str_replace('##TYPE##','big',$picture['path']) ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]">
+                <img src="<?php echo str_replace('##TYPE##','thumb2',$picture['path']) ?>" alt="<?php echo $picture['title'] ?>" /></a><?php $i++;
                 }else{ ?>
-                    <a href="/upload/news-<?php echo $row['id'] . '/img-orig-' . $picture['id'] . '.' . $picture['extension'] ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]" style="display:none"></a>
+                    <a href="<?php echo str_replace('##TYPE##','big',$picture['path']) ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]" style="display:none"></a>
                 <?php }
             }
             if ($stmt->rowCount() > 0) { ?>
@@ -110,16 +112,17 @@ if( $results ){
             }
             ?>
             </div>
-        </div>
         <div class="actualites-gauche">
-            <?php echo $row['description'] ?>
+            <?php echo substr($row['description'], 0, strpos($row['description'],'</p>')+4) ?>
             <br class="clearer" />
-            <div class="lire-suite">
-            </div>
+            <div class="lire-suite"></div>
             <div class="suite-actualite">
-                <?php echo $row['description'] ?>
+                <?php echo substr($row['description'], strpos($row['description'],'</p>')+4) ?>
             </div>
+            <br class="clearer" />
         </div>
+        <br class="clearer" />
+    </div>
     <?php }
     $results->closeCursor();
 }

@@ -4,14 +4,14 @@
         {% set attr = attr|merge({'data-prototype': form_row(prototype) }) %}
     {% endif %}
     <div {{ block('widget_container_attributes') }}>
-            <div class="collection-fields controls">
+            <div class="collection-fields">
                 {{ form_errors(form) }}
                 {% for child in form %}
                     <div class="collection-field-row" data-prop="{{ child.vars.data.title is defined ? child.vars.data.title : ''  }}">
 			{{ form_row(child) }}
                         {% if allow_delete is defined and allow_delete %}
                         <a href="#" class="delete-collection-row btn btn-danger delete">
-                            {{ 'global.form_action.delete' | trans([], 'NPAdminBundle') }}
+                            {{ 'global.form_action.delete' | trans({}, 'CmsAdminBundle') }}
                         </a>
                         {% endif %}
                     </div>
@@ -19,20 +19,18 @@
             </div>
         {% if allow_add is defined and allow_add %}
             <a href="#" class="add-collection-row btn">
-                {{ 'global.form_action.add' | trans([], 'NPAdminBundle') }}
+                {{ 'global.form_action.add' | trans({}, 'CmsAdminBundle') }}
             </a>
         {% endif %}
-            {% if allow_delete is defined and allow_delete %}
-            <a href="#" class="delete-collection-row btn btn-danger delete" style="display: none">
-                {{ 'global.form_action.delete' | trans([], 'NPAdminBundle') }}
-            </a>
-            {% endif %}
+        {% if allow_delete is defined and allow_delete %}
+        <a href="#" class="delete-collection-row btn btn-danger delete hide">
+            {{ 'global.form_action.delete' | trans({}, 'CmsAdminBundle') }}
+        </a>
+        {% endif %}
         {{ form_rest(form) }}
     </div>
 {% endspaceless %}
 {% endblock collection_widget %}
-
-
 
 {% block picture_collection_widget %}
 {% set lastindex = 0 %}
@@ -44,23 +42,23 @@
     <ul class="list-photos thumbnails">
 	{% for child in form %}
 	<li id="photo_{{ child.vars.value.id }}" class="thumbnail collection-field">
-	    <img src="{{ child.vars.value.path|format('small') }}" alt="{{ child.vars.value.title }}">
+	    <img src="{{ child.vars.value.getPath('small') }}" alt="{{ child.vars.value.title }}">
 	    <div class="caption">
 		<p title="{{ child.vars.value.title }}">{{ child.vars.value.title }}</p>
 		<p class="actions">
-		    <a role="button" data-toggle="modal" href="#modal_{{ child.vars.value.id }}" class="btn btn-mini btn-primary" title="{{ 'global.form_action.edit'|trans([], 'NPModuloBundle') }}">{{ 'global.form_action.edit'|trans([], 'NPModuloBundle') }}</a>
-		    &nbsp;<a title="{{ 'global.form_action.delete'|trans([], 'NPModuloBundle') }}" class="btn btn-mini btn-danger delete">{{ 'global.form_action.delete'|trans([], 'NPModuloBundle') }}</a>
+		    <a role="button" data-toggle="modal" href="#modal_{{ child.vars.value.id }}" class="btn btn-mini btn-primary" title="{{ 'global.form_action.edit'|trans({}, 'CmsAdminBundle') }}">{{ 'global.form_action.edit'|trans({}, 'CmsAdminBundle') }}</a>
+		    &nbsp;<a title="{{ 'global.form_action.delete'|trans({}, 'CmsAdminBundle') }}" class="btn btn-mini btn-danger delete">{{ 'global.form_action.delete'|trans({}, 'CmsAdminBundle') }}</a>
 		</p>
 	    </div>
 	    <div id="modal_{{ child.vars.value.id }}" class="modal hide fade">
 		<div class="modal-header">
-		    <h3>{{ 'global.form_action.edit'|trans([], 'NPModuloBundle') }}</h3>
+		    <h3>{{ 'global.form_action.edit'|trans({}, 'CmsAdminBundle') }}</h3>
 		</div>
 		<div class="modal-body">
 		    {{ form_row(child) }}
 		    </div>
 		    <div class="modal-footer">
-			<a href="#" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">{{ 'global.form_action.confirm' | trans([], 'NPModuloBundle') }}</a>
+			<a href="#" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">{{ 'global.form_action.confirm' | trans({}, 'CmsAdminBundle') }}</a>
 		    </div>
 		</div>
 	    </li>
@@ -68,22 +66,70 @@
         {% endfor %}
     </ul>
 
-    <fieldset {{ block('widget_container_attributes') }}>
-        <div class="collection-fields controls" data-start-index="{{ lastindex }}"></div>
+    <fieldset {{ block('widget_container_attributes') }} >
+
+        <div class="collection-fields" data-index="{{ lastindex }}"></div>
+
         {% if allow_add is defined and allow_add %}
-            <a href="#" class="add-collection-row btn"
-                {% if prototype is defined %}
-                    {{ block('widget_container_attributes') }}
-                {% endif %}>
-            {{ 'global.form_action.add-picture' | trans([], 'NPModuloBundle') }}
+            <a href="#" class="add-collection-row btn">
+            {{ 'global.form_action.add-picture' | trans({}, 'CmsAdminBundle') }}
             </a>
         {% endif %}
         {% if allow_delete is defined and allow_delete %}
-            <a href="#" class="delete-collection-row btn btn-danger delete" style="display: none">
-                {{ 'global.form_action.delete-picture' | trans([], 'NPModuloBundle') }}
+            <a href="#" class="delete-collection-row btn btn-danger delete hide">
+                {{ 'global.form_action.delete-picture' | trans({}, 'CmsAdminBundle') }}
             </a>
         {% endif %}
         {{ form_rest(form) }}
     </fieldset>
 {% endspaceless %}
 {% endblock picture_collection_widget %}
+
+{% block file_collection_widget %}
+{% import "CmsAdminBundle:Macro:boolean.html.twig" as bool %}
+{% set lastindex = 0 %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set attr = {'data-prototype': form_row(prototype)} %}
+    {% endif %}
+    {{ form_errors(form) }}
+    <ul class="files">
+	{% for child in form %}
+	<li id="" class="collection-field actions" style="list-style-type: none;">
+	    {{ bool.show(child.vars.value.published) }}&nbsp;-&nbsp;
+            <b>{{ child.vars.value }}</b>&nbsp;-&nbsp;
+            <a role="button" data-toggle="modal" href="#modal_{{ child.vars.value.id }}" class="btn btn-mini btn-primary" title="{{ 'global.form_action.edit'|trans({}, 'CmsAdminBundle') }}">{{ 'global.form_action.edit'|trans({}, 'CmsAdminBundle') }}</a>
+            &nbsp;<a title="{{ 'global.form_action.delete'|trans({}, 'CmsAdminBundle') }}" class="btn btn-mini btn-danger delete">{{ 'global.form_action.delete'|trans({}, 'CmsAdminBundle') }}</a>
+            <div id="modal_{{ child.vars.value.id }}" class="modal hide fade">
+		<div class="modal-header">
+		    <h3>{{ 'global.form_action.edit'|trans({}, 'CmsAdminBundle') }}</h3>
+		</div>
+		<div class="modal-body">
+		    {{ form_row(child) }}
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">{{ 'global.form_action.confirm' | trans({}, 'CmsAdminBundle') }}</a>
+		</div>
+            </div>
+        </li>
+        {% set lastindex = loop.length %}
+        {% endfor %}
+    </ul>
+
+    <fieldset {{ block('widget_container_attributes') }} >
+        <div class="collection-fields" data-index="{{ lastindex }}"></div>
+
+        {% if allow_add is defined and allow_add %}
+            <a href="#" class="add-collection-row btn">
+            {{ 'global.form_action.add-file' | trans({}, 'CmsAdminBundle') }}
+            </a>
+        {% endif %}
+        {% if allow_delete is defined and allow_delete %}
+            <a href="#" class="delete-collection-row btn btn-danger delete hide">
+                {{ 'global.form_action.delete-file' | trans({}, 'CmsAdminBundle') }}
+            </a>
+        {% endif %}
+        {{ form_rest(form) }}
+    </fieldset>
+{% endspaceless %}
+{% endblock file_collection_widget %}

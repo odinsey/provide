@@ -90,7 +90,7 @@ class Gallery {
      */
 
     public function __toString() {
-        return $this->title;
+        return (string) $this->title;
     }
 
     /**
@@ -180,8 +180,8 @@ class Gallery {
      * @param \NP\Bundle\ModuloBundle\Entity\Picture $picture
      */
     public function addPicture(Picture $picture) {
-        if (!$this->pictures->contains($picture) && $picture->getFile()) {
-            $picture->setParent($this);
+        $picture->setParent($this);
+        if (!$this->pictures->contains($picture)) {
             $this->pictures->add($picture);
         }
     }

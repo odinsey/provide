@@ -85,7 +85,7 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 $sql_gallery = 'SELECT * FROM gallery as g WHERE g.published = 1 ORDER BY g.position';
-$sql_pictures = 'SELECT * FROM gallery_picture as gp WHERE gp.parent_id = :id ORDER BY gp.position';
+$sql_pictures = 'SELECT p.* FROM gallery_picture as gp, picture as p WHERE p.id = gp.picture_id AND gp.gallery_id = :id ORDER BY p.position';
 $results = $pdo->query($sql_gallery);
 if($results){
 while ($row = $results->fetch()) {?>
@@ -96,11 +96,11 @@ while ($row = $results->fetch()) {?>
         <div class="galerie-photo-intro-gauche">
         <?php
         $stmt = $pdo->prepare($sql_pictures);
-        $results_img = $stmt->execute(array('id' => $row['id']));
+        $results_img = $stmt->execute(array(':id' => $row['id']));
         $i = 0;
         if($results_img){
         while ( $picture = $stmt->fetch() ) { ?>
-            <img src="/upload/news-<?php echo $row['id'] . '/img-thumb-' . $picture['id'] . '.' . $picture['extension'] ?>" alt="<?php echo $picture['title'] ?>" />
+            <img src="<?php echo str_replace('##TYPE##','thumb1',$picture['path']) ?>" alt="<?php echo $picture['title'] ?>" />
         <?php break;
         } ?>
         </div>
@@ -110,12 +110,17 @@ while ($row = $results->fetch()) {?>
         <br class="clearer" />
     </div>
 
-    <div class="galerie-photos-fond">
-        <?php while ( $picture = $stmt->fetch() ) { ?>
-        <a href="/upload/news-<?php echo $row['id'] . '/img-orig-' . $picture['id'] . '.' . $picture['extension'] ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]"></a>
-            <img src="/upload/news-<?php echo $row['id'] . '/img-thumb-' . $picture['id'] . '.' . $picture['extension'] ?>" alt="<?php echo $picture['title'] ?>" />
-        </a>
-        <?php } ?>
+    <div class="galerie-photos-fond"><?php
+            $stmt->closeCursor();
+            $results_img = $stmt->execute(array(':id' => $row['id']));
+            while ( $picture = $stmt->fetch() ) {
+?><a href="<?php echo str_replace('##TYPE##','big',$picture['path']) ?>"
+   title="<?php echo $picture['title'] ?>"
+   rel="shadowbox[<?php echo $row['title'] ?>]"
+   class="galerie-photos-vignette-lien"
+   ><img src="<?php echo str_replace('##TYPE##','thumb1',$picture['path']) ?>" alt="<?php echo $picture['title'] ?>" class="galerie-photos-vignette" />
+</a><?php
+} ?>
         <?php $stmt->closeCursor();
         } ?>
         <br class="clearer" />

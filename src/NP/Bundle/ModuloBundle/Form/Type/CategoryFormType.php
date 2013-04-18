@@ -14,14 +14,13 @@ class CategoryFormType extends AbstractType {
         }
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
-		$builder->add('title', null, array('label' => 'Nom'))
-			->add('description', 'richeditor', array('label' => 'Description'));
+		$builder->add('title', null)
+			->add('description', 'richeditor');
                 if($this->isGranted){
-                    $builder->add('published', null, array('label' => 'Publié', 'required'=>false));
+                    $builder->add('published', null, array('required'=>false));
                 }
-                $builder->add('resources','picture_collection', array(
-                                'label' => 'Téléchargements',
-				'type' => new ResourcesFormType($this->isGranted),
+                $builder->add('resources','file_collection', array(
+                                'type' => new ResourcesFormType($this->isGranted),
 				'allow_add' => true,
 				'allow_delete' => true,
 				'by_reference' => false,

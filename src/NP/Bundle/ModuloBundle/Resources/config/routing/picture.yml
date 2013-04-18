@@ -1,0 +1,29 @@
+np_modulo_admin_picture_index:
+    pattern: /
+    defaults: { _controller: NPModuloBundle:Picture:index }
+
+np_modulo_admin_picture_show:
+    pattern: /{id}/show
+    defaults: { _controller: NPModuloBundle:Picture:show }
+    requirements:
+      id: \d+
+
+np_modulo_admin_picture_new:
+    pattern: /new
+    defaults: { _controller: NPModuloBundle:Picture:new }
+
+np_modulo_admin_picture_edit:
+    pattern: /{id}/edit
+    defaults: { _controller: NPModuloBundle:Picture:edit }
+    requirements:
+      id: \d+
+
+np_modulo_admin_picture_delete:
+    pattern: /{id}/delete
+    defaults: { _controller: NPModuloBundle:Picture:delete }
+    requirements:
+      id: \d+
+
+np_modulo_admin_picture_group_process:
+    pattern: /group_process
+    defaults: { _controller: NPModuloBundle:Picture:groupProcess }

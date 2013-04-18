@@ -79,8 +79,8 @@ try {
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
-$sql_categories = 'SELECT * FROM ressource_category as rc ORDER BY rc.position';
-$sql_ressources = 'SELECT * FROM ressource as r WHERE r.published = 1 AND r.category_id = :id ORDER BY r.position';
+$sql_categories = 'SELECT * FROM resource_category as rc WHERE rc.published = 1 ORDER BY rc.position';
+$sql_ressources = 'SELECT * FROM resources as r WHERE r.published = 1 AND r.category_id = :id ORDER BY r.position';
 $results = $pdo->query($sql_categories);
 if( $results ){
 while ($row = $results->fetch()) {?>
@@ -89,13 +89,13 @@ while ($row = $results->fetch()) {?>
         <?php echo $row['description'] ?>
         <?php
         $stmt = $pdo->prepare($sql_ressources);
-        $results_resources = $stmt->execute(array('id' => $row['id']));
+        $results_resources = $stmt->execute(array(':id' => $row['id']));
         $i = 0;
         if($results_resources){
         while ($resources = $stmt->fetch()) { ?>
         <div class="telechargement-bloc">
             <div class="telechargement-gauche">
-                <a href="pdf/<?php echo $resources['path'].'.'.$resources['extension'] ?>" onclick="window.open('pdf/<?php echo $resources['path'].'.'.$resources['extension'] ?>');return false">
+                <a href="/upload/resources/<?php echo $resources['path']; ?>" onclick="window.open('/upload/resources/<?php echo $resources['path']; ?>');return false">
                     <img src="images/PDF.png" alt="<?php echo $resources['title'] ?>" width="50" height="77" /></a>
             </div>
             <div class="telechargement-droite">

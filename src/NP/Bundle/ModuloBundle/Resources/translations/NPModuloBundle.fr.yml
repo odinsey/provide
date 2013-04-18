@@ -1,17 +1,17 @@
-gallery.index.title: 'Liste des galeries photo'
-gallery.edit.title: 'Edition de la galerie photo'
-gallery.new.title: 'Nouvelle galerie photo'
-gallery.index.new: 'Nouvelle galerie photo'
-gallery.index.order: 'Ordonner les galeries photos'
+gallery.index.title: 'Liste des galeries photos'
+gallery.edit.title: 'Edition de la galerie photos'
+gallery.new.title: 'Nouvelle galerie photos'
+gallery.index.new: 'Nouvelle galerie photos'
+gallery.order.title: 'Ordonner les galeries photos'
 gallery.flash.success.delete: 'Galerie suprimée avec succès'
 gallery.flash.success.new: 'Galerie créée avec succès'
 gallery.flash.success.edit: 'Galerie modifiée avec succès'
-gallery.flash.success.publish: La gallerie a été publié
-gallery.flash.success.unpublish: La gallerie a été dé-publié
-gallery.flash.success.group.publish: Les galleries ont été publiées
-gallery.flash.success.group.unpublish: Les galleries ont été dé-publiées
-gallery.flash.success.group.delete: Les galleries ont été supprimées
-gallery.flash.success.group.order: Les galleries ont été ordonnées
+gallery.flash.success.publish: La galerie a été publiée
+gallery.flash.success.unpublish: La galerie a été masquée
+gallery.flash.success.group.publish: Les galeries ont été publiées
+gallery.flash.success.group.unpublish: Les galeries ont été masquées
+gallery.flash.success.group.delete: Les galeries ont été supprimées
+gallery.flash.success.group.order: Les galeries ont été ordonnées
 gallery.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
 gallery.flash.error.new: 'Une erreur est survenue, aucune galerie n''a été créée'
 gallery.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
@@ -20,17 +20,27 @@ event.index.title: 'Liste des sorties scolaires'
 event.edit.title: 'Edition de la sortie scolaires'
 event.new.title: 'Nouvelle sortie scolaires'
 event.index.new: 'Nouvelle sortie scolaires'
+event.order.title: 'Ordonner les sortie scolaires'
+event.flash.success.publish: Sortie publiée avec succès
+event.flash.success.unpublish: Sortie masquée avec succès
 event.flash.success.delete: 'Sortie suprimée avec succès'
 event.flash.success.new: 'Sortie créée avec succès'
 event.flash.success.edit: 'Sortie modifiée avec succès'
 event.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
 event.flash.error.new: 'Une erreur est survenue, aucune sortie n''a été créée'
 event.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+event.form.status.ended: Terminé
+event.form.status.during: En cours
+event.form.status.futur: A venir
 
 news.index.title: 'Liste des actualités'
 news.index.new: 'Nouvelle actualité'
 news.edit.title: 'Edition de l'' actualités'
+news.edit.preview: 'Aperçu de l''actualité'
 news.new.title: 'Nouvelle actualité'
+news.order.title: 'Ordonner les actualités'
+news.flash.success.publish: Actualité publiée avec succès
+news.flash.success.unpublish: Actualité masquée avec succès
 news.flash.success.delete: 'Actualité suprimée avec succès'
 news.flash.success.new: 'Actualité créée avec succès'
 news.flash.success.edit: 'Actualité modifiée avec succès'
@@ -47,13 +57,24 @@ resources.index.title: 'Liste des fichiers téléchargeables'
 resources.edit.title: 'Edition du fichier téléchargeables'
 resources.new.title: 'Nouveau fichier téléchargeable'
 resources.index.new: 'Nouveau fichier'
-resources.flash.success.delete: 'Fichier suprimée avec succès'
-resources.flash.success.new: 'Fichier créée avec succès'
-resources.flash.success.edit: 'Fichier modifiée avec succès'
-resources.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
-resources.flash.error.new: 'Une erreur est survenue, aucun fichier n''a été créé'
-resources.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
-category.new.title: 'Nouveau téléchargements'
+category.flash.success.publish: Groupe de fichiers publié avec succès
+category.flash.success.unpublish: Groupe de fichiers masqué avec succès
+category.flash.success.delete: 'Groupe de fichiers suprimé avec succès'
+category.flash.success.new: 'Groupe de fichiers créé avec succès'
+category.flash.success.edit: 'Groupe de fichiers modifié avec succès'
+category.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
+category.flash.error.new: 'Une erreur est survenue, aucun fichier n''a été créé'
+category.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+category.new.title: 'Nouveau groupe de fichiers'
+category.index.title: 'Liste des groupes de fichiers'
+category.edit.title: 'Edition du groupe de fichiers'
+category.order.title: 'Ordonner les groupes de fichiers'
+category.flash.success.group.delete: 'Groupes de fichiers suprimés avec succès'
 
-global.form_action.delete-picture: Supprimer le fichier
-global.form_action.add-picture: Ajouter un fichier
+global.form_action.delete-picture: Supprimer la photo
+global.form_action.add-picture: Ajouter une photo
+global.form_action.edit: Editer
+global.form_action.publish_toggle: Publier/Masquer
+global.form_action.delete: Supprimer
+global.form_action.group.none: -- Choisissez une action --
+global.form_action.group.delete: Supprimer

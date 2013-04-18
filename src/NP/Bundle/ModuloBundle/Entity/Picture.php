@@ -18,11 +18,11 @@ use Imagine\Image\ImageInterface;
 class Picture {
     use TimestampableEntity;
 
-    protected static $FILE_TYPES = array(
-	'small' => array('thumbnail'=> array('width' => 90, 'height' => 78, 'thumbnail_type' => ImageInterface::THUMBNAIL_OUTBOUND)),
-	'thumb1' => array('thumbnail'=> array('width' => 146, 'height' => 82, 'thumbnail_type' => ImageInterface::THUMBNAIL_OUTBOUND)),
-        'thumb2' => array('thumbnail'=> array('width' => 121, 'height' => 83, 'thumbnail_type' => ImageInterface::THUMBNAIL_OUTBOUND)),
-	'big' => array('relative_resize'=> array('widen' => 1024, 'heighten' => 768))
+    public static $FILE_TYPES = array(
+	'small' => array('type'=>'thumbnail','width' => 90, 'height' => 78, 'thumbnail_type' => ImageInterface::THUMBNAIL_OUTBOUND),
+	'thumb1' => array('type'=>'thumbnail','width' => 146, 'height' => 82, 'thumbnail_type' => ImageInterface::THUMBNAIL_OUTBOUND),
+        'thumb2' => array('type'=>'thumbnail','width' => 121, 'height' => 83, 'thumbnail_type' => ImageInterface::THUMBNAIL_OUTBOUND),
+	'big' => array('type'=>'relative_resize', 'width' => 1024, 'height' => 768)
     );
 
     /**
@@ -70,7 +70,6 @@ class Picture {
     /*
      * @return string
      */
-
     public function __toString() {
 	return $this->title ? $this->title : $this->path.'.'.$this->extension;
     }
@@ -132,8 +131,8 @@ class Picture {
      * @param mixed $file
      */
     public function setFile($file) {
-	if ($file != $this->file) {
-	    $this->updated_at = new \DateTime();
+	if ($file != null) {
+            $this->updatedAt = new \DateTime();
 	    $this->file = $file;
 	}
     }
@@ -151,8 +150,8 @@ class Picture {
     public function setPath($path){
         $this->path = $path;
     }
-    public function getPath(){
-        return $this->path;
+    public function getPath($type=null){
+        return $type ? str_replace('##TYPE##', $type, $this->path) : $this->path;
     }
     public function getWebPath(){
         return ltrim($this->path,'/');
@@ -172,7 +171,11 @@ class Picture {
  */
     public function buildPath(){
         $this->path = '/upload/'.$this->getFolderName().'/'.$this->getFileName();
+        if ($this->parent instanceof Step) {
+            $this->path = str_replace('/upload/', '/upload/sortie-'.$this->parent->getEvent()->getId().'/', $this->path);
+        }
     }
+
     public function getFileName() {
 	return sprintf('img-%s-%d.%s', '##TYPE##', $this->id, $this->getFile()->getClientOriginalExtension());
     }

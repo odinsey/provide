@@ -1471,16 +1471,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Seldaek/monolog",
-                "reference": "1.4.0"
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "1.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1.4.0",
-                "reference": "1.4.0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1.4.1",
+                "reference": "1.4.1",
                 "shasum": ""
             },
             "require": {
@@ -1529,7 +1529,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-02-13 18:06:51"
+            "time": "2013-04-01 10:04:58"
         },
         {
             "name": "phpoption/phpoption",
@@ -1587,12 +1587,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Prometee/CmsAdminBundle.git",
-                "reference": "3099dd2ad1f32808d05a6fcdfd8e618d9915c10a"
+                "reference": "6cc7bd0093c38546147d3b517ba0ef0f455f7f0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Prometee/CmsAdminBundle/zipball/3099dd2ad1f32808d05a6fcdfd8e618d9915c10a",
-                "reference": "3099dd2ad1f32808d05a6fcdfd8e618d9915c10a",
+                "url": "https://api.github.com/repos/Prometee/CmsAdminBundle/zipball/6cc7bd0093c38546147d3b517ba0ef0f455f7f0f",
+                "reference": "6cc7bd0093c38546147d3b517ba0ef0f455f7f0f",
                 "shasum": ""
             },
             "require": {
@@ -1627,7 +1627,7 @@
                 "backend",
                 "backoffice"
             ],
-            "time": "2013-03-31 21:43:18"
+            "time": "2013-04-01 03:20:51"
         },
         {
             "name": "psr/log",

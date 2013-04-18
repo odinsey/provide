@@ -1,3 +1,21 @@
 event.form.status.ended: 'Terminé'
 event.form.status.during: 'En cours...'
 event.form.status.futur: 'A venir'
+
+Plainpassword: Mot de passe
+Email: Courriel
+Username: Nom d'utilisateur
+Enabled: Activé
+Roles: Permissions
+Description:
+Title: Nom
+Pictures: Photos
+File: Fichier
+Files: Fichiers
+State: Etat
+Start: Début
+Stop: Fin
+Steps: Etapes
+Step: Etape
+Published: Publié
+Resources: Fichiers

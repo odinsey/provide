@@ -26,10 +26,14 @@ np_modulo_admin_news_delete:
 
 np_modulo_admin_news_publish_toggle:
     pattern: /{id}/publish_toggle
-    defaults: { _controller: NPModuloBundle:News:publish_toggle }
+    defaults: { _controller: NPModuloBundle:News:publishToggle }
     requirements:
       id: \d+
 
 np_modulo_admin_news_group_process:
     pattern: /group_process
     defaults: { _controller: NPModuloBundle:News:groupProcess }
+
+np_modulo_admin_news_order:
+    pattern: /order
+    defaults: { _controller: NPModuloBundle:News:order }

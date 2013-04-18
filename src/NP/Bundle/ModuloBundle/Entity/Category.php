@@ -67,7 +67,7 @@ class Category {
      */
 
     public function __toString() {
-        return $this->title;
+        return (string) $this->title;
     }
 
     /**
@@ -185,7 +185,7 @@ class Category {
      */
     public function addResource(Resources $resource) {
         if (!$this->resources->contains($resource) && $resource->getFile()) {
-            $resource->setParent($this);
+            $resource->setCategory($this);
             $this->resources->add($resource);
         }
     }

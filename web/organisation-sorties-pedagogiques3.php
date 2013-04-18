@@ -84,40 +84,41 @@ try {
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
+
 $events = 'SELECT * FROM event as e WHERE e.published = 1 ORDER BY e.position';
-$event_steps = 'SELECT * FROM event_step as es WHERE es.parent_id = :id ORDER BY es.date';
-$step_pictures = 'SELECT * FROM event_picture as ep WHERE ep.parent_id = :id ORDER BY ep.position';
+$event_steps = 'SELECT * FROM step as s WHERE s.event_id = :id';
+$step_pictures = 'SELECT p.* FROM step_picture as sp, picture as p WHERE p.id = sp.picture_id AND sp.step_id = :id ORDER BY p.position';
+
 $results = $pdo->query($events);
 if( $results ){
-while ($row = $results->fetch()) {?>
-    <div class="paragrapheOnOff"><?php echo $row['title'].' ('.($row['state']=='futur'?'à venir':$row['state']=='during'?'en cours...':'terminé').')'; ?></div>
+while ($row = $results->fetch()) { ?>
+    <div class="paragrapheOnOff"><?php echo $row['title'].' ('.time()<$row['start']?'à venir':time()>$row['stop']? 'terminé' : 'en cours...)'; ?></div>
         <div class="accordeon">
             <div class="voyage-gauche">
-                <?php if( $row['title'] ){ ?>
-                <?php $filepath = '/upload/sortie/'.$row['path'] ?>
+                <?php if($row['path']){
+                    $filepath = '/upload/sortie/'.$row['path'] ?>
                     <a href="<?php echo $filepath; ?>" onclick="window.open('<?php echo $filepath ?>');return false">
-                        <img src="images/PDF.png" alt="Titre de la fiche" width="50" height="77" /></a>
+                        <img src="images/PDF.png" alt="<?php echo $row['title'] ?>" width="50" height="77" /></a>
                 <?php } ?>
             </div>
             <div class="voyage-droite"><?php echo $row['description'] ?></div>
             <br class="clearer" />
         <?php
         $steps = $pdo->prepare($event_steps);
-        $results_img = $steps->execute(array('id' => $row['id']));
+        $results_img = $steps->execute(array(':id' => $row['id']));
         if($results_img){
         while ($step = $steps->fetch()) { ?>
             <div class="voyage-quotidien">
-                <h2><?php echo strftime('%A %d %B %Y',strtotime($step['date'])) ?> - <?php echo $step['title'] ?></h2>
+                <h2><?php echo $step['title'] ?></h2>
 
                 <div class="voyage-vignette">
                     <?php
                     $photos = $pdo->prepare($step_pictures);
-                    $results_img = $photos->execute(array('id' => $step['id']));
+                    $results_img = $photos->execute(array(':id' => $step['id']));
                     $i = 0;
                     while ($photo = $photos->fetch()) { ?>
-                        <?php $filepath = '/upload/sortie/sortie-'.$step['id'].'/img-orig-'.$photo['id'].'.'.$photo['extension']; ?>
-                        <a href="<?php echo $filepath ?>" rel="shadowbox[galerie<?php echo $row['id']?>]" title="<?php echo $photo['title']?>" >
-                            <?php if(!$i++){ ?><img src="<?php echo str_replace('orig','thumb',$filepath) ?>" alt="<?php echo $row['title'] ?>" width="146" height="82" /><?php } ?>
+                        <a href="<?php echo str_replace('##TYPE##','big',$photo['path']) ?>" rel="shadowbox[step<?php echo $step['id']?>]" title="<?php echo $photo['title']?>" >
+                            <?php if(!$i++){ ?><img src="<?php echo str_replace('##TYPE##','thumb1', $photo['path']) ?>" alt="<?php echo $row['title'] ?>" width="146" height="82" /><?php } ?>
                         </a>
                     <?php }
                     $photos->closeCursor();

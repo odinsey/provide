@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Vous avez un nouveau contenu à valider</title>
+<title>{{ title }}</title>
 <style>
 a:link {
 color:#046380;
@@ -27,7 +27,7 @@ text-decoration:none;
     <td bgcolor="#efefef" style="border-bottom: #666666 1px solid;" ><br>
       <TABLE border="0" align="center">
         <TR>
-          <TD><img src="images/generic_header.gif" alt="" border="0"></TD>
+          <TD><h1>{{ title }}</h1></TD>
         </TR>
       </TABLE>
       <br>
@@ -37,11 +37,52 @@ text-decoration:none;
     <td><TABLE width="510" border="0" cellpadding="0" cellspacing="0" align="center">
         <TR>
           <TD>
-            <p style="font-family: arial,  helvetica, sans-serif;font-size: 15px;color: #666666;">Voici un aperçu du contenu à valider</p>
+            {% for field in fields|keys %}
+                {% if field == 'resources' %}
+                  <h2>Fichiers</h2>
+                  <ul>
+                    {% for file in attribute(entity, field) %}
+                          <li style="font-family: arial,  helvetica, sans-serif;font-size: 15px;color: #666666;">
+                              {% if file.title is defined %}<b>{{ 'Title'|trans }}</b> : {{ file.title }}<br/>{% endif %}
+                              {% if file.description is defined %}<b>{{ 'Description'|trans }}</b> : {{ file.description|raw }}<br/>{% endif %}
+                              {% if file.path is defined %}<b>{{ 'Path'|trans }}</b> : {{ file.path|raw }}<br/>{% endif %}
+                          </li>
+                    {% endfor %}
+                  </ul>
+                {% elseif field == 'pictures' %}
+                  <h2>Photos</h2>
+                  <ul>
+                    {% for file in attribute(entity, field) %}
+                          <li style="font-family: arial,  helvetica, sans-serif;font-size: 15px;color: #666666;">
+                              {% if file.title is defined %}<b>{{ 'Title'|trans }}</b> : {{ file.title }}<br/>{% endif %}
+                              {% if file.path is defined %}<b>{{ 'Path'|trans }}</b> : {{ file.path|raw }}<br/>{% endif %}
+                          </li>
+                    {% endfor %}
+                  </ul>
+                {% elseif field == 'steps' %}
+                    {% for step in attribute(entity, field) %}
+                        <h2>Etapes</h2>
+                        <p>{% if step.title is defined %}<b>{{ 'Title'|trans }}</b> : {{ step.title }}<br/>{% endif %}</p>
+                        <p>{% if step.date is defined %}<b>{{ 'Date'|trans }}</b> : {{ step.date }}<br/>{% endif %}</p>
+                        <div>{% if step.description is defined %}<b>{{ 'Description'|trans }}</b> : {{ step.description|raw }}<br/>{% endif %}</div>
+                        <ul>
+                          {% for file in step.pictures %}
+                                <li style="font-family: arial,  helvetica, sans-serif;font-size: 15px;color: #666666;">
+                                    {% if file.title is defined %}<b>{{ 'Title'|trans }}</b> : {{ file.title }}<br/>{% endif %}
+                                    {% if file.path is defined %}<b>{{ 'Path'|trans }}</b> : {{ file.path|raw }}<br/>{% endif %}
+                                </li>
+                          {% endfor %}
+                        </ul>
+                     {% endfor %}
+                {% else %}
+                    {% if attribute(entity, field) is defined %}
+                        <p style="font-family: arial,  helvetica, sans-serif;font-size: 15px;color: #666666;">{{ attribute(entity, field)|raw }}</p>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
             <hr/>
-            <p style="font-family: arial,  helvetica, sans-serif;font-size: 15px;color: #666666;">{{ message }}</p>
-            <hr/>
-            <p style="font-family: arial,  helvetica, sans-serif;font-size: 12px;color: #666666;">Pour ce faire, vous devez vous connecter à votre <a href="{{ url }}" title="">administration</a></p>
+            <p style="font-family: arial,  helvetica, sans-serif;font-size: 12px;color: #666666;">Pour ce faire, vous devez vous connecter à votre <a href="http://{{app.request.server.get("HTTP_HOST")}}{{ path(route_edit,{ 'id': entity.id } ) }}" title="">administration</a></p>
 
 <br><br> </TD>
         </TR>

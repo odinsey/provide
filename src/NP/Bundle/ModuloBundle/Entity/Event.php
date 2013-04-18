@@ -52,6 +52,7 @@ class Event {
      * @var string
      *
      * @ORM\Column(name="state", type="text")
+     * @Assert\Choice(callback = "getStatesKeys")
      */
     private $state;
 
@@ -102,7 +103,7 @@ class Event {
     private $published;
 
     /**
-     * @ORM\OneToMany(targetEntity="Step", mappedBy="parent", cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Step", mappedBy="event", cascade={"all"}, orphanRemoval=true)
      * @ORM\OrderBy({"date" = "ASC"})
      */
     protected $steps;
@@ -115,7 +116,7 @@ class Event {
      * @return string
      */
     public function __toString() {
-	return $this->title;
+	return (string) $this->title;
     }
 
     /**
@@ -275,7 +276,7 @@ class Event {
      */
     public function addStep(Step $step) {
 	if (!$this->steps->contains($step) ) {
-            $step->setParent($this);
+            $step->setEvent($this);
 	    $this->steps->add($step);
 	}
     }
@@ -335,13 +336,22 @@ class Event {
     }
 
     /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath() {
+	return $this->path;
+    }
+
+    /**
      * Get url for a type of image
      *
      * @param string $type
      * @return string
      */
     public function getUrl() {
-	return $this->getWebPath() . '/' . $this->getFileName();
+	return $this->getWebPath() . '/' . $this->getPath();
     }
 
     /**
@@ -407,5 +417,17 @@ class Event {
     protected function getUploadDir() {
 	// get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
 	return '/upload/sortie/sortie-'.$this->id;
+    }
+
+    public static function getStates() {
+        return array(
+            'ended' => 'event.form.status.ended',
+            'futur' => 'event.form.status.futur',
+            'during' => 'event.form.status.during'
+        );
+    }
+
+    public static function getStatesKeys() {
+        return array_keys(self::getStates());
     }
 }

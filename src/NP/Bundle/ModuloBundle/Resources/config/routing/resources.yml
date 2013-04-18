@@ -27,3 +27,13 @@ np_modulo_admin_category_delete:
 np_modulo_admin_category_group_process:
     pattern: /group_process
     defaults: { _controller: NPModuloBundle:Category:groupProcess }
+
+np_modulo_admin_category_publish_toggle:
+    pattern: /{id}/publish_toggle
+    defaults: { _controller: NPModuloBundle:Category:publishToggle }
+    requirements:
+      id: \d+
+
+np_modulo_admin_category_order:
+    pattern: /order
+    defaults: { _controller: NPModuloBundle:Category:order }

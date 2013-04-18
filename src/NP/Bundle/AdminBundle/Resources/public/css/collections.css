@@ -1,0 +1,77 @@
+.form-horizontal label.entity-collections {
+    display: block;
+    width: auto;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #999;
+    float: none;
+    padding: 5px;
+}
+.form-horizontal label.entity-collections.pictures {
+    background-color: #E20026;
+}
+.form-horizontal .list-photos.thumbnails,
+.form-horizontal fieldset.entity-collections.pictures {
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+.form-horizontal label.entity-collection {
+    display: none;
+}
+.form-horizontal .entity-collections .collection-field-row {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999;
+    margin-bottom: 10px;
+    padding: 0;
+}
+.form-horizontal .entity-collections .collection-field-row:before {
+    content: "\00a0\00a0\00a0" attr(data-prop);
+    text-transform: uppercase;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background-color: #999;
+    color: #FFF;
+    text-align: left;
+    margin-bottom: 15px;
+}
+/*.form-horizontal .entity-collections .collection-field-row > div {
+    padding-top: 30px;
+}*/
+.delete-collection-row.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    left: auto;
+}
+.collection-field-row:after {
+    clear:both;
+    content: '\00a0';
+}
+/************
+STYLE DE LA LISTE A TRIER
+************/
+ul.list-photos li {
+    cursor: move;
+    background:#fff;
+    width: 140px;
+    height: 170px;
+    display: block;
+    position: relative;
+}
+ul.list-photos li.highlight {
+    background:#f2f2f2;
+    border:1px dashed #212326;
+    height:170px;
+    width:140px;
+}
+ul.list-photos .actions {
+    position: absolute;
+    bottom: 0;
+}

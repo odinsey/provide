@@ -20,9 +20,9 @@
         "sensio/generator-bundle": "2.2.*",
         "jms/security-extra-bundle": "1.4.*",
         "jms/di-extra-bundle": "1.3.*",
-		"stof/doctrine-extensions-bundle": "dev-master",
-		"stfalcon/tinymce-bundle": "dev-master",
-		"prometee/cms-bundle": "dev-master"
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "stfalcon/tinymce-bundle": "dev-master",
+        "prometee/cms-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

@@ -1,0 +1,39 @@
+np_modulo_admin_event_index:
+    pattern: /
+    defaults: { _controller: NPModuloBundle:Event:index }
+
+np_modulo_admin_event_show:
+    pattern: /{id}/show
+    defaults: { _controller: NPModuloBundle:Event:show }
+    requirements:
+      id: \d+
+
+np_modulo_admin_event_new:
+    pattern: /new
+    defaults: { _controller: NPModuloBundle:Event:new }
+
+np_modulo_admin_event_edit:
+    pattern: /{id}/edit
+    defaults: { _controller: NPModuloBundle:Event:edit }
+    requirements:
+      id: \d+
+
+np_modulo_admin_event_delete:
+    pattern: /{id}/delete
+    defaults: { _controller: NPModuloBundle:Event:delete }
+    requirements:
+      id: \d+
+
+np_modulo_admin_event_group_process:
+    pattern: /group_process
+    defaults: { _controller: NPModuloBundle:Event:groupProcess }
+
+np_modulo_admin_event_publish_toggle:
+    pattern: /{id}/publish_toggle
+    defaults: { _controller: NPModuloBundle:Event:publishToggle }
+    requirements:
+      id: \d+
+
+np_modulo_admin_event_order:
+    pattern: /order
+    defaults: { _controller: NPModuloBundle:Event:order }

@@ -15,22 +15,21 @@ class GalleryFormType extends AbstractType {
 	}
 
 	public function buildForm(FormBuilderInterface $builder,array $options) {
-		$builder->add('title',null,array('label'=>'Nom'));
+		$builder->add('title');
 		if($this->isGranted){
-			$builder->add('published',null,array('label'=>'Publié','required'=>false));
+			$builder->add('published',null,array('required'=>false));
 		}
-		$builder->add('description','richeditor',array('label'=>'Description'))
-				->add('pictures','picture_collection',array(
-					'label'=>'Photos',
-					'type'=>new PictureFormType(),
-					'allow_add'=>true,
-					'allow_delete'=>true,
-					'by_reference'=>false,
-					'attr'=>array('class'=>'entity-collections sortable'),
-					//label for each team form type
-					'options'=>array(
-						'attr'=>array('class'=>'entity-collection')
-					))
+		$builder->add('description','richeditor')
+                        ->add('pictures','picture_collection',array(
+                                'type'=>new PictureFormType(),
+                                'allow_add'=>true,
+                                'allow_delete'=>true,
+                                'by_reference'=>false,
+                                'attr'=>array('class'=>'entity-collections sortable'),
+                                //label for each team form type
+                                'options'=>array(
+                                        'attr'=>array('class'=>'entity-collection')
+                                ))
 		);
 	}
 

@@ -1,0 +1,18 @@
+<li class="active">
+    <a href="{{ path('np_modulo_admin_gallery_index') }}" class="brand">Galeries</a>
+</li>
+<li class="active">
+    <a href="{{ path('np_modulo_admin_news_index') }}" class="brand">Actualités</a>
+</li>
+<li class="active">
+    <a href="{{ path('np_modulo_admin_event_index') }}" class="brand">Sorties Scolaires</a>
+</li>
+<li class="active">
+    <a href="{{ path('np_modulo_admin_category_index') }}" class="brand">Téléchargements</a>
+</li>
+
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+<li class="active">
+    <a href="{{ path('cms_admin_admin_user_index') }}" class="brand">Administrateurs</a>
+</li>
+{% endif %}

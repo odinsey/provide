@@ -1,0 +1,43 @@
+np_modulo_admin_gallery_index:
+    pattern: /
+    defaults: { _controller: NPModuloBundle:Gallery:index }
+
+np_modulo_admin_gallery_show:
+    pattern: /{id}/show
+    defaults: { _controller: NPModuloBundle:Gallery:show }
+    requirements:
+      id: \d+
+
+np_modulo_admin_gallery_new:
+    pattern: /new
+    defaults: { _controller: NPModuloBundle:Gallery:new }
+
+np_modulo_admin_gallery_order:
+    pattern: /order
+    defaults: { _controller: NPModuloBundle:Gallery:order }
+
+np_modulo_admin_gallery_edit:
+    pattern: /{id}/edit
+    defaults: { _controller: NPModuloBundle:Gallery:edit }
+    requirements:
+      id: \d+
+
+np_modulo_admin_gallery_delete:
+    pattern: /{id}/delete
+    defaults: { _controller: NPModuloBundle:Gallery:delete }
+    requirements:
+      id: \d+
+
+np_modulo_admin_gallery_group_process:
+    pattern: /group_process
+    defaults: { _controller: NPModuloBundle:Gallery:groupProcess }
+
+np_modulo_admin_gallery_publish_toggle:
+    pattern: /{id}/publish_toggle
+    defaults: { _controller: NPModuloBundle:Gallery:publishToggle }
+    requirements:
+      id: \d+
+
+np_modulo_admin_gallery_order:
+    pattern: /order
+    defaults: { _controller: NPModuloBundle:Gallery:order }

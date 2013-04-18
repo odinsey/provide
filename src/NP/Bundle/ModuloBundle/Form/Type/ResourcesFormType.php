@@ -15,9 +15,9 @@ class ResourcesFormType extends AbstractType {
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
 		$builder->add('title', null, array('label' => 'Nom'))
-			->add('description', 'richeditor', array('label' => 'Description'));
+			->add('description', 'richeditor');
                 if($this->isGranted){
-                    $builder->add('published', null, array('label' => 'Publié', 'required'=>false));
+                    $builder->add('published', null, array('required'=>false));
                 }
                 $builder->add('file');
 	}

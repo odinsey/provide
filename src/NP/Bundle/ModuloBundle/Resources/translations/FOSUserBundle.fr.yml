@@ -43,3 +43,4 @@ form.password: 'Mot de passe :'
 form.password_confirmation: 'Vérification :'
 form.new_password: 'Nouveau mot de passe :'
 form.new_password_confirmation: 'Vérification :'
+

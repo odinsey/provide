@@ -1,0 +1,6 @@
+{% block customfile_widget %}
+{% spaceless %}
+    <a href="{{ filepath }}" title="" target="_blank">{{ filepath }}</a><br/>
+    <input type="file" {{ block('widget_attributes') }} value="{{ value }}" />
+{% endspaceless %}
+{% endblock customfile_widget %}

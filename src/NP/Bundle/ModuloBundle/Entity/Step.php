@@ -56,7 +56,7 @@ class Step {
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Event", inversedBy="steps")
+     * @ORM\ManyToOne(targetEntity="Event", inversedBy="steps", cascade={"all"} )
      * @ORM\JoinColumn(onDelete="SET NULL")
      *
      * @var Event
@@ -64,7 +64,7 @@ class Step {
     private $event;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Picture", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="Picture", cascade={"all"}, orphanRemoval=true)
      * @ORM\JoinTable(name="step_picture",
      *      joinColumns={@ORM\JoinColumn(name="step_id", referencedColumnName="id", onDelete="CASCADE")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="picture_id", referencedColumnName="id", onDelete="CASCADE")}
@@ -75,6 +75,7 @@ class Step {
 
     public function __construct() {
 	$this->pictures = new ArrayCollection();
+        $this->published = false;
     }
 
     /*
@@ -171,9 +172,8 @@ class Step {
      * @param Picture $picture
      */
     public function addPicture(Picture $picture) {
-	if (!$this->pictures->contains($picture) && $picture->getFile() ) {
-            $picture->setParent($this);
-            $picture->setPath( str_replace('/upload/', '/upload/sortie-'.$this->getEvent()->getId().'/', $picture->getPath()) );
+        $picture->setParent($this);
+	if (!$this->pictures->contains($picture) ) {
 	    $this->pictures->add($picture);
 	}
     }

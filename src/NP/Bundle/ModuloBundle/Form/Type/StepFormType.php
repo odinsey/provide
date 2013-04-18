@@ -5,7 +5,7 @@ namespace NP\Bundle\ModuloBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use NP\Bundle\EventBundle\Form\Type\PictureFormType;
+use NP\Bundle\ModuloBundle\Form\Type\PictureFormType;
 
 class StepFormType extends AbstractType {
         private $isGranted;
@@ -15,16 +15,14 @@ class StepFormType extends AbstractType {
         }
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
-		$builder->add('title', null, array('label' => 'Nom'))
-                        ->add('date', 'date', array('label' => 'Date'))
-			->add('description', 'richeditor', array('label' => 'Description'));
+		$builder->add('title')
+			->add('description', 'richeditor');
 
                 if($this->isGranted){
-                    $builder->add('published', null, array('label' => 'Publié'));
+                    $builder->add('published', null, array('required'=>false));
                 }
                 $builder->add('pictures', 'picture_collection', array(
 				'type' => new PictureFormType(),
-                                'label' => 'Photos',
 				'allow_add' => true,
 				'allow_delete' => true,
 				'by_reference' => false,

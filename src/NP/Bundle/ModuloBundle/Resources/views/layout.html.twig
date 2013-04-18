@@ -1,0 +1,11 @@
+{% trans_default_domain "CmsAdminBundle" %}
+{% extends 'NPAdminBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+	{% stylesheets filter='cssrewrite'
+		'@NPModuloBundle/Resources/public/css/admin.css'
+	%}
+	<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+{% endblock %}
