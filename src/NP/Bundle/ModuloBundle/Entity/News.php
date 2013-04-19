@@ -10,10 +10,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * News
  *
- * @ORM\Table("news", uniqueConstraints={
- *  @ORM\UniqueConstraint(name="versionnable_idx", columns={"id", "revision"})})
+ * @ORM\Table("news")
  * @ORM\Entity(repositoryClass="NewsRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class News {
     use TimestampableEntity;
@@ -56,19 +54,23 @@ class News {
 
     /**
      * @ORM\Column(type="integer")
-     * @ORM\Version
      */
     protected $revision;
+    /**
+     * @ORM\ManyToOne(targetEntity="News", inversedBy="revisions")
+     * @ORM\JoinColumn(name="master_id")
+     *
+     * @var integer
+     */
+    protected $master;
+
 
     /**
-     * @ORM\OneToMany(targetEntity="News", mappedBy="news")
+     * @ORM\OneToMany(targetEntity="News", mappedBy="master")
+     *
+     * @var ArrayCollection
      */
-    private $newsLog = array();
-
-    /**
-     * @ORM\ManyToOne(targetEntity="News", inversedBy="newsLog")
-     */
-    private $news;
+    protected $revisions;
 
     /**
      * @ORM\ManyToMany(targetEntity="Picture", cascade={"all"}, orphanRemoval=true)
@@ -80,31 +82,10 @@ class News {
      */
     protected $pictures;
 
-    public function __construct($news = null) {
+    public function __construct() {
         $this->pictures = new ArrayCollection();
-        $this->newsLog = new ArrayCollection();
+        $this->revisions = new ArrayCollection();
         $this->revision = 0;
-        if( $news instanceof News ){
-            $this->news = $news;
-            $this->title = $news->getTitle();
-            $this->description = $news->getDescription();
-            $this->revision = $news->getRevision();
-            $this->position = $news->getPosition();
-            $this->published = $news->getPublished();
-            $this->pictures = $news->getPictures();
-        }
-    }
-
-    public function __clone() {
-    }
-
-    /**
-     * @ORM\PreUpdate
-     * @ORM\PrePersist
-     */
-    public function oldVersion()
-    {
-        $this->newsLog[] = new News($this);
     }
 
     /*
@@ -112,6 +93,48 @@ class News {
      */
     public function __toString() {
         return (string) $this->title;
+    }
+
+    public function __clone() {
+        $this->master = $this->id;
+        $this->id = null;
+    }
+    /**
+     * Add revision
+     *
+     * @param \NP\Bundle\ModuloBundle\Entity\News $revision
+     */
+    public function addRevision(News $revision) {
+        if (!$this->revisions->contains($revision)) {
+            $revision->setMaster($this);
+            $this->revisions->add($revision);
+        }
+    }
+
+    /**
+     * Remove revision
+     *
+     * @param \NP\Bundle\ModuloBundle\Entity\News $revision
+     */
+    public function removeRevision(News $revision) {
+        if ($this->revisions->contains($revision)) {
+            $this->revisions->removeElement($revision);
+        }
+    }
+
+    public function getRevisions()
+    {
+        return $this->revisions;
+    }
+
+    public function setMaster($master){
+        $this->master = $master;
+
+        return $this;
+    }
+
+    public function getMaster(){
+        return $this->master;
     }
 
     /**

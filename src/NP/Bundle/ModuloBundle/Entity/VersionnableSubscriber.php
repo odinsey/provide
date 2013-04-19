@@ -7,6 +7,7 @@ use Doctrine\ORM\Events;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\DependencyInjection\Container;
 
 class VersionnableSubscriber implements EventSubscriber {
 
@@ -27,12 +28,19 @@ class VersionnableSubscriber implements EventSubscriber {
         $entity = $args->getEntity();
         $em = $args->getEntityManager();
         $uow = $em->getUnitOfWork();
-        $new = clone $entity;
 
-        $new->setRevision($entity->getRevision()+1);
+        if(method_exists($entity, 'getRevision')){
+            $old = clone $entity;
+            foreach($args->getEntityChangeSet() as $field => $value ){
+                $old->{'set'.Container::camelize($field)}($value[0]);
+            }
 
-        $uow->detach($entity);
-        $uow->persist($new);
+            //$em->flush();
+            $class = $em->getClassMetadata(get_class($old));
+
+            $em->persist( $old );
+            $em->getUnitOfWork()->computeChangeSet($class, $old);
+        }
     }
 }
 
