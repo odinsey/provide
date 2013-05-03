@@ -7,7 +7,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use NP\Bundle\ModuloBundle\Util\Urlizer;
 use Symfony\Component\Filesystem\Filesystem;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -47,14 +46,6 @@ class Event {
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="state", type="text")
-     * @Assert\Choice(callback = "getStatesKeys")
-     */
-    private $state;
 
     /**
      * @var string
@@ -100,7 +91,7 @@ class Event {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published;
+    private $published = 0;
 
     /**
      * @ORM\OneToMany(targetEntity="Step", mappedBy="event", cascade={"all"}, orphanRemoval=true)

@@ -12,6 +12,7 @@ class GalleryFormHandler extends BaseEntityFormHandler {
 
     protected function postSave(FormInterface $form, ContainerAwareInterface $controller) {
         if (!$controller->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $form->getData()->setPublished(false);
             $fields = array('title'=>'title','description'=>'description','pictures'=>'pictures');
 
             $message = \Swift_Message::newInstance()

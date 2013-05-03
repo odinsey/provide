@@ -11,7 +11,8 @@ class PictureFormType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder
 			->add('title', 'text', array('required'=>false))
-			->add('file', null, array('required' => false));
+			->add('file', null, array('required' => false))
+			->add('position', 'hidden', array('required' => false));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {

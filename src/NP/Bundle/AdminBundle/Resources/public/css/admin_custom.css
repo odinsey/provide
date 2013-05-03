@@ -1,3 +1,8 @@
 .navbar .brand {
     margin-left: 0;
 }
+
+label[for$=published] {
+    display: inline;
+    padding-right: 5px;
+}

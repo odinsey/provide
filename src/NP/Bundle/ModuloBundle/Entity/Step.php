@@ -52,7 +52,7 @@ class Step {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published;
+    private $published = 0;
 
 
     /**
@@ -75,7 +75,6 @@ class Step {
 
     public function __construct() {
 	$this->pictures = new ArrayCollection();
-        $this->published = false;
     }
 
     /*

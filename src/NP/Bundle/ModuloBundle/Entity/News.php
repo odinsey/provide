@@ -44,7 +44,7 @@ class News {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published;
+    private $published = 0;
 
     /**
      * @Gedmo\SortablePosition
@@ -60,7 +60,7 @@ class News {
      * @ORM\ManyToOne(targetEntity="News", inversedBy="revisions")
      * @ORM\JoinColumn(name="master_id")
      *
-     * @var integer
+     * @var News
      */
     protected $master;
 
@@ -75,8 +75,8 @@ class News {
     /**
      * @ORM\ManyToMany(targetEntity="Picture", cascade={"all"}, orphanRemoval=true)
      * @ORM\JoinTable(name="news_picture",
-     *      joinColumns={@ORM\JoinColumn(name="news_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="picture_id", referencedColumnName="id")}
+     *      joinColumns={@ORM\JoinColumn(name="news_id", referencedColumnName="id", onDelete="CASCADE")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="picture_id", referencedColumnName="id", onDelete="CASCADE")}
      * )
      * @ORM\OrderBy({"position" = "ASC"})
      */

@@ -60,6 +60,7 @@ class Category {
 
     public function __construct() {
         $this->resources = new ArrayCollection();
+        $this->published = 0;
     }
 
     /*

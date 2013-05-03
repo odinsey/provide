@@ -1,7 +1,7 @@
 parameters:
     np_modulo.service.upload: NP\Bundle\ModuloBundle\Service\UploadService
     np_modulo.subscriber.upload: NP\Bundle\ModuloBundle\Entity\UploadSubscriber
-    np_modulo.subscriber.versionnable: NP\Bundle\ModuloBundle\Entity\VersionnableSubscriber
+#    np_modulo.subscriber.versionnable: NP\Bundle\ModuloBundle\Entity\VersionnableSubscriber
 
 services:
     np_modulo.service.upload:
@@ -13,6 +13,6 @@ services:
         arguments: [@np_modulo.service.upload]
         tags: [{ name: doctrine.event_subscriber }]
 
-    np_modulo.subscriber.versionnable:
-        class: %np_modulo.subscriber.versionnable%
-        tags: [{ name: doctrine.event_subscriber }]
+#    np_modulo.subscriber.versionnable:
+#        class: %np_modulo.subscriber.versionnable%
+#        tags: [{ name: doctrine.event_subscriber }]
