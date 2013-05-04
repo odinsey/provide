@@ -59,7 +59,7 @@ class Resources {
 	 *
 	 * @ORM\Column(name="published", type="boolean")
 	 */
-	private $published = 0;
+	private $published = false;
 	/**
 	 * @Gedmo\SortablePosition
 	 * @ORM\Column(name="position", type="integer")

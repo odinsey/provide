@@ -91,7 +91,7 @@ class Event {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published = 0;
+    private $published = false;
 
     /**
      * @ORM\OneToMany(targetEntity="Step", mappedBy="event", cascade={"all"}, orphanRemoval=true)
@@ -302,6 +302,27 @@ class Event {
 	$this->extension = $extension;
 
 	return $this;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Event
+     */
+    public function setPosition($position) {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
+    public function getPosition() {
+        return $this->position;
     }
 
 

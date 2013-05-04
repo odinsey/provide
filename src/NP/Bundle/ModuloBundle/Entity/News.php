@@ -44,7 +44,7 @@ class News {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published = 0;
+    private $published = false;
 
     /**
      * @Gedmo\SortablePosition
@@ -55,7 +55,7 @@ class News {
     /**
      * @ORM\Column(type="integer")
      */
-    protected $revision;
+    protected $revision = 0;
     /**
      * @ORM\ManyToOne(targetEntity="News", inversedBy="revisions")
      * @ORM\JoinColumn(name="master_id")
@@ -85,7 +85,6 @@ class News {
     public function __construct() {
         $this->pictures = new ArrayCollection();
         $this->revisions = new ArrayCollection();
-        $this->revision = 0;
     }
 
     /*
@@ -276,8 +275,8 @@ class News {
      * @param \NP\Bundle\ModuloBundle\Entity\Picture $picture
      */
     public function addPicture(Picture $picture) {
-        $picture->setParent($this);
         if (!$this->pictures->contains($picture)) {
+			$picture->setParent($this);
             $this->pictures->add($picture);
         }
     }

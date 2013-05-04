@@ -45,7 +45,7 @@ class Gallery {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published = 0;
+    private $published = false;
 
     /**
      * @Gedmo\SortablePosition
@@ -180,8 +180,8 @@ class Gallery {
      * @param \NP\Bundle\ModuloBundle\Entity\Picture $picture
      */
     public function addPicture(Picture $picture) {
-        $picture->setParent($this);
         if (!$this->pictures->contains($picture)) {
+			$picture->setParent($this);
             $this->pictures->add($picture);
         }
     }

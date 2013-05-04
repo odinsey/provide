@@ -44,7 +44,7 @@ class Category {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published;
+    private $published = false;
 
     /**
      * @Gedmo\SortablePosition
@@ -60,7 +60,6 @@ class Category {
 
     public function __construct() {
         $this->resources = new ArrayCollection();
-        $this->published = 0;
     }
 
     /*

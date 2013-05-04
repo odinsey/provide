@@ -35,11 +35,4 @@ class FileCollectionType extends AbstractType {
 		return 'file_collection';
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getDefaultOptions(array $options) {
-		return array();
-	}
-
 }
