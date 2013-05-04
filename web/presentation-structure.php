@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-presentation.txt'; 
+                            include 'sous-menus/sous-menus-presentation.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,62 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    STRUCTURE
+                    Structure et Horaires
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+<h2>Structure</h2>
+<p>Le Collège La Providence est un établissement catholique d’enseignement sous contrat d’association avec l’Etat.</p>
+<ul>
+	<li>Il possède 16 classes - 4 classes par niveau.</li>
+    <li>Plus de trente d’enseignants y travaillent.</li>
+</ul>
+<h2>Horaires</h2>   
+
+<p class="bold">Les élèves ont cours :</p>
+<ul>
+	<li>Les lundi, mardi, jeudi et vendredi de 8h05 à 12h00 et de 13h35 à 16h35.</li>
+    <li>Le mercredi de 8h05 à 12h00 s’ils sont en 4ème ou 3ème.</li>
+</ul>
+
+<p class="bold">Déjeuner - horaire du Self</p>
+<ul>
+	<li>Le self est ouvert les lundi, mardi, jeudi et vendredi midis de 12h00 à 13h35.</li>
+    <li>Si l’enfant n’y mange pas de façon régulière, il est possible de déjeuner de façon exceptionnelle en achetant un ticket (à retirer à l’accueil).</li>
+</ul>    
+
+<p class="bold">Horaires de l’accueil, du secrétariat et la comptabilité</p>
+
+<table class="tablo-mini tablo-moyen">
+	<tr>
+    	<td>&nbsp;</td>
+        <th>Accueil</th>
+        <th>Secrétariat</th>
+        <th>Comptabilité</th>
+    </tr>
+    <tr>
+	    <td>Lundi, mardi, jeudi, vendredi</td>
+	    <td>07h45 - 18h00</td>
+        <td>09h00 – 12h00<br />13h30 – 17h30</td>
+        <td>08h30 – 13h45<br />14h30 – 17h30</td>
+	</tr>
+    <tr>
+    	<td>Mercredi</td>
+        <td>07h45 - 17h30<br />08h00 – 12h00</td>
+        <td>13h30 – 17h30<br />08h00 – 12h00</td>
+	</tr>
+</table>            
+
+<p class="bold">Les études du soir :</p>
+<ul>
+	<li>Elles se déroulent les lundi, mardi, jeudi et vendredi de 16h45 à 18h00.</li>
+    <li>Elles existent sous deux formes : études encadrées et étude surveillé. Pour en savoir plus.</li>
+</ul>    
+
+
+
+                        
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-presentation.txt'; 
+                            include 'sous-menus/sous-menus-presentation.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,40 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    EQUIPEMENT
+                    Equipements
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+<p>Le collège possède en particulier :</p>
+<ul>
+	<li>2 salles dédiées à l’informatique dont une est également un laboratoire multimédia dédiée à l’apprentissage des langues.</li>
+    <li>Un CDI (Centre de Documentation et d’Information) ouvert les lundis, mardis, jeudis et vendredis jusqu’à 18h00.</li>
+    <li>Un BDI (Bureau de Documentation et d’Information) qui constitue une ressource très importante pour l’orientation des élèves. Le BDI est animé par des Bénévoles de l’APEL. Ces bénévoles ont au préalable suivi une formation spécifique.</li>
+    <li>1 laboratoire de Sciences, doté d’un tableau Blanc Interactif (TBI) auquel est reliée également une caméra (pour une meilleure vision des expériences faites par le professeur) et de 12 postes en réseau.</li>
+    <li>Un laboratoire de Technologie, organisé par pôles, possédant un TBI et 12 postes en réseau, ainsi que d’une machine numérique.</li>
+    <li>Une salle de Musique, dotée également d’un TBI ainsi que tout le matériel HiFi nécessaire.</li>
+    <li>Une salle d’Arts Plastiques, dotée d’ordinateurs portables et d’un vidéoprojecteur.</li>
+    <li>Une salle d’Histoire-Géographie avec un TBI.</li>
+</ul>
+
+<p>Au total le collège possède donc 4 TBI.</p>
+<p>De plus, toutes nos autres salles de classes sont :</p>
+<ul>
+	<li>Soit équipées de vidéoprojecteurs avec du matériel de sonorisation (6 salles équipées)</li>
+    <li>Soit de vidéoprojecteurs interactifs, dotés d'enceintes également (11 salles équipées)</li>
+</ul>
+<p>Ceci afin de permettre la meilleure utilisation pédagogique possible des Nouvelles Technologies, conformément à notre projet d’établissement.</p>
+
+<p>Nous avons également : </p>
+<ul>
+	<li>La salle Théophile, pour la Pastorale</li>
+    <li>Une salle polyvalente qui peut accueillir 250 personnes,</li>
+    <li>Et enfin un self ouvert de 11h45 à 13h35.</li>
+</ul>    
+
+                        
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>
