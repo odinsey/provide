@@ -28,7 +28,7 @@ twig:
         resources:
              - 'CmsAdminBundle:Form:fields.html.twig'
              - 'CmsAdminBundle:Form:collection.html.twig'
-             - 'NPAdminBundle:Form:fields.html.twig'
+             - 'NPAdminBundle:Form:custom_fields.html.twig'
 
 # Assetic Configuration
 assetic:

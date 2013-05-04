@@ -29,6 +29,7 @@ event.flash.success.edit: 'Sortie modifiée avec succès'
 event.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
 event.flash.error.new: 'Une erreur est survenue, aucune sortie n''a été créée'
 event.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+event.flash.success.group.order: Les sorties scolaires ont été ordonnées
 event.form.status.ended: Terminé
 event.form.status.during: En cours
 event.form.status.futur: A venir
@@ -49,6 +50,7 @@ news.flash.success.unpublish: 'Actualité masquée avec succès'
 news.flash.success.group.publish: 'Actualité(s) publiée(s) avec succès'
 news.flash.success.group.unpublish: 'Actualité(s) masquée(s) avec succès'
 news.flash.success.group.delete: 'Actualité(s) supprimée(s) avec succès'
+news.flash.success.group.order: Les actualités ont été ordonnées
 news.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
 news.flash.error.new: 'Une erreur est survenue, aucune actualité n''a été créée'
 news.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
@@ -65,6 +67,7 @@ category.flash.success.edit: 'Groupe de fichiers modifié avec succès'
 category.flash.error.delete: 'Une erreur est survenue pendant la suppression.'
 category.flash.error.new: 'Une erreur est survenue, aucun fichier n''a été créé'
 category.flash.error.edit: 'Une erreur est survenue pendant la modification, veuillez vérifier les champs.'
+category.flash.success.group.order: Les groupe de fichiers ont été ordonnés
 category.new.title: 'Nouveau groupe de fichiers'
 category.index.title: 'Liste des groupes de fichiers'
 category.edit.title: 'Edition du groupe de fichiers'

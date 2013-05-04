@@ -52,7 +52,7 @@ class Step {
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published = 0;
+    private $published = false;
 
 
     /**

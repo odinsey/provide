@@ -41,10 +41,10 @@ class UploadSubscriber implements EventSubscriber {
     public function postPersist(LifecycleEventArgs $args) {
         $entity = $args->getEntity();
         if ($entity instanceof Picture) {
-            $entity->buildPath();
-            $args->getEntityManager()->persist($entity);
-            $args->getEntityManager()->flush();
             if ($entity->getFile() instanceof File) {
+				$entity->buildPath();
+				$args->getEntityManager()->persist($entity);
+				$args->getEntityManager()->flush();
                 $this->upload_service->uploadFile($entity->getWebPath(), $entity->getFile());
             }
         }

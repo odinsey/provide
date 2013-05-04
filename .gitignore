@@ -8,9 +8,7 @@ vendor/*
 web/uploads/*
 web/upload/*
 web/bundles/*
-www/bundles/*
-www/uploads/*
-www/upload/*
+web/js
 
 */.AppleDoubl*
 # Configuration files

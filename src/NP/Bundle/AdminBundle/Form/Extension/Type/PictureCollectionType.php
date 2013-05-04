@@ -34,11 +34,4 @@ class PictureCollectionType extends AbstractType {
 		return 'picture_collection';
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getDefaultOptions(array $options) {
-		return array();
-	}
-
 }

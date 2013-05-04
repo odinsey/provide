@@ -42,10 +42,9 @@ class Picture {
     private $title;
 
     /**
-     * @Gedmo\SortablePosition
-     * @ORM\Column(name="position", type="integer")
+     * @ORM\Column(name="position", type="integer", nullable=true)
      */
-    private $position;
+    private $position = 0;
 
     /**
      * @Assert\File(maxSize="5M")
@@ -71,7 +70,7 @@ class Picture {
      * @return string
      */
     public function __toString() {
-	return $this->title ? $this->title : $this->path.'.'.$this->extension;
+		return $this->title ? $this->title : $this->path.'.'.$this->extension;
     }
 
     /**
@@ -143,10 +142,9 @@ class Picture {
      * @return string
      */
     public function getFile() {
-	return $this->file;
+		return $this->file;
     }
-
-
+	
     public function setPath($path){
         $this->path = $path;
     }
@@ -170,20 +168,19 @@ class Picture {
  *                          UPLOAD FILE PART
  */
     public function buildPath(){
-        $this->path = '/upload/'.$this->getFolderName().'/'.$this->getFileName();
-        if ($this->parent instanceof Step) {
-            $this->path = str_replace('/upload/', '/upload/sortie-'.$this->parent->getEvent()->getId().'/', $this->path);
-        }
+		$this->path = '/upload/'.$this->getFolderName().'/'.$this->getFileName();
+		if ($this->parent instanceof Step) {
+			$this->path = str_replace('/upload/', '/upload/sortie-'.$this->parent->getEvent()->getId().'/', $this->path);
+		}
     }
 
     public function getFileName() {
-	return sprintf('img-%s-%d.%s', '##TYPE##', $this->id, $this->getFile()->getClientOriginalExtension());
+		return sprintf('img-%s-%d.%s', '##TYPE##', $this->id, $this->getFile()->getClientOriginalExtension());
     }
 
     public function getFolderName() {
-        $parent = $this->getParent();
-        $class = explode('\\',get_class($parent));
-	return sprintf('%s-%d', strtolower(end($class)), $parent->getId());
+        $class = explode('\\',get_class($this->getParent()));
+		return sprintf('%s-%d', strtolower(end($class)), $this->getParent()->getId());
     }
 
 }
