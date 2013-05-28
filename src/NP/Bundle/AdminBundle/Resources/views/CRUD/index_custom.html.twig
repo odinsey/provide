@@ -1,0 +1,49 @@
+{% extends 'CmsAdminBundle:CRUD:index.html.twig' %}
+{% trans_default_domain 'CmsAdminBundle' %}
+
+{% block index_bashactions_item %}
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+	<td class="groupCheckbox"><input type="checkbox" name="ids[]" value="{{ entity.id }}" /></td>
+{% endif %}
+{% endblock %}
+	    
+{% block index_list_head %}
+<thead>
+	<tr>
+	{% if is_granted('ROLE_SUPER_ADMIN') %}
+		<th class="groupCheckbox"><input type="checkbox" /></th>
+	{% endif %}
+	{% block index_list_head_cols %}
+		<th>{{ 'global.index.name'|trans }}</th>
+		{% block index_list_head_publish %}
+			{% if route_publish is defined  %}
+				{% set nb_cols = nb_cols + 1 %}
+		<th>{{ 'global.index_crud.published'|trans }}</th>
+			{% endif %}
+		{% endblock %}
+	{% endblock %}
+		<th>{{ 'global.index_crud.actions'|trans }}</th>
+	</tr>
+</thead>
+{% endblock %}	    
+{% block index_list_items_actions %}
+<td class="items-actions">
+	<a class="btn btn-mini btn-primary" href="{{ path(route_edit, { 'id': entity.id }) }}" title="{{ 'global.form_action.edit'|trans }}">{{ 'global.form_action.edit'|trans }}</a>
+	{% if route_publish is defined and is_granted('ROLE_SUPER_ADMIN')  %}
+	<a class="btn btn-mini btn-primary" href="{{ path(route_publish, { 'id': entity.id }) }}" title="{{ 'global.form_action.publish_toggle'|trans }}">
+		{{ 'global.form_action.publish_toggle'|trans }}
+	</a>
+	{% endif %}
+</td>
+{% endblock %}
+
+
+{% block index_list_bashactions %}
+	{% if is_granted('ROLE_SUPER_ADMIN') %}
+	<div>
+		{{ form_widget(groupForm.action) }}
+		{{ form_rest(groupForm) }}
+		<input class="btn" type="submit" value="{{ 'global.index_crud.group_action.submit'|trans }}" />
+	</div>
+	{% endif %}
+{% endblock %}

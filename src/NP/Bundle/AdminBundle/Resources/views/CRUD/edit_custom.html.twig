@@ -1,0 +1,10 @@
+{% extends 'CmsAdminBundle:CRUD:edit.html.twig' %}
+{% trans_default_domain 'CmsAdminBundle' %}
+
+    {% block form_actions_list %}
+	{% if is_granted('ROLE_SUPER_ADMIN') == false  %}
+		    <input type="submit" class="btn btn-primary" value="{{ 'global.form_action.update'|trans }}">
+	{% else %}
+		  {{  parent() }}
+	{% endif %}
+    {% endblock %}
