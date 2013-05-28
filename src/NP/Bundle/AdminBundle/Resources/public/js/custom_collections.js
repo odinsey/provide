@@ -2,6 +2,9 @@ jQuery(document).ready(function() {
     jQuery('.form-horizontal .entity-collections .collection-field-row:before').css({
         'content': jQuery('input:first', this).val()
     });
+    jQuery('.add-collection-row:last').on('click',function(){
+	ajax_init_TinyMCE();
+    });
 });
 /************
  DEBUT DU SCRIPT POUR LE DRAG'N'DROP

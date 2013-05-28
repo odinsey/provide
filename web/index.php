@@ -120,6 +120,8 @@ if( $results ){
             <div class="suite-actualite">
                 <?php echo substr($row['description'], strpos($row['description'],'</p>')+4) ?>
             </div>
+	    <?php }else{ ?>
+	    <div class="actu-vide"></div>
 	    <?php } ?>
             <br class="clearer" />
         </div>

@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -85,23 +85,32 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 
-$events = 'SELECT * FROM event as e WHERE e.published = 1 ORDER BY e.position';
-$event_steps = 'SELECT * FROM step as s WHERE s.event_id = :id';
+$events = 'SELECT * FROM event as e WHERE e.published = 1 ORDER BY e.start';
+$event_steps = 'SELECT * FROM step as s WHERE s.event_id = :id AND s.published = 1 ORDER BY s.date';
 $step_pictures = 'SELECT p.* FROM step_picture as sp, picture as p WHERE p.id = sp.picture_id AND sp.step_id = :id ORDER BY p.position';
 
 $results = $pdo->query($events);
 if( $results ){
 while ($row = $results->fetch()) { ?>
-    <div class="paragrapheOnOff"><?php echo $row['title'].' ('.time()<$row['start']?'à venir':time()>$row['stop']? 'terminé' : 'en cours...)'; ?></div>
+    <div class="paragrapheOnOff"><?php echo $row['title'].' (';
+    if(time()<strtotime($row['start'])){
+	echo 'à venir';
+    }else if(time()>strtotime($row['stop'])){
+	echo 'terminé';
+    }else{
+	echo 'en cours...';
+    }
+    echo ')';     
+    ?></div>
         <div class="accordeon">
             <div class="voyage-gauche">
                 <?php if($row['path']){
-                    $filepath = '/upload/sortie/'.$row['path'] ?>
+                    $filepath = '/upload/sortie/sortie-'.$row['id'].'/'.$row['path'] ?>
                     <a href="<?php echo $filepath; ?>" onclick="window.open('<?php echo $filepath ?>');return false">
                         <img src="images/PDF.png" alt="<?php echo $row['title'] ?>" width="50" height="77" /></a>
                 <?php } ?>
             </div>
-            <div class="voyage-droite"><?php echo $row['description'] ?></div>
+            <div class="voyage-droite"><?php echo $row['description']; ?></div>
             <br class="clearer" />
         <?php
         $steps = $pdo->prepare($event_steps);

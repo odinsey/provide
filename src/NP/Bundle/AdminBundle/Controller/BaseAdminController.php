@@ -15,8 +15,10 @@ class BaseAdminController extends CmsBaseAdminController {
 	}
 
 	protected function buildController() {
+		$this->template_index = 'NPAdminBundle:CRUD:index_custom.html.twig';
+		$this->template_edit = 'NPAdminBundle:CRUD:edit_custom.html.twig';
 		parent::buildController();
-
+		
 		$this->route_publish = ($this->route_publish != 'cms_foo_admin_foo_publish_toggle')
 				? $this->route_publish
 				: $this->route_prefix . '_' . $this->translation_prefix . '_publish_toggle';
