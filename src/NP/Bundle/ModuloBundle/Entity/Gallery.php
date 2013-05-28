@@ -46,6 +46,8 @@ class Gallery {
      * @ORM\Column(name="published", type="boolean")
      */
     private $published = false;
+    
+    public $scheduled_for_unpublish = false;
 
     /**
      * @Gedmo\SortablePosition

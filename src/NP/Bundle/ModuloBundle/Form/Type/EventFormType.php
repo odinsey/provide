@@ -18,26 +18,8 @@ class EventFormType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
 
-        $builder->add('title')
-                ->add('description', 'richeditor')
-                ->add('file', 'customfile', array('required' => false))
-                ->add('start', 'date')
-                ->add('stop', 'date');
-        if ($this->isGranted) {
-            $builder->add('published', null, array('required'=>false));
-        }
-
-        $builder->add('steps', 'collection', array(
-            'type' => new StepFormType($this->isGranted),
-            'allow_add' => true,
-            'allow_delete' => true,
-            'by_reference' => false,
-            'attr' => array('class' => 'entity-collections sortable'),
-            //label for each team form type
-            'options' => array(
-                'attr' => array('class' => 'entity-collection')
-            ))
-        );
+	$builder->addEventSubscriber(new EventFieldSubscriber($this->isGranted));
+        
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {

@@ -29,6 +29,9 @@ text-decoration:none;
         <TR>
           <TD><h1>{{ title }}</h1></TD>
         </TR>
+        <TR>
+          <TD><p>Modifié par {{ user }}</p></TD>
+        </TR>
       </TABLE>
       <br>
     </td>
@@ -63,7 +66,7 @@ text-decoration:none;
                     {% for step in attribute(entity, field) %}
                         <h2>Etapes</h2>
                         <p>{% if step.title is defined %}<b>{{ 'Title'|trans }}</b> : {{ step.title }}<br/>{% endif %}</p>
-                        <p>{% if step.date is defined %}<b>{{ 'Date'|trans }}</b> : {{ step.date }}<br/>{% endif %}</p>
+                        <p>{% if step.date is defined %}<b>{{ 'Date'|trans }}</b> : {{ step.date|date("d/m/Y") }}<br/>{% endif %}</p>
                         <div>{% if step.description is defined %}<b>{{ 'Description'|trans }}</b> : {{ step.description|raw }}<br/>{% endif %}</div>
                         <ul>
                           {% for file in step.pictures %}

@@ -12,17 +12,25 @@ class CategoryFormHandler extends BaseEntityFormHandler {
 
     protected function postSave(FormInterface $form, ContainerAwareInterface $controller) {
         if( !$controller->get('security.context')->isGranted('ROLE_SUPER_ADMIN') ){
-            $form->getData()->setPublished(false);
+	    $admins = $controller->get('fos_user.user_manager')->findUsers();
+	    $mails = array();
+	    foreach( $admins as $admin ){
+		if( in_array('ROLE_SUPER_ADMIN', $admin->getRoles() ) ){
+		    $mails[] = $admin->getEmail();
+		}
+	    }
+	    $form->getData()->setPublished(false);
+	    
             $fields = array('title'=>'title','description'=>'description','resources'=>'resources');
-
             $message = \Swift_Message::newInstance()
-                    ->setSubject('['.$_SERVER['HTTP_HOST'].'] - Modération de contenu')
+                    ->setSubject('Modération de contenu')
                     ->setFrom('root@localhost')
-                    ->setTo('nicolas.pajon@gmail.com')
+		    ->setTo($mails)
                     ->setBody(
                             $controller->renderView(
                                     'NPModuloBundle::email.html.twig', array(
-                                        'title' => '['.$_SERVER['HTTP_HOST'].'] - Modération de contenu',
+                                        'title' => 'Modération de contenu',
+					'user' => $controller->get('security.context')->getToken()->getUser()->getUsername(),
                                         'entity' => $form->getData(),
                                         'fields' => $fields,
                                         'route_edit' => 'np_modulo_admin_category_edit'

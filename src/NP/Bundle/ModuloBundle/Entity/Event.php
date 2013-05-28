@@ -93,6 +93,8 @@ class Event {
      */
     private $published = false;
 
+    public $scheduled_for_unpublish = false;
+    
     /**
      * @ORM\OneToMany(targetEntity="Step", mappedBy="event", cascade={"all"}, orphanRemoval=true)
      * @ORM\OrderBy({"date" = "ASC"})
