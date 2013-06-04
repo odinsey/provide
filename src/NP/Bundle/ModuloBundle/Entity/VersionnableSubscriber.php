@@ -11,82 +11,96 @@ use Symfony\Component\DependencyInjection\Container;
 class VersionnableSubscriber implements EventSubscriber {
 
     protected $container;
-    
+
     /**
      * Constructor
      *
      */
     public function __construct($container) {
-        $this->container = $container;
+	$this->container = $container;
     }
 
     public function getSubscribedEvents() {
-        return array(
-            Events::preUpdate,
+	return array(
+	    Events::preUpdate,
 	    Events::onFlush
-        );
+	);
     }
 
     public function preUpdate(PreUpdateEventArgs $args) {
-        $entity = $args->getEntity();
-        $em = $args->getEntityManager();
-        $uow = $em->getUnitOfWork();
+	$entity = $args->getEntity();
+	$em = $args->getEntityManager();
+	$uow = $em->getUnitOfWork();
 	$securityContext = $this->container->get('security.context');
 
-	if( 
-	    !$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') && 
-	    method_exists($entity, 'setPublished') 
-	   ){
-	    if	(
-		    (
-			$entity instanceof Event ||
-			$entity instanceof Step ||
-			$entity instanceof News ||
-			$entity instanceof Gallery ||
-			$entity instanceof Category ||
-			$entity instanceof Resources
-		    )
-		    && 
-		    (
-			$args->hasChangedField('title') ||
-			$args->hasChangedField('description') ||
-			$args->hasChangedField('start')  ||
-			$args->hasChangedField('stop')  ||
-			$args->hasChangedField('date')
-		    )
-		){
-		$entity->setPublished(false);		
-	    }   
-        }
-    }   
+	if (
+	    !$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') &&
+	    method_exists($entity, 'setPublished')
+	) {
+	    if (
+		(
+		$entity instanceof Event ||
+		$entity instanceof Step ||
+		$entity instanceof News ||
+		$entity instanceof Gallery ||
+		$entity instanceof Category ||
+		$entity instanceof Resources
+		) &&
+		(
+		$args->hasChangedField('title') ||
+		$args->hasChangedField('description') ||
+		$args->hasChangedField('start') ||
+		$args->hasChangedField('stop') ||
+		$args->hasChangedField('date')
+		)
+	    ) {
+
+		$md = $em->getClassMetadata(get_class($entity));
+		$uow->scheduleExtraUpdate(
+		    $entity, array('published' => array($entity->getPublished(), false))
+		);
+		$uow->recomputeSingleEntityChangeSet($md, $entity);
+	    }
+	}
+    }
 
     public function onFlush(OnFlushEventArgs $args) {
-        $em = $args->getEntityManager();
-        $uow = $em->getUnitOfWork();
-	$securityContext = $this->container->get('security.context');	
+	$em = $args->getEntityManager();
+	$uow = $em->getUnitOfWork();
+	$securityContext = $this->container->get('security.context');
 	foreach ($uow->getScheduledEntityInsertions() AS $entity) {
-	    if(
-		!$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') && 
-		$entity instanceof Picture &&
-                method_exists($entity->getParent(), 'setPublished') 
-		){
-		    $entity->getParent()->setPublished(false);
-	    }
-        }
-
-        foreach ($uow->getScheduledEntityUpdates() AS $entity) {
-	    if(
-		!$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') && 
+	    if (
+		!$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') &&
 		$entity instanceof Picture &&
 		method_exists($entity->getParent(), 'setPublished')
-		){
-		    $entity->getParent()->setPublished(false);
+	    ) {
+		$md = $em->getClassMetadata(get_class($entity));
+		$uow->scheduleExtraUpdate(
+		    $entity->getParent(), array('published' => array($entity->getParent()->getPublished(), false))
+		);
+		$uow->recomputeSingleEntityChangeSet($md, $entity);
 	    }
-        }
-	
-        foreach ($uow->getScheduledCollectionUpdates() AS $col) {
-        }
+	}
+
+	foreach ($uow->getScheduledEntityUpdates() AS $entity) {
+	    if (
+		!$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') &&
+		$entity instanceof Picture &&
+		method_exists($entity->getParent(), 'setPublished')
+	    ) {
+		$md = $em->getClassMetadata(get_class($entity));
+		$uow->scheduleExtraUpdate(
+		    $entity->getParent(), array('published' => array($entity->getParent()->getPublished(), false))
+		);
+		$uow->recomputeSingleEntityChangeSet($md, $entity);
+	    }
+	}
+
+	foreach ($uow->getScheduledCollectionUpdates() AS $col) {
+	    
+	}
     }
+
 }
 
 ?>

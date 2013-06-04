@@ -18,46 +18,47 @@ class UploadSubscriber implements EventSubscriber {
      *
      */
     public function __construct(UploadService $upload_service) {
-        $this->upload_service = $upload_service;
+	$this->upload_service = $upload_service;
     }
 
     public function getSubscribedEvents() {
-        return array(
-            Events::postPersist,
-            Events::preUpdate,
-            Events::postRemove
-        );
+	return array(
+	    Events::postPersist,
+	    Events::preUpdate,
+	    Events::postRemove
+	);
     }
 
     public function preUpdate(PreUpdateEventArgs $args) {
-        $entity = $args->getEntity();
-        if ($entity instanceof Picture) {
-            if ($entity->getFile() instanceof File) {
-                $this->upload_service->uploadFile($entity->getWebPath(), $entity->getFile());
-            }
-        }
+	$entity = $args->getEntity();
+	if ($entity instanceof Picture) {
+	    if ($entity->getFile() instanceof File) {
+		$this->upload_service->uploadFile($entity->getWebPath(), $entity->getFile());
+	    }
+	}
     }
 
     public function postPersist(LifecycleEventArgs $args) {
-        $entity = $args->getEntity();
-        if ($entity instanceof Picture) {
-            if ($entity->getFile() instanceof File) {
-				$entity->buildPath();
-				$args->getEntityManager()->persist($entity);
-				$args->getEntityManager()->flush();
-                $this->upload_service->uploadFile($entity->getWebPath(), $entity->getFile());
-            }
-        }
+	$entity = $args->getEntity();
+	if ($entity instanceof Picture) {
+	    if ($entity->getFile() instanceof File) {
+		$entity->buildPath();
+		$args->getEntityManager()->persist($entity);
+		$args->getEntityManager()->flush();
+		$this->upload_service->uploadFile($entity->getWebPath(), $entity->getFile());
+	    }
+	}
     }
 
-    public function postRemove(LifecycleEventArgs $args){
-        $entity = $args->getEntity();
-        if ($entity instanceof Picture) {
-            if ($entity->getFile() instanceof File) {
-                $this->upload_service->removeFile($entity->getWebPath());
-            }
-        }
+    public function postRemove(LifecycleEventArgs $args) {
+	$entity = $args->getEntity();
+	if ($entity instanceof Picture) {
+	    if ($entity->getFile() instanceof File) {
+		$this->upload_service->removeFile($entity->getWebPath());
+	    }
+	}
     }
+
 }
 
 ?>

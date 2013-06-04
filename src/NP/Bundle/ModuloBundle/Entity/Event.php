@@ -92,8 +92,6 @@ class Event {
      * @ORM\Column(name="published", type="boolean")
      */
     private $published = false;
-
-    public $scheduled_for_unpublish = false;
     
     /**
      * @ORM\OneToMany(targetEntity="Step", mappedBy="event", cascade={"all"}, orphanRemoval=true)
@@ -406,7 +404,6 @@ class Event {
 	$filesystem->remove($this->getFilePath() . '/' . $this->getFileName());
     }
 
-
     public function getFileName() {
 	return $this->path;
     }
@@ -430,18 +427,6 @@ class Event {
 
     protected function getUploadDir() {
 	// get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-	return '/upload/sortie/sortie-'.$this->id;
-    }
-
-    public static function getStates() {
-        return array(
-            'ended' => 'event.form.status.ended',
-            'futur' => 'event.form.status.futur',
-            'during' => 'event.form.status.during'
-        );
-    }
-
-    public static function getStatesKeys() {
-        return array_keys(self::getStates());
+	return '/upload/sortie/sortie-'.(int) $this->id;
     }
 }

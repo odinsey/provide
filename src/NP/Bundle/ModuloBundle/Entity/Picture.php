@@ -13,7 +13,6 @@ use Imagine\Image\ImageInterface;
  *
  * @ORM\Table("picture")
  * @ORM\Entity(repositoryClass="PictureRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class Picture {
     use TimestampableEntity;
