@@ -11,7 +11,6 @@
 }
 .form-horizontal label.entity-collections.pictures {
     background-color: #E20026;
-    margin: 0 15px 15px;
 }
 .form-horizontal .list-photos.thumbnails,
 .form-horizontal fieldset.entity-collections.pictures {
@@ -23,29 +22,32 @@
 }
 .form-horizontal .entity-collections .collection-field-row {
     position: relative;
-    border-width: 3px 2px;
+    border-width: 1px;
     border-style: solid;
     border-color: #999;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 0;
 }
 .form-horizontal .entity-collections .collection-field-row:before {
-    content: " " attr(data-prop);
+    content: "\00a0\00a0\00a0" attr(data-prop);
     text-transform: uppercase;
     display: block;
-    height: 28px;
-    line-height: 28px;
+    height: 30px;
+    line-height: 30px;
     width: 100%;
     background-color: #999;
     color: #FFF;
     text-align: left;
+    margin-bottom: 15px;
+    cursor: pointer;
 }
 /*.form-horizontal .entity-collections .collection-field-row > div {
     padding-top: 30px;
 }*/
 .delete-collection-row.btn {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 0;
+    top: 0;
     bottom: auto;
     left: auto;
 }
@@ -56,7 +58,7 @@
 /************
 STYLE DE LA LISTE A TRIER
 ************/
-ul#list-photos li {
+ul.list-photos li {
     cursor: move;
     background:#fff;
     width: 140px;
@@ -64,13 +66,13 @@ ul#list-photos li {
     display: block;
     position: relative;
 }
-ul#list-photos li.highlight {
+ul.list-photos li.highlight {
     background:#f2f2f2;
     border:1px dashed #212326;
     height:170px;
     width:140px;
 }
-ul#list-photos .actions {
+ul.list-photos .actions {
     position: absolute;
     bottom: 0;
 }

@@ -103,8 +103,10 @@ h2 a, h2 a:link, h2 a:visited, h2 a:active, h2 a:hover, h2 a:focus,
 h3 a, h3 a:link, h3 a:visited, h3 a:active, h3 a:hover, h3 a:focus, 
 h4 a, h4 a:link, h4 a:visited, h4 a:active, h4 a:hover, h4 a:focus, 
 h5 a, h5 a:link, h5 a:visited, h5 a:active, h5 a:hover, h5 a:focus, 
-h6 a, h6 a:link, h6 a:visited, h6 a:active, h6 a:hover, h6 a:focus, 
-a img, a:link img, a:visited img, a:active img, a:hover img, a:focus img { 
+h6 a, h6 a:link, h6 a:visited, h6 a:active, h6 a:hover, h6 a:focus
+
+/*, 
+a img, a:link img, a:visited img, a:active img, a:hover img, a:focus img */{ 
 	text-decoration: none;
 	border: none;
 }
@@ -150,10 +152,10 @@ ul ul, ul ol, ul dl, ol ul, ol ol, ol dl, dl ul, dl ol{
   margin-bottom: 0;
 }
 
-/* Le 2ème niveau des listes à puce utilisent un carré */
+/* Le 2<span class="exposant">ème</span> niveau des listes à puce utilisent un carré */
 ol ul, ul ul { list-style-type: square; }
 
-/* Le 3ème niveau (et suivant) des listes à puce utilisent un cercle */
+/* Le 3<span class="exposant">ème</span> niveau (et suivant) des listes à puce utilisent un cercle */
 ol ol ul, ol ul ul, ul ol ul, ul ul ul { list-style-type: circle; }
 
 /* Les images en général */
@@ -326,19 +328,20 @@ td {
 
 	<div class="two-cols">
 		<p class="col">Première colonne</p>
-		<p class="col">Deuxième colonne</p>
+		<p class="col">Deuxi<span class="exposant">ème</span> colonne</p>
 		<div class="clearer"></div>
 	</div>
 
 	<div class="three-cols">
 		<p class="col">Première colonne</p>
-		<p class="col">Deuxième colonne</p>
-		<p class="col">Troisième colonne</p>
+		<p class="col">Deuxi<span class="exposant">ème</span> colonne</p>
+		<p class="col">Troisi<span class="exposant">ème</span> colonne</p>
 		<div class="clearer"></div>
 	</div>
 
 ----------------------------------------------------------*/
-.two-cols { position: static; }
+.two-cols { position: static;
+}
 .two-cols .col {
 	width: 48%;
 	margin-left: 1%;

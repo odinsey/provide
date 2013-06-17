@@ -17,7 +17,7 @@
 <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
 <script type="text/javascript" src="scripts/routines.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="scripts/gmap3.js"></script> 
+<script type="text/javascript" src="scripts/gmap3.js"></script>
 <script type="text/javascript" src="scripts/gmap3-include.js"></script>
 <!-- InstanceBeginEditable name="head" -->
 <link href="css/style-galeries-photos.css" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@
                     <param name="allowFullScreen" value="true" />
                     <param name="wmode" value="transparent" />
                     <img src="images/header.png" width="1232" height="301" alt="Collège La Providence - Olivet" />
-                    </object>		
+                    </object>
 			<!-- InstanceEndEditable -->
 			</div>
             <div id="menu">
@@ -46,16 +46,16 @@
                 <div id="bouton-examens"></div>
                 <div id="bouton-medias"></div>
 			</div>
-            <div id="site">                
+            <div id="site">
                 <div id="colonne-gauche">
                     <div id="sous-menu-titre"><!-- InstanceBeginEditable name="Titre" -->
                     MEDIAS
                     <!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
-                        <?php 
-                            include 'sous-menus/sous-menus-medias.txt'; 
-                        ?>                          
+                        <?php
+                            include 'sous-menus/sous-menus-medias.php';
+                        ?>
 					<!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu-bas"></div>
@@ -63,7 +63,7 @@
                     <div id="module-apel"></div>
                     <div id="module-enseignement"></div>
                     <div id="module-contact"></div>
-                </div>   
+                </div>
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
                     PHOTOS
@@ -71,77 +71,70 @@
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en cours de test</p>
-                        
-                        
-                        <div class="galerie-photo-intro">
-                        	<div class="galerie-photo-titre">
-                            	<h2>Titre de la galerie : Cum autem commodis intervallata temporibus convivia</h2>
-                            </div>
-                        	<div class="galerie-photo-intro-gauche">
-                            	<img src="images/photo-test.jpg" alt="" width="146" height="82" />                            
-                            </div>
-                            <div class="galerie-photo-intro-droite">
-                            	<p>Descriptif de la galerie : Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur.</p>
-                            </div>
-                            <br class="clearer" />
-                        </div>
-                        
-                        <div class="galerie-photos-fond">
-	                	    <a href="images/actualites/fournitures/fourniture-01.jpg" rel="shadowbox[galerie-01]" title="Descriptif 01" class="galerie-photos-vignette-lien">	
-                                <img src="images/photo-test.jpg" width="146" height="82" alt="Galerie-02" class="galerie-photos-vignette" />
-                            </a>
-	                	    <a href="images/actualites/fournitures/fourniture-02.jpg" rel="shadowbox[galerie-01]" title="Descriptif 02" class="galerie-photos-vignette-lien">	
-                                <img src="images/photo-test.jpg" width="146" height="82" alt="Galerie-01" class="galerie-photos-vignette" />
-                            </a>
-	                	    <a href="images/actualites/fournitures/fourniture-03.jpg" rel="shadowbox[galerie-01]" title="Descriptif 03" class="galerie-photos-vignette-lien">	
-                                <img src="images/photo-test.jpg" width="146" height="82" alt="Galerie-01" class="galerie-photos-vignette" />
-                            </a>
-	                	    <a href="images/actualites/fournitures/fourniture-04.jpg" rel="shadowbox[galerie-01]" title="Descriptif 04" class="galerie-photos-vignette-lien">	
-                                <img src="images/photo-test.jpg" width="146" height="82" alt="Galerie-01" class="galerie-photos-vignette" />
-                            </a>
-                            <br class="clearer" />
-                        </div>
-                        
-                        
-                        <div class="galerie-photo-intro">
-                        	<div class="galerie-photo-titre">
-                            	<h2>Cum autem commodis intervallata temporibus convivia</h2>
-                            </div>
-                        	<div class="galerie-photo-intro-gauche">
-                            	<img src="images/photo-test.jpg" alt="" width="146" height="82" />                            
-                            </div>
-                            <div class="galerie-photo-intro-droite">
-                            	<p>Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur.</p>
-                            </div>
-                            <br class="clearer" />
-                        </div>
-                        
-                        <div class="galerie-photos-fond">
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        	<img src="images/photo-test.jpg" alt="" width="146" height="82" class="galerie-photos-vignette" />
-                        </div>
-                                                
-                        
+<?php
+include dirname(__DIR__) . '/app/autoload.php';
+use Symfony\Component\Yaml\Parser;
+$yaml = new Parser();
+$value = $yaml->parse(file_get_contents(dirname(__DIR__) . '/app/config/parameters.yml'));
+$parameters = $value['parameters'];
+/* Connect to an ODBC database using driver invocation */
+$dsn = 'mysql:dbname=' . $parameters['database_name'] . ';host=' . $parameters['database_host'];
+try {
+    $pdo = new \PDO($dsn, $parameters['database_user'], $parameters['database_password'],array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
+$sql_gallery = 'SELECT * FROM gallery as g WHERE g.published = 1 ORDER BY g.position';
+$sql_pictures = 'SELECT p.* FROM gallery_picture as gp, picture as p WHERE p.id = gp.picture_id AND gp.gallery_id = :id ORDER BY p.position';
+$results = $pdo->query($sql_gallery);
+if($results){
+while ($row = $results->fetch()) {?>
+    <div class="galerie-photo-intro">
+        <div class="galerie-photo-titre">
+            <h2><?php echo $row['title'] ?></h2>
+        </div>
+        <div class="galerie-photo-intro-gauche">
+        <?php
+        $stmt = $pdo->prepare($sql_pictures);
+        $results_img = $stmt->execute(array(':id' => $row['id']));
+        $i = 0;
+        if($results_img){
+        while ( $picture = $stmt->fetch() ) { ?>
+            <img src="<?php echo strtolower(str_replace('##TYPE##','thumb1',$picture['path'])) ?>" alt="<?php echo $picture['title'] ?>" />
+        <?php break;
+        } ?>
+        </div>
+        <div class="galerie-photo-intro-droite">
+            <?php echo $row['description'] ?>
+        </div>
+        <br class="clearer" />
+    </div>
+
+    <div class="galerie-photos-fond"><?php
+            $stmt->closeCursor();
+            $results_img = $stmt->execute(array(':id' => $row['id']));
+            while ( $picture = $stmt->fetch() ) {
+?><a href="<?php echo strtolower(str_replace('##TYPE##','big',$picture['path'])) ?>"
+   title="<?php echo $picture['title'] ?>"
+   rel="shadowbox[<?php echo $row['title'] ?>]"
+   class="galerie-photos-vignette-lien"
+   ><img src="<?php echo strtolower(str_replace('##TYPE##','thumb1',$picture['path'])) ?>" alt="<?php echo $picture['title'] ?>" class="galerie-photos-vignette" />
+</a><?php
+} ?>
+        <?php $stmt->closeCursor();
+        } ?>
+        <br class="clearer" />
+    </div>
+<?php }
+$results->closeCursor();
+}
+?>
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>
                     <div id="footer-contenu"></div>
 	            </div>
-			</div>   
+			</div>
 	    </div>
         <br class="clearer" />
         <div id="wrapper-bas">
@@ -149,7 +142,7 @@
             <div id="footer-adresse"></div>
             <div id="footer-mentions"></div>
         </div>
-	</div>    
+	</div>
 	<div id="w3c">
         <a href="http://validator.w3.org/check?uri=referer" onclick="window.open('http://validator.w3.org/check?uri=referer');return false">
         <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>

@@ -69,19 +69,17 @@
 				  <!-- InstanceBeginEditable name="Contenu" -->
 <h2>Editeur du site</h2>
 <ul>
-	<li><strong>XXX</strong></li>
+	<li><strong>Monsieur Frédéric Cahu</strong></li>
     <li>46, rue Pierre Beaulieu</li>
     <li>45160 - Olivet</li>
     <li>Tél : 02.38.69.08.81</li>
-    <li>Fax : XX.XX.XX.XX</li>
+    <li>Fax : 09.72.33.40.08</li>
 	<li>Courriel : 
 <script type="text/javascript">
 <!--
 var p5="";for(var cO=0;cO<391;cO++)p5+=String.fromCharCode(("hydo+*3_*333ku?d#%%hi@pr#rqryxvh%whu@1kklv@[uhipd___*[r[lowuh=_*1fhsod2j+2[%1/%Fvwvxe,,u+4)r._*f)dqw)1ufw_*dfhso)2h+2V%j/%ev1vx4,wu+C%,.%du1fk3,Dw+Er._*fjEoohEohE0urd0sghyEl_*1qfhoduhs2Efh+%%2j/1%,.%ul.Vwiuqj1kdrpFghuFr.7+95{:3/3_*__5,.rq_*%#vhprx@%rxwDvwklhi1ku___*@___*rq%Afw)wdf73&{3oo>fr0ohjhurd0shqylg&3fh)37333u?9>iADD2dhs_*1uh+odfj/2D2`^^%%3`,*1uhsodfh+2+11,+111,2j/%\'5\'4%,1vxevwu+7,,".charCodeAt(cO)-(3)+1*0+63)%(9*0+95)+-7+39);document.write(eval(p5))
 //-->
 </script>    </li>
-    <li>N° SIRET : xxxxxxxx</li>
-    <li>RCS : xxxxxxx</li>
 </ul>	
 
 

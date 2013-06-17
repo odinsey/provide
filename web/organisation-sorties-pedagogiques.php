@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -17,7 +17,7 @@
 <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
 <script type="text/javascript" src="scripts/routines.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="scripts/gmap3.js"></script> 
+<script type="text/javascript" src="scripts/gmap3.js"></script>
 <script type="text/javascript" src="scripts/gmap3-include.js"></script>
 <!-- InstanceBeginEditable name="head" -->
 <link href="css/style-sorties.css" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@
                     <param name="allowFullScreen" value="true" />
                     <param name="wmode" value="transparent" />
                     <img src="images/header.png" width="1232" height="301" alt="Collège La Providence - Olivet" />
-                    </object>		
+                    </object>
 			<!-- InstanceEndEditable -->
 			</div>
             <div id="menu">
@@ -46,16 +46,16 @@
                 <div id="bouton-examens"></div>
                 <div id="bouton-medias"></div>
 			</div>
-            <div id="site">                
+            <div id="site">
                 <div id="colonne-gauche">
                     <div id="sous-menu-titre"><!-- InstanceBeginEditable name="Titre" -->
                     ORGANISATION ANIMATION
                     <!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
-                        <?php 
-                            include 'sous-menus/sous-menus-organisation.txt'; 
-                        ?>                          
+                        <?php
+                            include 'sous-menus/sous-menus-organisation.php';
+                        ?>
 					<!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu-bas"></div>
@@ -63,152 +63,95 @@
                     <div id="module-apel"></div>
                     <div id="module-enseignement"></div>
                     <div id="module-contact"></div>
-                </div>   
+                </div>
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    SORTIES PEDAGOGIQUES
+                    Sorties Pédagogiques
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-						<p>Page en ours de test</p>
-                        <p>Généralités (fixes) sur les sorties et voyages scolaire (sans précision de date ni de lieu).</p>
+<?php
+include dirname(__DIR__) . '/app/autoload.php';
+use Symfony\Component\Yaml\Parser;
+$yaml = new Parser();
+$value = $yaml->parse(file_get_contents(dirname(__DIR__) . '/app/config/parameters.yml'));
+$parameters = $value['parameters'];
+/* Connect to an ODBC database using driver invocation */
+$dsn = 'mysql:dbname=' . $parameters['database_name'] . ';host=' . $parameters['database_host'];
+try {
+    $pdo = new \PDO($dsn, $parameters['database_user'], $parameters['database_password'],array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
 
+$events = 'SELECT * FROM event as e WHERE e.published = 1 ORDER BY e.position';
+$event_steps = 'SELECT * FROM step as s WHERE s.event_id = :id AND s.published = 1 ORDER BY s.date';
+$step_pictures = 'SELECT p.* FROM step_picture as sp, picture as p WHERE p.id = sp.picture_id AND sp.step_id = :id ORDER BY p.position';
 
-<!--Début de modèle pour Robin-->
+$results = $pdo->query($events);
+if( $results ){
+while ($row = $results->fetch()) { ?>
+    <div class="paragrapheOnOff"><?php echo $row['title'].' (';
+    if(time()<strtotime($row['start'])){
+	echo 'à venir';
+    }else if(time()>strtotime($row['stop'])){
+	echo 'terminé';
+    }else{
+	echo 'en cours...';
+    }
+    echo ')';     
+    ?></div>
+        <div class="accordeon">
+            <div class="voyage-gauche">
+                <?php if($row['path']){
+                    $filepath = '/upload/sortie/sortie-'.$row['id'].'/'.$row['path'] ?>
+                    <a href="<?php echo $filepath; ?>" onclick="window.open('<?php echo $filepath ?>');return false">
+                        <img src="images/PDF.png" alt="<?php echo $row['title'] ?>" width="50" height="77" /></a>
+                <?php } ?>
+            </div>
+            <div class="voyage-droite"><?php echo $row['description']; ?></div>
+            <br class="clearer" />
+        <?php
+        $steps = $pdo->prepare($event_steps);
+        $results_img = $steps->execute(array(':id' => $row['id']));
+        if($results_img){
+        while ($step = $steps->fetch()) { ?>
+            <div class="voyage-quotidien">
+                <h2><?php echo $step['title'] ?></h2>
 
-                        <div class="paragrapheOnOff">Sortie dans le Perigord (terminé)</div>
-                        <div class="accordeon">
-                            <div class="voyage-gauche">
-                                <a href="pdf/test.pdf" onclick="window.open('pdf/test.pdf');return false">
-                                <img src="images/PDF.png" alt="Titre de la fiche" width="50" height="77" /></a>
-                            </div>        
-                            <div class="voyage-droite">
-                                <p>Descriptif du voyage avec possibilité de télécharger le programme en fichier PDF à gauche. Sed si ille hac tam eximia fortuna propter utilitatem rei publicae frui non properat.</p>
-                            </div> 
-                            <br class="clearer" />   
-
-<!--Répétion des blocs quotidien (1)-->
-
-							<div class="voyage-quotidien">
-
-                                <h2>Lundi 12 novembre 2012 - arrivée des élèves, rencontre avec les familles</h2>
-
-                                <div class="voyage-vignette">
-                                    <a href="images/actualites/fournitures/fourniture-01.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 01" >
-                                    <img src="images/photo-test.jpg" alt="Titre du voyage" width="146" height="82" />
-                                    </a>
-                                    <a href="images/actualites/fournitures/fourniture-02.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 02"></a>
-                                    <a href="images/actualites/fournitures/fourniture-03.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 03"></a>
-                                    <a href="images/actualites/fournitures/fourniture-04.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 04"></a>
-                                </div>
-
-                                <div class="voyage-compte-rendu">
-                                    <p>Sed si ille hac tam eximia fortuna propter utilitatem rei publicae frui non properat, utilitatem rei publicae frui non properat, ut omnia illa conficiat, quid ego, senator, facere debeo, quem, etiamsi ille aliud vellet, rei publicae consulere oporteret?</p>
-                                    <p>Sed si ille hac tam eximia fortuna propter utilitatem rei publicae frui non properat, utilitatem rei publicae frui non properat, ut omnia illa conficiat, quid ego, senator, facere debeo, quem, etiamsi ille aliud vellet, rei publicae consulere oporteret?</p>
-                                    
-                                    <a href="http://www.google.fr" onclick="window.open('http://www.google.fr');return false">
-                                    Lien pour en savoir plus
-                                    </a>                                
-                                    
-                                </div>
-                                <br class="clearer" />
-                            
-                            </div>
-
-
-
-<!--Répétion des blocs quotidien (2)-->
-
-							<div class="voyage-quotidien">
-
-                                <h2>Mardi 13 novembre 2012 - visite des atelierss et imprimeurs</h2>
-
-                                <div class="voyage-vignette">
-                                    <a href="images/actualites/fournitures/fourniture-01.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 01" >
-                                    <img src="images/photo-test.jpg" alt="Titre du voyage" width="146" height="82" />
-                                    </a>
-                                    <a href="images/actualites/fournitures/fourniture-02.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 02"></a>
-                                    <a href="images/actualites/fournitures/fourniture-03.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 03"></a>
-                                    <a href="images/actualites/fournitures/fourniture-04.jpg" rel="shadowbox[galerie1]" title="Descriptif de la photo 04"></a>
-                                </div>
-
-                                <div class="voyage-compte-rendu">
-                                    <p>Sed si ille hac tam eximia fortuna propter utilitatem rei publicae frui non properat, utilitatem rei publicae frui non properat, ut omnia illa conficiat, quid ego, senator, facere debeo, quem, etiamsi ille aliud vellet, rei publicae consulere oporteret?</p>
-                                    <p>Sed si ille hac tam eximia fortuna propter utilitatem rei publicae frui non properat, utilitatem rei publicae frui non properat, ut omnia illa conficiat, quid ego, senator, facere debeo, quem, etiamsi ille aliud vellet, rei publicae consulere oporteret?</p>
-                                    
-                                    <a href="http://www.google.fr" onclick="window.open('http://www.google.fr');return false">
-                                    Lien pour en savoir plus
-                                    </a>                                
-                                    
-                                </div>
-                                <br class="clearer" />
-                            
-                            </div>
-
-
-
-<!--Fin du modèle-->
-
-
-                            <br class="clearer" />
-						</div>    
-
-
-
-
-
-                        <div class="paragrapheOnOff">Visite des châteaux de la Loire (en cours...)</div>
-                        <div class="accordeon">
-                            <div class="voyage-gauche">
-                                <a href="pdf/test.pdf" onclick="window.open('pdf/test.pdf');return false">
-                                <img src="images/PDF.png" alt="Titre de la fiche" width="50" height="77" /></a>
-                            </div>        
-                            <div class="voyage-droite">
-                                <p>Descriptif du voyage avec possibilité de télécharger le programme en fichier PDF à gauche. Sed si ille hac tam eximia fortuna propter utilitatem rei publicae frui non properat.</p>
-                            </div> 
-                            <br class="clearer" />                           
-                            <h2>Compte rendu à venir</h2>                        
-						</div>                                
-
-
-                        
-                        
-                        <div class="paragrapheOnOff">Voyage en Allemagne (à venir)</div>
-                        <div class="accordeon">
-                            <div class="voyage-gauche">
-                            </div>        
-                            <div class="voyage-droite">
-                                <p>Descriptif du voyage avec possibilité de télécharger le programme en fichier PDF (OU PAS) à gauche. Sed si ille hac tam eximia fortuna propter utilitatem rei publicae frui non properat.</p>
-                            </div> 
-                            <br class="clearer" />                           
-                            <h2>Compte rendu à venir</h2>                        
-						</div>               
-                        
-                        
-                        
-                        
-                        
-                        <h2>Découvrez nos archives</h2>
-                        	<ul>
-                            	<li><a href="archives-2012-13.php">Sorties pédagogiques 2012-2013</a></li>
-                            	<li><a href="archives-2013-14.php">Sorties pédagogiques 2013-2014</a></li>
-                            	<li><a href="archives-2014-15.php">Sorties pédagogiques 2014-2015</a></li>
-                            	<li><a href="archives-2015-16.php">Sorties pédagogiques 2015-2016</a></li>
-                            	<li><a href="archives-2016-17.php">Sorties pédagogiques 2016-2017</a></li>
-							</ul>                                                 
-
-
-                        
-                        
-                        
-
+                <div class="voyage-vignette">
+                    <?php
+                    $photos = $pdo->prepare($step_pictures);
+                    $results_img = $photos->execute(array(':id' => $step['id']));
+                    $i = 0;
+                    while ($photo = $photos->fetch()) { ?>
+                        <a href="<?php echo strtolower(str_replace('##TYPE##','big',$photo['path'])) ?>" rel="shadowbox[step<?php echo $step['id']?>]" title="<?php echo $photo['title']?>" >
+                            <?php if(!$i++){ ?><img src="<?php echo strtolower(str_replace('##TYPE##','thumb1', $photo['path'])) ?>" alt="<?php echo $row['title'] ?>" width="146" height="82" /><?php } ?>
+                        </a>
+                    <?php }
+                    $photos->closeCursor();
+                    ?>
+                </div>
+                <div class="voyage-compte-rendu"><?php echo $step['description'] ?></div>
+                <br class="clearer" />
+             </div>
+        <?php }
+        $steps->closeCursor();
+        }
+        ?>
+    <br class="clearer" />
+</div>
+<?php }
+$results->closeCursor();
+}
+?>
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>
                     <div id="footer-contenu"></div>
 	            </div>
-			</div>   
+			</div>
 	    </div>
         <br class="clearer" />
         <div id="wrapper-bas">
@@ -216,7 +159,7 @@
             <div id="footer-adresse"></div>
             <div id="footer-mentions"></div>
         </div>
-	</div>    
+	</div>
 	<div id="w3c">
         <a href="http://validator.w3.org/check?uri=referer" onclick="window.open('http://validator.w3.org/check?uri=referer');return false">
         <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>

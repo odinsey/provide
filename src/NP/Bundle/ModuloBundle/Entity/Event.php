@@ -76,7 +76,10 @@ class Event {
     private $path;
 
     /**
-     * @Assert\File()
+     * @Assert\File(
+     *	   mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Choisissez un fichier PDF valide"
+     * )
      */
     private $file;
 

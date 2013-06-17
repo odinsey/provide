@@ -75,70 +75,65 @@
     <img src="images/projet-etablissement/projet-01-mini.jpg" alt="Accueillir, écouter, accompagner chacun dans ses différences" width="200" height="173" class="vignette-gauche"  />
 </a>
 <div class="colonne-texte-droite">
-<p>Chaque nouvel arrivant au collège, les élèves de sixièmes bien sûr, mais aussi ceux inscrits en cours de scolarité tout autant que les nouveaux professeurs ou personnel d’éducation, se doit d’être accueilli par l’équipe éducative et pédagogique. <br />
-La connaissance rapide de l’établissement ainsi que les valeurs qu’il véhicule représente le meilleur moyen de les rassurer et de les intégrer pleinement dans la vie scolaire.</p>
+<p>Chaque nouvel arrivant au collège, élève de sixième, mais aussi élève inscrit en cours de scolarité, nouveau professeur ou personnel d’éducation, se doit d’être accueilli par l’équipe éducative et pédagogique. La chaleur de l’accueil, la connaissance des lieux et la présentation des valeurs véhiculées par l’établissement sont essentielles pour les rassurer et les intégrer pleinement dans la vie du collège.</p>
 
-<p>Une précaution toute particulière est portée sur la connaissance de chacun, avec son histoire, ses capacités, ses difficultés et ses talents.</p>
+<p>Une attention toute particulière est portée sur la connaissance de chacun, avec son histoire, ses capacités, ses talents et ses difficultés. C’est ainsi que tout adulte du collège peut avoir une posture d’accompagnement, posture nécessaire à la progression de chacun. Ces adultes, tous mus par les mêmes valeurs, permettent, par la diversité de leurs personnalités, d’offrir à l’élève l’interlocuteur le mettant en confiance.</p>
+
 </div>
-<p class="clearb">
-C’est ainsi que chaque adulte du collège peut avoir une posture d’accompagnement, posture nécessaire à la progression de chacun. Offrir une multitude de visage, tous mûs par les mêmes valeurs, permet à tous de trouver l’interlocuteur le mettant en confiance.</p>
+<br class="clearer" />
+<p>Nous portons un regard très attentif aux élèves en situation de handicap pour qu’ils se sentent accueillis comme les autres et vivent au mieux leur intégration. Aidés par leurs camarades, ils avanceront vers la réussite scolaire et personnelle et progresseront dans l’estime de soi.</p>
 
-<p>C’est ainsi que les élèves en situation du handicap font l’objet d’une attention toute particulière au sein du collège pour qu’il vive au mieux ses difficultés, intégrant aussi ses camarades dans le processus de progression de l’estime de soi et de réussite. </p>
+<p>Il semble en effet important que chaque élève, mis en confiance, puisse se connaître le mieux possible. Nous mettrons tout en œuvre pour qu’il parvienne à se réaliser pleinement dans ses choix d’orientation et se préparer le meilleur avenir possible.</p>
 
-<p>Il semble en effet important que chaque élève, mis ainsi en confiance, puisse se connaître au mieux. Nous mettons tout en oeuvre pour qu’il puisse se réaliser pleinement dans ses choix d’orientation et se préparer le meilleur avenir possible.</p>
+
+
+
+
 
 <h2>Etablir un climat de confiance pour progresser dans l'autonomie et la responsabilité</h2>
 <a href="images/projet-etablissement/projet-02-maxi.jpg" rel="shadowbox[projet]" title="Etablir un climat de confiance pour progresser dans l'autonomie et la responsabilité">
     <img src="images/projet-etablissement/projet-02-mini.jpg" alt="Etablir un climat de confiance pour progresser dans l'autonomie et la responsabilité" width="200" height="133" class="vignette-gauche"  />
 </a>
 <div class="colonne-texte-droite">
-<p>L’élève se trouve au coeur de notre projet éducatif avec, en point de mire, son avenir. <br />
-Il se trouve donc très rapidement en situation concrète d’agir dans la vie scolaire et à se positionner dans sa classe et dans l’établissement. <br />
-Nous entendons par cela le former à devenir un futur citoyen responsable.</p>
-
-<p>Nous axons tout particulièrement nos actions de manière à rendre les élèves de plus en plus autonomes dans leurs apprentissages et ce, dès la sixième.</p>
+	<p>L’élève se trouve au cœur de notre projet éducatif avec, en point de mire, la construction de son avenir. Il est donc mis très rapidement en situation concrète d’agir dans la vie scolaire et de se positionner dans sa classe et dans l’établissement, en futur citoyen responsable.</p>
+    <p>Dès la sixième, nous voulons tout mettre en œuvre pour rendre les élèves de plus en plus autonomes dans leurs apprentissages. En favorisant une progression tout au cours des années-collège, nous préparons ainsi leur future scolarité, quelle que soit l’orientation choisie.</p>
 </div>
-<p class="clearb">En favorisant une progression tout au court des années collège, nous préparons ainsi leur future scolarité et ce, quel que soit l’orientation choisie.</p>
+<br class="clearer" />
+<p>Par ailleurs, chaque élève a sa place et son « mot à dire » pour organiser le temps hors classe. Durant ses années-collège, le jeune n’est pas seulement un élève mais une personne qui doit aussi s’épanouir grâce aux activités diverses encadrées par les adultes du collège.</p>
+<p>Enfin, il est important qu’élèves et adultes du collège puissent tirer profit de l’univers multimédiatique qui les entoure. Connaître les Technologies Usuelles de l’Information et de la Communication (TUIC) est donc nécessaire, pour les exploiter au mieux et en éviter les écueils, voire les dangers.</p>
 
-<p>De la même façon, chaque élève a sa place et son « mot à dire » pour organiser le temps hors classe. <br />
-L’élève n’est pas que la finalité de la vie scolaire, il en est tout autant l’origine et le premier acteur. <br />
-Ainsi, suivi et encadré par les adultes du collège, nous pouvons répondre au mieux aux attentes de chacun.</p>
 
-<p>Enfin , il est important qu’élèves et adultes du collège puisse se positionner dans l’univers multi médiatique qui nous entoure. <br />
-Connaître les TUIC est donc nécessaire pour pouvoir en tirer le meilleur et en éviter les écueils voire les dangers.</p>
+
 
 <h2>Construire des situations d'apprentissage qui permettent à chacun de donner le meilleur de lui-même</h2>
 <a href="images/projet-etablissement/projet-03-maxi.jpg" rel="shadowbox[projet]" title="Construire des situations d'apprentissage qui permettent à chacun de donner le meilleur de lui-même">
     <img src="images/projet-etablissement/projet-03-mini.jpg" alt="Construire des situations d'apprentissage qui permettent à chacun de donner le meilleur de lui-même" width="200" height="133" class="vignette-gauche"  />
 </a>
 <div class="colonne-texte-droite">
-<p>Les différences et la multiplicité des élèves sont pris en compte pour qu’il donne le meilleur d’eux même dans leurs apprentissages. <br />
-Ainsi, les professeurs utilisent nombre d’approches pédagogiques dans leurs cours, qu’elle que soit les matières, afin que chacun puisse acquérir un savoir solide et durable.</p>
-
-<p>De la même façon, il semble nécessaire, à l’intérieur de chaque cours, de pouvoir s’adapter aux facilités mais aussi aux difficultés de chaque élève.<br />
-En pratiquant la différenciation pédagogique, les professeurs prennent en compte la disparité des élèves qui composent un groupe classe pour faire progresser chacun selon ses compétences.</p>
+	<p>La diversité des élèves est prise en compte pour qu’ils donnent le meilleur d’eux-mêmes dans leurs apprentissages. Ainsi, les professeurs utilisent des approches pédagogiques variées dans leurs cours, quelles que soient les matières, afin que chacun puisse acquérir des compétences et des savoirs solides et durables.</p>
+    <p>De la même façon, il semble nécessaire, à l’intérieur de chaque cours, de pouvoir s’adapter au profil et au niveau de chaque élève. En pratiquant l’évaluation par compétence et la différenciation pédagogique, les professeurs prendront en compte la diversité des élèves qui composent un groupe classe pour faire progresser chacun selon ses compétences.</p>
 </div>
-<p class="clearb">Dans ce sens, La transversalité des compétences est un axe important afin de répondre aux besoins recensés auprès des élèves. <br />
-Il convient alors de pouvoir dépasser les contenus des matières et de proposer une approche transdisciplinaire appropriée grâce à un travail en équipe pédagogique renforcé.</p>
+<br class="clearer" />
+<p>Par ailleurs, la transversalité des compétences est un axe important afin de répondre aux besoins des élèves et de donner du sens aux apprentissages. Il faut pouvoir créer des liens entre les matières et proposer une approche transdisciplinaire grâce au renforcement du travail en équipe.</p>
+<p>Il convient donc de partager les expérimentations et les formations pédagogiques entre collègues et de favoriser la concertation par matière. Ainsi, les emplois du temps des professeurs seront adaptés pour permettre cette coordination et cette concertation.</p>
 
-<p>C’est en partageant des expérimentations et des formations pédagogiques au sein de notre équipe, favoriser notamment par des heures de concertation par matière incluses dans les emplois du temps des professeurs, que chaque professeur peut tirer profit des expériences des autres et prendre à son compte des méthodes et des savoirs afin d’être le plus performant possible.</p>
+
+
 
 <h2>S'ouvrir aux autres et au monde pour s'épanouir ensemble</h2>
 <a href="images/projet-etablissement/projet-04-maxi.jpg" rel="shadowbox[projet]" title="S'ouvrir aux autres et au monde pour s'épanouir ensemble">
     <img src="images/projet-etablissement/projet-04-mini.jpg" alt="S'ouvrir aux autres et au monde pour s'épanouir ensemble" width="200" height="133" class="vignette-gauche"  />
 </a>
 <div class="colonne-texte-droite">
-<p>Le collège est pour nous un lieu où l’on se réalise. <br />
-En intégrant à la vie scolaire des actions de solidarité tout au long de l’année, mises en place par les jeunes de notre Club des Solidarités Actives, nous ouvrons les élèves aux autres en leur montrant qu’à leur échelle, ils peuvent déjà agir sur le monde qui les entoure et ainsi se réaliser pleinement dans l’action.</p>
-
-<p>Nous développons par ailleurs de nombreuses sorties pédagogiques de la sixième à la troisième avec une progression tout au long des années collège, allant de la connaissance de soi à l’intérieur d’un groupe vers l’ouverture au monde avec un séjour linguistique.</p>
+	<p>Le collège est pour nous un lieu où l’on se réalise. En intégrant à la vie scolaire des actions de solidarité mises en place par les jeunes de notre Club des Solidarités Actives tout au long de l’année, nous ouvrons les élèves aux autres en leur montrant, qu’à leur échelle, ils peuvent déjà agir sur le monde qui les entoure.</p>
+    <p>Nous développons par ailleurs de nombreuses sorties pédagogiques de la sixième à la troisième. Tout au long du cursus au collège, les voyages permettent aux élèves de découvrir la vie en groupe, de s’enrichir au contact d’autres pays (Allemagne, Espagne, Angleterre) et de s’inscrire dans une dimension européenne.</p>
 </div>
+<br class="clearer" />
+<p>Le Collège La Providence se veut donc un établissement-carrefour ouvert sur le monde où de nombreux acteurs extérieurs interviennent tout au long de l’année. Des rencontres avec le prêtre référent aux témoignages de différents intervenants, de la présence d’une psychologue scolaire aux échanges avec des médecins pour aborder des sujets de santé, l’éventail que nous proposons aux jeunes est volontairement large, afin qu’ils puissent avoir différentes approches sur des sujets d’ordre éthique et social : des témoignages concrets qui les touchent généralement plus.</p>
+<p>Enfin, soucieux de faire découvrir aux élèves le monde du travail le plus tôt possible, le collège organise périodiquement un forum des métiers et, en troisième, des séquences d’observation en entreprises. Il souhaite développer davantage les relations avec celles-ci.</p>
 
-<p class="clearb">Ces échanges vers l’étranger se retrouvent également dans certaines actions de jumelage avec l’Allemagne, l’Espagne ou l’Angleterre.</p>
-<p>Le collège La Providence se veut donc un établissement carrefour ouvert sur le monde et où de nombreux acteurs extérieurs interviennent tout au long de l’année. <br />
-Du forum des métiers aux interventions du prêtre référent, de la présence d’une psychologue scolaire aux interventions de médecin pour aborder des sujets de santé, l’éventail que nous proposons aux jeunes se veut volontairement large afin qu’il puisse avoir différentes approches sur certains sujets et des témoignages concrets qui les touchent généralement plus.</p>
 
-<p>C’est enfin dans cette optique de témoignages et de réalisation personnelle que nous souhaitons davantage développer le partenariat avec les entreprises afin que nos jeunes puissent choisir au mieux leur voie en leur faisant découvrir le monde du travail le plus tôt possible.</p>
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

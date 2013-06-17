@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-examens.txt'; 
+                            include 'sous-menus/sous-menus-examens.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,22 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    PSC 1
+                    PSC1
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+
+<h2>Prévention et Secours Civiques de niveau 1</h2>
+<p>Le collège, qui possède matériel et formateurs, propose à l’ensemble des élèves de quatrième la formation au PSC1.</p>
+<p>L’établissement compte une centaine de lauréats chaque année, autant de personnes qualifiées – de citoyens qualifiés - pour prodiguer les premiers secours, donc fournir une aide essentielle en cas d’accidents, de malaise.  Ces premiers gestes sont souvent déterminants pour sauver des vies.</p>
+<p>Les enseignants et personnels ont eux-mêmes été formés.</p>
+<p>Cet enseignement  participe, avec l’<a href="examen-assr.php">ASSR1</a> et l’<a href="examen-assr.php">ASSR2</a> à la formation à la sécurité pour nos jeunes.</p>
+
+
+
+
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

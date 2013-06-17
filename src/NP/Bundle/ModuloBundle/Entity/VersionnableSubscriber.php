@@ -68,39 +68,23 @@ class VersionnableSubscriber implements EventSubscriber {
 	$em = $args->getEntityManager();
 	$uow = $em->getUnitOfWork();
 	$securityContext = $this->container->get('security.context');
-	foreach ($uow->getScheduledEntityInsertions() AS $entity) {
+	
+	$entities = array_merge($uow->getScheduledEntityInsertions(),$uow->getScheduledEntityUpdates());
+	
+	foreach ($entities AS $entity) {
 	    if (
 		!$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') &&
 		$entity instanceof Picture &&
 		method_exists($entity->getParent(), 'setPublished')
 	    ) {
-		$md = $em->getClassMetadata(get_class($entity));
+		$md = $em->getClassMetadata(get_class($entity->getParent()));
 		$uow->scheduleExtraUpdate(
 		    $entity->getParent(), array('published' => array($entity->getParent()->getPublished(), false))
 		);
-		$uow->recomputeSingleEntityChangeSet($md, $entity);
+		$uow->recomputeSingleEntityChangeSet($md, $entity->getParent());
 	    }
-	}
-
-	foreach ($uow->getScheduledEntityUpdates() AS $entity) {
-	    if (
-		!$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') &&
-		$entity instanceof Picture &&
-		method_exists($entity->getParent(), 'setPublished')
-	    ) {
-		$md = $em->getClassMetadata(get_class($entity));
-		$uow->scheduleExtraUpdate(
-		    $entity->getParent(), array('published' => array($entity->getParent()->getPublished(), false))
-		);
-		$uow->recomputeSingleEntityChangeSet($md, $entity);
-	    }
-	}
-
-	foreach ($uow->getScheduledCollectionUpdates() AS $col) {
-	    
 	}
     }
-
 }
 
 ?>

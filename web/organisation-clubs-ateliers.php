@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-organisation.txt'; 
+                            include 'sous-menus/sous-menus-organisation.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,46 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    CLUBS ET ATELIERS
+                    Clubs et Ateliers
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+<p>En lien direct avec notre Projet d’Etablissement,</p>
+<p>Afin d'éduquer à la vie sociale et de contribuer à l'épanouissement personnel, sont proposées des activités péri-scolaires<br />
+Pour cette année sont organisés :</p>
+<h2>Dans le cadre de notre association sportive</h2>
+<ul>
+	<li>Initiation à l'escrime (en partenariat avec le cercle d'escrime Orléanais).</li>
+    <li>Basket-ball</li>
+    <li>Volley-ball (quand la météo est clémente).</li>
+    <li>Tennis de table.</li>
+    <li>Renforcement musculaire.</li>
+    <li>Step et rock.</li>
+</ul>
+<p>En plus de la <a href="organisation-foot.php">classe Foot</a> (en partenariat avec la ligue De Football de la Région Centre).
+<p>Les élèves sont également invités à participer à des compétitions départementales ou régionales  (par exemple le Cross ) ou plus locales (le tournoi des 3 collèges en Rugby).</p>
+
+<h2>Au sein de l’Etablissement</h2>
+
+<ul>	
+	<li>Une chorale.</li>
+    <li>Un club d'échecs.</li>
+    <li>Un club culturel.</li>
+    <li>Un club modélisme.</li>
+    <li>Un club "Point de croix".</li>
+    <li>Un club « Imag’in » (Traitement numérique de l’image).</li>
+    <li>Un atelier vidéo (création de courts-métrages, de l’écriture des scénarios jusqu’à l’impression du DVD).</li>
+    <li>Un atelier mathématiques et géométrie sur informatique.</li>
+    <li>Le <a href="organisation-club-solidarite-active.php">Club Solidarité Active</a>.</li>
+    <li>Un atelier BD.</li>
+    <li>Un atelier volume et design.</li>
+</ul>
+<p>Il existe également une <a href="organisation-clavier.php">classe clavier</a> (en partenariat avec la Clavithèque d’Orléans).</p>
+
+<p class="encadre">La plupart des clubs et ateliers sont ouverts de la 6<span class="exposant">ème</span> à la 3<span class="exposant">ème</span>.<br />
+Ces activités permettent aux élèves de s'exprimer, de développer leurs talents, de vivre un moment de détente et de culture.</p>
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

@@ -48,12 +48,12 @@
             <div id="site">                
                 <div id="colonne-gauche">
                     <div id="sous-menu-titre"><!-- InstanceBeginEditable name="Titre" -->
-                    PATORALE
+                    PASTORALE
                     <!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-pastorale.txt'; 
+                            include 'sous-menus/sous-menus-pastorale.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,97 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    RESSOURCES ET LIENS
+                    Ressources et Liens
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+
+
+
+    <p>
+    <a href="http://www.ddec45.org" onclick="window.open('http://www.ddec45.org');return false">
+    <img src="images/Logos-ressources/Interdiocese.jpg" alt="Direction Interdiocésaine Orléans-Bourges" width="205" height="64" />
+    <br />
+    Direction Interdiocésaine Orléans-Bourges</a>
+    </p>
+        
+	<p>
+	<a href="http://departementeducation.enseignement-catholique.fr/depEduc/spip.php?rubrique8" onclick="window.open('http://departementeducation.enseignement-catholique.fr/depEduc/spip.php?rubrique8');return false">
+    	<img src="images/Logos-ressources/logo-ens-KTO.jpg" alt="Enseignement Catholique" width="106" height="64" />
+    <br />
+    Enseignement Catholique</a> : informations «Animation pastorale» de l’Enseignement Catholique.
+    </p>
+
+
+	<p>
+    <a href="http://www.catechese.catholique.fr/portail.html" onclick="window.open('http://www.catechese.catholique.fr/portail.html');return false">
+    <img src="images/Logos-ressources/catechese.jpg" alt="Catéchèse et catéchuménat" width="186" height="64" />
+    <br />
+    Catéchèse et catéchuménat</a> : Service national de la catéchèse et du catéchuménat.
+    </p>
+	
+    
+	<p>
+    <a href="http://www.catechisme.catholique.fr" onclick="window.open('http://www.catechisme.catholique.fr');return false">
+	<img src="images/Logos-ressources/catechisme.jpg" alt="Le catéchisme" width="148" height="64" />		
+    <br />
+    Le catéchisme</a> : site de la conférence des évêques de France réalisé avec le SNCC.
+    </p>
+	
+	<p>
+	<a href="http://www.aelf.org/bible-liturgie" onclick="window.open('http://www.aelf.org/bible-liturgie');return false">
+    <img src="images/Logos-ressources/AELF.jpg" alt="La Bible de la liturgie" width="184" height="64" />
+    <br />
+    La Bible de la liturgie</a> : utile pour la préparation des  célébrations et des rassemblements.
+    </p>
+	
+    
+	<p>
+    <a href="http:/www.zebible.com" onclick="window.open('http://www.zebible.com');return false">
+    <img src="images/Logos-ressources/zebible.jpg" alt="ZeBible.com" width="68" height="64" />
+    <br />
+    ZeBible.com</a> : de l'Alliance Biblique Française, avec de nombreuses ressources  bibliques.
+    </p>
+    
+    <p>
+ 	<a href="http:/www.acnav.net" onclick="window.open('http://www.acnav.net');return false">
+    <img src="images/Logos-ressources/acnav.jpg" alt="Acnav" width="167" height="64" />
+    <br />
+    Acnav</a> : site centré sur l’audiovisuel et le multimédia en pastorale. 
+    </p>
+    
+    <p>   
+ 	<a href="http:/www.enseignement-et-religions.org" onclick="window.open('http://www.enseignement-et-religions.org');return false">
+    <img src="images/Logos-ressources/formiris-religions.jpg" alt="Enseignement et religions de Formiris" width="93" height="64" />
+    <br />
+    Enseignement et religions de Formiris</a>
+    </p>
+    
+    <p>
+    <a href="http:/www.levangileauquotidien.org" onclick="window.open('http://www.levangileauquotidien.org');return false">
+    <img src="images/Logos-ressources/EAQ.jpg" alt="l’Evangile au quotidien" width="167" height="64" />
+    <br />
+    l’Evangile au quotidien</a> : permet de recevoir l'Evangile et les psaumes du jour.
+    </p>
+	
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

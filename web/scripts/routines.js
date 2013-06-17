@@ -115,7 +115,7 @@ $(document).ready(function(){
 	$("#bouton-pastorale").each(function(){
 		$(this).click(function(e){
 			e.preventDefault();
-			window.open('pastorale-projet-pastorale.php','_self');
+			window.open('pastorale-presentation.php','_self');
 		});	
 	});
 
@@ -129,7 +129,7 @@ $(document).ready(function(){
 	$("#bouton-examens").each(function(){
 		$(this).click(function(e){
 			e.preventDefault();
-			window.open('examen-bdr.php','_self');
+			window.open('examen-dnb.php','_self');
 		});	
 	});
 
@@ -157,7 +157,7 @@ $(document).ready(function(){
 	$("#module-enseignement").each(function(){
 		$(this).click(function(e){
 			e.preventDefault();
-			window.open('http://www.google.fr','_blank');
+			window.open('http://www.ec-berryloiret.fr/regioncentre/','_blank');
 		});	
 	});
 

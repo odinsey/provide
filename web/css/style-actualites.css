@@ -453,6 +453,16 @@ ul li{
 .actu-visible{
 		background:url(../images/actualites/reduire.png) no-repeat bottom;
 	}	
+	
+.actu-vide{
+	background:url(../images/actualites/lire-suite-vide.png) no-repeat bottom;
+	width:553px;
+	height:68px;
+	position:absolute;
+	bottom:0px;
+	left:162px;
+	}	
+	
 
 .suite-actualite{
 	width:530px;

@@ -18,9 +18,9 @@ gallery.flash.error.edit: 'Une erreur est survenue pendant la modification, veui
 
 event.index.title: 'Liste des sorties scolaires'
 event.edit.title: 'Edition de la sortie scolaires'
-event.new.title: 'Nouvelle sortie scolaires'
-event.index.new: 'Nouvelle sortie scolaires'
-event.order.title: 'Ordonner les sortie scolaires'
+event.new.title: 'Nouvelle sortie scolaire'
+event.index.new: 'Nouvelle sortie scolaire'
+event.order.title: 'Ordonner les sorties scolaire'
 event.flash.success.publish: Sortie publiée avec succès
 event.flash.success.unpublish: Sortie masquée avec succès
 event.flash.success.delete: 'Sortie suprimée avec succès'

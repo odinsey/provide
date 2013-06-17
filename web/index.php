@@ -63,7 +63,7 @@
                   <div id="colonne-droite">
                         <div id="titre">
 						<!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    COLLEGE LA PROVIDENCE  (Test PHP)
+                    COLLEGE LA PROVIDENCE
 					<!-- InstanceEndEditable -->
                         </div>
                         <div id="contenu">
@@ -100,10 +100,10 @@ if( $results ){
             if($results_img){
             while ($picture = $stmt->fetch()) { ?>
                 <?php if ($i == 0) { ?>
-                <a href="<?php echo str_replace('##TYPE##','big',$picture['path']) ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]">
-                <img src="<?php echo str_replace('##TYPE##','thumb2',$picture['path']) ?>" alt="<?php echo $picture['title'] ?>" /></a><?php $i++;
+                <a href="<?php echo strtolower(str_replace('##TYPE##','big',$picture['path'])) ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]">
+                <img src="<?php echo strtolower(str_replace('##TYPE##','thumb2',$picture['path'])) ?>" alt="<?php echo $picture['title'] ?>" /></a><?php $i++;
                 }else{ ?>
-                    <a href="<?php echo str_replace('##TYPE##','big',$picture['path']) ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]" style="display:none"></a>
+                    <a href="<?php echo strtolower(str_replace('##TYPE##','big',$picture['path'])) ?>" title="<?php echo $picture['title'] ?>" rel="shadowbox[<?php echo $row['title'] ?>]" style="display:none"></a>
                 <?php }
             }
             if ($stmt->rowCount() > 0) { ?>
@@ -135,10 +135,10 @@ if( $results ){
                         </div>
 					<div id="footer-contenu"></div>
 				  <!-- InstanceBeginEditable name="Promos" -->
-                  <img src="images/actualites/promo-foot.png" alt="Section Sportif Foot" width="383" height="86" class="vignettes-pormo" />
-                  <img src="images/actualites/promo-clavier.png" alt="Classe Clavier" width="361" height="86" class="vignettes-pormo" />
-                  <img src="images/actualites/promo-anglais.png" alt="Conversation Anglais" width="383" height="84" class="vignettes-pormo" />
-                  <img src="images/actualites/promo-cambridge.png" alt="University Of Cambridge" width="361" height="84" class="vignettes-pormo" />
+                  <a href="organisation-foot.php"><img src="images/actualites/promo-foot.png" alt="Section Sportif Foot" width="383" height="86" class="vignettes-pormo" /></a>
+                  <a href="organisation-clavier.php"><img src="images/actualites/promo-clavier.png" alt="Classe Clavier" width="361" height="86" class="vignettes-pormo" /></a>
+                  <a href="organisation-enseignement-anglais.php"><img src="images/actualites/promo-anglais.png" alt="Conversation Anglais" width="383" height="84" class="vignettes-pormo" /></a>
+                  <a href="organisation-enseignement-anglais.php#Cambrige"><img src="images/actualites/promo-cambridge.png" alt="University Of Cambridge" width="361" height="84" class="vignettes-pormo" /></a>
 
 				  <!-- InstanceEndEditable -->
                   </div>

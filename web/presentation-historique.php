@@ -76,7 +76,7 @@
 <ul>
 	<li>En <strong>1848</strong>, une nouvelle municipalité chasse les religieuses de l'école communale.</li>
 </ul>    
-<p>Des personnes charitables, notamment Monsieur le Curé et Monsieur Jourdan, désirant conserver l'établissement religieux, organisent une souscription et installent les sœurs dans « la maison de St Louis » où elles feront la classe.</p>
+<p>Des personnes charitables, notamment Monsieur le Curé et <a href="pastorale-theophile.php">Monsieur Jourdan</a>, désirant conserver l'établissement religieux, organisent une souscription et installent les sœurs dans « la maison de St Louis » où elles feront la classe.</p>
 <ul>
 	<li>Au mois de juillet <strong>1850</strong>, les bienfaiteurs demandent une sœur pour tenir une salle d'asile (c’est-à dire une école maternelle).</li>
     <li>En décembre <strong>1851</strong>, une nouvelle municipalité vote, à l'unanimité, pour la  réintégration des religieuses.</li>
@@ -93,7 +93,7 @@
 <h2>2)	L’origine du collège</h2>
 <p>Près de l’église et du presbytère, sur les bords du Loiret, un terrain planté d’arbres et de vignes offre un magnifique emplacement, assez vaste pour permettre de bâtir un cercle, ainsi que cours et terrasses aux membres du Cercle St Joseph (dont l’objet est la formation religieuse des jeunes gens).</p>
 <ul>
-	<li>C'est vers <strong>1863</strong> que M. Jourdan en décida l’achat, et fit construire deux grands bâtiments identiques : le premier, près de l'église, est destiné à l'enseignement, le second bâtiment, près des terrasses du Loiret, est affecté au patronage appelé  « Cercle St Joseph ».<br />
+	<li>C'est vers <strong>1863</strong> que <a href="pastorale-theophile.php">Monsieur Jourdan</a> en décida l’achat, et fit construire deux grands bâtiments identiques : le premier, près de l'église, est destiné à l'enseignement, le second bâtiment, près des terrasses du Loiret, est affecté au patronage appelé  « Cercle St Joseph ».<br />
 	  Sont hébergées également dans ce bâtiment « l’Union sportive St Martin », ainsi que « l’Harmonie St Joseph ».</li>
     <li>En <strong>1877</strong>, deux ailes supplémentaires complètent l'édifice : l'une à l'ouest comprend chapelle et salle de jeux, l'autre renfermait une salle de théâtre.</li>
     <li>En juillet <strong>1904</strong>, les Frères des Ecoles Chrétiennes sont aussi expulsés mais l’école chrétienne de garçons reprend son activité en octobre 1904, avec des enseignants non religieux.</li>
@@ -111,7 +111,9 @@
 <p><strong>Ces écoles deviennent mixtes</strong>. Au 91 rue du Général de Gaulle, s’installent les classes maternelles et primaires. Au 46 rue Pierre Beaulieu, les classes du Cours Complémentaire qui porte désormais le nom de La Providence. Ce dernier accueille alors 209 élèves répartis en 8 classes.</p>
 <p>La congrégation des sœurs de La Providence, qui avait gardé la direction des écoles, quitte Olivet en <strong>1993</strong>.</p>
 <p>L’ancien théâtre a fait place à un nouveau bâtiment pour les collégiens depuis <strong>1994</strong> et en <strong>2010</strong> le bâtiment Saint Joseph a été complètement réhabilité et la première terrasse aménagée.</p>
-<p><strong>Aujourd’hui</strong> le collège compte 16 classes, et plus de 440 élèves ; il y a donc près de 900 élèves scolarisés de la maternelle à la 3ème dans l’ensemble scolaire Notre-Dame de la Providence d’Olivet.</p>
+<p><strong>Aujourd’hui</strong> le collège compte 16 classes, et plus de 440 élèves ; il y a donc près de 900 élèves scolarisés de la maternelle à la 3<span class="exposant">ème</span> dans l’ensemble scolaire Notre-Dame de la Providence d’Olivet.</p>
+
+
 
                         
 <!-- InstanceEndEditable -->

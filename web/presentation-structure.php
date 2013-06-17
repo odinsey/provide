@@ -81,7 +81,7 @@
 <p class="bold">Les élèves ont cours :</p>
 <ul>
 	<li>Les lundi, mardi, jeudi et vendredi de 8h05 à 12h00 et de 13h35 à 16h35.</li>
-    <li>Le mercredi de 8h05 à 12h00 s’ils sont en 4ème ou 3ème.</li>
+    <li>Le mercredi de 8h05 à 12h00 s’ils sont en 4<span class="exposant">ème</span> ou 3<span class="exposant">ème</span>.</li>
 </ul>
 
 <p class="bold">Déjeuner - horaire du Self</p>
@@ -107,15 +107,16 @@
 	</tr>
     <tr>
     	<td>Mercredi</td>
-        <td>07h45 - 17h30<br />08h00 – 12h00</td>
+        <td>07h45 - 17h30</td>
         <td>13h30 – 17h30<br />08h00 – 12h00</td>
+        <td>08h00 - 12h00</td>
 	</tr>
 </table>            
 
 <p class="bold">Les études du soir :</p>
 <ul>
 	<li>Elles se déroulent les lundi, mardi, jeudi et vendredi de 16h45 à 18h00.</li>
-    <li>Elles existent sous deux formes : études encadrées et étude surveillé. Pour en savoir plus.</li>
+    <li>Elles existent sous deux formes : études encadrées et étude surveillé.</li>
 </ul>    
 
 

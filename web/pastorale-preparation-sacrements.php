@@ -20,6 +20,7 @@
 <script type="text/javascript" src="scripts/gmap3.js"></script> 
 <script type="text/javascript" src="scripts/gmap3-include.js"></script>
 <!-- InstanceBeginEditable name="head" -->
+<link href="css/style-telechargement.css" rel="stylesheet" type="text/css" />
 <!-- InstanceEndEditable -->
 </head>
 <body>
@@ -48,12 +49,12 @@
             <div id="site">                
                 <div id="colonne-gauche">
                     <div id="sous-menu-titre"><!-- InstanceBeginEditable name="Titre" -->
-                    PATORALE
+                    PASTORALE
                     <!-- InstanceEndEditable -->
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-pastorale.txt'; 
+                            include 'sous-menus/sous-menus-pastorale.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +66,33 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    PREPARATION AUX SACREMENTS
+                    Préparation aux Sacrements
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+                  
+<p>L’équipe pastorale du collège assure la préparation aux sacrements (sacrement du Baptême, sacrement de l’Eucharistie, sacrement de Confirmation) ainsi qu’à la Profession de Foi en lien avec la Paroisse St Martin.</p>
+
+                  
+                  
+<div class="telechargement-bloc">
+    <div class="telechargement-gauche">
+        <a href="pdf/Preparation-aux-sacrements.pdf" onclick="window.open('pdf/Preparation-aux-sacrements.pdf');return false">
+        <img src="images/PDF.png" alt="Préparation aux sacrements" width="50" height="77" /></a>
+    </div>        
+    <div class="telechargement-droite">
+        <h2>Téléchargez la présentation de la préparation aux sacrements</h2>
+        <p>Vous trouverez dans le document ci-contre, qui est un extrait du Projet d’Animation Pastorale, les propositions et le déroulement de celles-ci.</p>
+    </div> 
+    <br class="clearer" />                           
+</div>                    
+
+
+
+
+
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

@@ -107,7 +107,7 @@ stfalcon_tinymce:
                 theme_advanced_toolbar_align: "left"
                 theme_advanced_statusbar_location: "bottom"
                 theme_advanced_buttons1_add: "fullscreen"
-                plugins: "fullscreen"
+                plugins: "fullscreen, paste, contextmenu"
                 paste_remove_styles: true
                 paste_auto_cleanup_on_paste: true
                 theme_advanced_resizing: true

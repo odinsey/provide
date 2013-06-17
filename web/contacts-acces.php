@@ -72,7 +72,7 @@
     <li>46, rue Pierre Beaulieu</li>
     <li>45160 - Olivet</li>
     <li>Tél : 02.38.69.08.81</li>
-    <li>Fax : XX.XX.XX.XX</li>
+    <li>Fax : 09.72.33.40.08</li>
 	<li>Courriel : 
 		<script type="text/javascript">
         <!--
@@ -88,7 +88,8 @@
     	<ul>	
         	<li>Ligne 12 : arrête Collège</li>
             <li>Ligne 28 : arrêt Eglise</li>
-            <li>Pour en savoir plus : site TAO</li>
+            <li>Pour en savoir plus : <a href="http://www.reseau-tao.fr/me-deplacer/itineraires/trouver-mon-trajet/" onclick="window.open('http://www.reseau-tao.fr/me-deplacer/itineraires/trouver-mon-trajet/');return false">site TAO</a> 
+</li>
 		</ul>            
     <h2>Le tram</h2>
     	<ul>
@@ -97,7 +98,8 @@
 		</ul>            
 </div>
                     
-<div id="atelier-45" class="gmap3"></div>       
+<div id="atelier-45" class="gmap3"></div>      
+
                        
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />

@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-organisation.txt'; 
+                            include 'sous-menus/sous-menus-organisation.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,40 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    FORMATION A L'ORAL
+                    Formation à l’oral
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+
+<p>Savoir s’exprimer à l’oral face à un groupe (classe, jury, etc.) est une compétence qu’il est très important de posséder.</p>
+<p>Afin d’aider nos élèves à acquérir celle-ci, et de gagner en aisance, ils sont préparés tout au long de leurs années-collège et passent différents oraux évalués.</p>
+<ul>
+	<li>En 6<span class="exposant">ème</span>	essentiellement par des exposés face à la classe.</li>
+    <li>En 5<span class="exposant">ème</span>	chaque élève passe, en binôme (voire trinôme) car c’est un travail de groupe)  un oral d’IDD (Itinéraire de Découverte) face à la classe et en présence de deux professeurs.</li>
+    <li>En 4<span class="exposant">ème</span> un autre oral d’IDD passé dans les mêmes conditions d’évaluation qu’en 5<span class="exposant">ème</span>.</li>
+    <li>En 3<span class="exposant">ème</span>  chaque élève passe au moins deux oraux 
+    	<ul>
+        	<li>Le premier concerne le « stage 3<span class="exposant">ème</span> » face à un jury composé de professeurs et de parents.</li>
+            <li>Le second est l’oral d’Histoire des Arts pris en compte pour le Diplôme National du Brevet.</li>
+		</ul>
+	</li>
+</ul>                        
+
+<h2>De plus </h2>
+<p>Pour les élèves préparant les examens de Cambridge divers oraux évalués existent :</p>
+<ul>
+	<li>Un oral « blanc » et un comptant pour le KET (en 5<span class="exposant">ème</span>).</li>
+    <li>Un oral « blanc » et un comptant pour le PET (en 3<span class="exposant">ème</span>).</li>
+</ul>
+<p>Il est à noter que ces quatre épreuves orales – d’une dizaine de minutes chacune - se déroulent intégralement en langue anglaise et en binôme, les élèves ayant  à entretenir une conversation sur un sujet donné puis à répondre à des questions du jury.</p>
+<p>Les oraux d’IDD, de « stage 3<span class="exposant">ème</span> », et d’Histoire des Arts participent à l’évaluation du socle commun de connaissances, de compétences et de culture.</p>
+
+
+
+
+
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

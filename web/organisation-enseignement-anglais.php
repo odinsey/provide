@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-organisation.txt'; 
+                            include 'sous-menus/sous-menus-organisation.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,34 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    ENSEIGNEMENT DE L'ANGLAIS
+                    L'Enseignement de l'Anglais
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+<p>En plus des cours d’anglais (Langue Vivante 1) dispensés dans les classes par des professeurs rémunérés par l’Etat selon les programmes et horaires définis par l’Education Nationale, au Collège La Providence les élèves bénéficient  des possibilités suivantes : </p>
+
+<h2>La conversation anglaise</h2>
+<p>Elle se déroule en <strong>demi-groupe</strong> à raison <strong>d’une heure par semaine</strong>. Elle vise à favoriser l’écoute, la compréhension et  l’expression orale. En lien avec les cours d’anglais elle n’est pas un cours de soutien mais un renforcement. Elle a sa progression propre, peut exiger l’apprentissage de vocabulaire supplémentaire. Les élèves sont notés sur des critères tels que participation, investissement, progrès et réussite aux évaluations. Une appréciation est également portée sur le bulletin trimestriel.</p>
+<p>La conversation anglaise est obligatoire et gratuite en 6<span class="exposant">ème</span> et 5<span class="exposant">ème</span>, optionnelle et payante en 4<span class="exposant">ème</span> et 3<span class="exposant">ème</span>.</p>
+<a name="Cambrifge" id="Cambrige"></a>
+<h2>La préparation aux examens de Cambridge</h2>
+<p>La préparation au <a href="examen-ket-pet.php">KET</a> est proposée aux élèves volontaires en 5<span class="exposant">ème</span>. Elle est organisée à raison <strong>d’une heure par semaine</strong> et en <strong>demi-groupe</strong>, en plus de la conversation anglaise. Les participants doivent être de bon niveau, courageux et motivés car cette préparation est exigeante. </p>
+<p>Les élèves utilisent les supports pédagogiques créés par l’Université de Cambridge.</p>
+<p>La préparation au <a href="examen-ket-pet.php">PET</a> est similaire à celle du <a href="examen-ket-pet.php">KET</a>. Elle se déroule à raison de <strong>deux heures par semaine</strong> (car la conversation anglaise est elle-même optionnelle sur ces niveaux) sur deux ans (4<span class="exposant">ème</span> et 3<span class="exposant">ème</span>), toujours en  demi-groupe.</p>
+
+<h2>Organisation générale de l'enseignement de l'anglais</h2>
+<ul>
+	<li><strong>En 6<span class="exposant">ème</span></strong> les élèves ont donc quatre heures de cours obligatoire + une heure de conversation anglaise obligatoire (en demi-groupe).</li>
+    <li><strong>En 5<span class="exposant">ème</span></strong> les élèves ont trois heures de cours obligatoire + une heure de conversation anglaise obligatoire (en demi-groupe) et une heure de préparation au <a href="examen-ket-pet.php">KET</a> optionnelle (en demi-groupe également).</li>
+    <li><strong>En 4<span class="exposant">ème</span> et 3<span class="exposant">ème</span></strong> les élèves ont trois heures de cours obligatoire et, de façon facultative,<br /><br />
+        <ul>
+            <li>option 1 : une heure de <a href="examen-ket-pet.php">conversation anglaise</a> (en demi-groupe)</li>
+            <li>option 2 : deux heures de préparation au <a href="examen-ket-pet.php">PET</a> (en demi-groupe également)</li>
+        </ul>
+    </li>        
+</ul>    
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

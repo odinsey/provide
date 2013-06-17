@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-presentation.txt'; 
+                            include 'sous-menus/sous-menus-presentation.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,75 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    OGEC
+                    L’OGEC Collège Notre-Dame de la Providence
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+<p>&nbsp;</p>
+<table border="0" id="tablo-ogec">
+  <tr>
+    <td><ul><li><strong>Président</strong></li></ul></td>
+    <td>:</td>
+    <td>M. Jean–Yves OGER</td>
+  </tr>
+  <tr>
+    <td><ul><li><strong>Secrétaire</strong></li></ul></td>
+    <td>:</td>
+    <td>Mme&nbsp;Christine&nbsp;LABATTUT</td>
+  </tr>
+  <tr>
+    <td><ul><li><strong>Trésorier</strong></li></ul></td>
+    <td>:</td>
+    <td>M. Fabrice GERVAIS</td>
+  </tr>
+</table>
+  
+
+<h2>L’Organisme de Gestion de l’Enseignement Catholique (OGEC) du Collège</h2>
+
+<p>Régie par la loi du 1er juillet 1901, l'association assure la gestion financière de l’établissement.<br />
+L'OGEC est l'employeur du personnel non-enseignant qu'il rémunère.<br />
+Il n'est pas l'employeur du personnel enseignant.</p>
+
+<p>En tant que membre de la communauté éducative, le président participe au conseil d'établissement présidé par le chef d'établissement.</p>
+<p>L’OGEC regroupe des personnes bénévoles (parents, amis de l’école, personnes extérieures choisies en fonction de leurs compétences). Il doit déposer des statuts, élire un conseil d’administration et un bureau, réunir une assemblée générale.</p>
+
+<h2>Le conseil d’administration est composé...</h2>
+<ul>
+	<li>... de membres de droit :
+        <ul>
+            <li>Le Directeur Interdiocésain des diocèses d'Orléans et de Bourges.</li>
+            <li>Le Président de l’ Union Départementale des OGEC (UDOGEC) ou un de ses représentants.</li>
+            <li>La Présidente de l’<a href="presentation-apel.php" title="APEL">Association de Parents d’Elèves</a> du collège et des écoles. </li>
+        </ul>
+    </li>        
+    <li>... de membres élus (3 à 12 membres élus pour 3 ans et renouvelables par tiers tous les ans).</li>
+</ul>
+<p>Le Chef d’établissement est invité avec voix consultative aux réunions.</p>
+<p>Des personnes qualifiées peuvent être invitées au besoin.</p>
+<p>Le conseil accomplit soigneusement ses fonctions en bon père de famille.<br />
+Le conseil est investi des pouvoirs les plus étendus pour prendre toutes les décisions tant en matière de disposition qu’en matière de gestion ou d’administration. <br />
+Seuls les actes expressément réservés à l’assemblée générale échappent à ses pouvoirs.<br />
+Les administrateurs s'engagent à respecter le caractère propre de l’établissement.</p>
+
+<h2>L'assemblée générale ordinaire se réunit au minimum une fois par an.</h2>
+
+<p>Au titre de son pouvoir de décision : </p>
+<ul>
+	<li>Elle approuve le plan pluriannuel d’investissement ainsi que les budgets annuels de fonctionnement et d’investissement.</li>
+    <li>Elle nomme les commissaires aux comptes.</li>
+    <li>Elle doit se prononcer sur toute convention passée avec des administrateurs. </li>
+    <li>Elle peut décider de déléguer certains de ses pouvoirs de décisions au conseil d'administration.</li>
+    <li>Elle procède à l'élection  ou à la réélection et à la ratification des administrateurs. </li>
+</ul>
+<p>Au titre de son pouvoir de contrôle :</p>
+<ul>
+	<li>Elle statue sur le rapport d'activité du conseil d'administration et sur les comptes de résultat et sur le bilan et sur l'affectation des résultats de l'exercice.</li>
+    <li>Elle donne quitus de leur gestion aux administrateurs.</li>
+</ul>    
+
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

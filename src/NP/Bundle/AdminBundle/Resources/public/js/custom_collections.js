@@ -2,8 +2,17 @@ jQuery(document).ready(function() {
     jQuery('.form-horizontal .entity-collections .collection-field-row:before').css({
         'content': jQuery('input:first', this).val()
     });
+    jQuery('div.entity-collections > .collection-fields > .collection-field-row > div.control-group').hide();
+    jQuery('div.entity-collections > .collection-fields > .collection-field-row').bind('click',function(){
+	    jQuery('div', this).show('slow');
+	    jQuery('div.entity-collections > .collection-fields > .collection-field-row > div.control-group')
+		    .not('.control-group', this)
+		    .hide('slow');
+    });
+    
     jQuery('.add-collection-row:last').on('click',function(){
-	ajax_init_TinyMCE();
+	var textarea_new = jQuery('textarea.tinymce:visible');
+	tinyMCE.execCommand("mceAddControl", true, textarea_new.prop('id') );
     });
 });
 /************

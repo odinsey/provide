@@ -6,3 +6,11 @@ label[for$=published] {
     display: inline;
     padding-right: 5px;
 }
+
+input[type=text] {
+    width: 80%;
+}
+
+.table-order tbody tr, .table-order tbody td {
+    cursor: ns-resize;
+}

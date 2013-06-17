@@ -126,8 +126,8 @@ while ($row = $results->fetch()) { ?>
                     $results_img = $photos->execute(array(':id' => $step['id']));
                     $i = 0;
                     while ($photo = $photos->fetch()) { ?>
-                        <a href="<?php echo str_replace('##TYPE##','big',$photo['path']) ?>" rel="shadowbox[step<?php echo $step['id']?>]" title="<?php echo $photo['title']?>" >
-                            <?php if(!$i++){ ?><img src="<?php echo str_replace('##TYPE##','thumb1', $photo['path']) ?>" alt="<?php echo $row['title'] ?>" width="146" height="82" /><?php } ?>
+                        <a href="<?php echo strtolower(str_replace('##TYPE##','big',$photo['path'])) ?>" rel="shadowbox[step<?php echo $step['id']?>]" title="<?php echo $photo['title']?>" >
+                            <?php if(!$i++){ ?><img src="<?php echo strtolower(str_replace('##TYPE##','thumb1', $photo['path'])) ?>" alt="<?php echo $row['title'] ?>" width="146" height="82" /><?php } ?>
                         </a>
                     <?php }
                     $photos->closeCursor();

@@ -53,7 +53,7 @@
                     </div>
                     <div id="sous-menu"><!-- InstanceBeginEditable name="Sous-menu" -->
                         <?php 
-                            include 'sous-menus/sous-menus-examens.txt'; 
+                            include 'sous-menus/sous-menus-examens.php'; 
                         ?>                          
 					<!-- InstanceEndEditable -->
                     </div>
@@ -65,12 +65,45 @@
                 </div>   
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    ASSR 1 ET 2
+                    ASSR1 et ASSR2
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
 				  <!-- InstanceBeginEditable name="Contenu" -->
-                  		<p>Page en construction</p>
+<p>Les élèves entrant en classe de 6<span class="exposant">ème</span> ont acquis à l'école primaire des connaissances et des comportements validés par l'Attestation de première éducation à la route (APER).</p>
+<p>Au collège, l'éducation à la sécurité routière est finalisée par la préparation des deux attestations scolaires de sécurité routière (ASSR) de niveau 1 et 2.</p>
+<p>L'ASSR 1 se passe au cours de l'année de 5<span class="exposant">ème</span>. L'ASSR 2 en classe de 3<span class="exposant">ème</span>. Elles font partie de l'enseignement obligatoire. Les épreuves se déroulent au collège.</p>
+<p>Les deux niveaux de l'ASSR sont indépendants. Il n'est pas obligatoire d'avoir été reçu au premier niveau pour se présenter au second niveau. Posséder le second niveau ne donne pas le premier niveau et ne le remplace pas. L'ASSR de premier niveau constitue la partie théorique du brevet de sécurité routière.</p>
+
+<h2>Attestation Scolaire de Sécurité Routière de premier niveau (ASSR 1)</h2>
+<p>L'épreuve de l'ASSR de premier niveau est organisée :</p>
+<ul>
+	<li>pour les classes de 5<span class="exposant">ème</span> ;</li>
+    <li>pour les élèves d'autres classes qui atteignent l'âge de 14 ans au cours de l'année civile ;</li>
+    <li>pour les élèves qui ont échoué précédemment.</li>
+</ul>
+<p class="encadre">L'ASSR1 est obligatoire pour l'obtention du BSR.</p>
+
+<h2>Attestation Scolaire de Sécurité Routière de 2<span class="exposant">ème</span> niveau (ASSR 2)</h2>
+<p>L'épreuve de l'ASSR de deuxi<span class="exposant">ème</span> niveau est organisée :</p>
+<ul>
+	<li>pour les classes de 3<span class="exposant">ème</span> ;</li>
+    <li>pour les élèves d'autres classes qui atteignent l'âge de 16 ans au cours de l'année civile ;</li>
+    <li>pour des élèves âgés de plus de 16 ans, inscrits dans l'établissement scolaire ;</li>
+    <li>pour les élèves qui ont échoué précédemment.</li>
+</ul>
+<p class="encadre">L'ASSR2 est obligatoire pour l'obtention du permis de conduire des catégories A et A1 (motocyclette), B (et AAC) et B1 (permis quadricycle lourd à moteur).</p>
+<span class="floatright">(Source Wikipedia)</span>
+
+<br class="clearer" />
+<h2>Se préparer aux ASSR1 et ASSR 2</h2>
+<p>Afin de vous préparer aux épreuves, n’hésitez pas à utiliser le site :
+    <a href="http://preparer-assr.education-securite-routiere.fr/" onclick="window.open('http://preparer-assr.education-securite-routiere.fr/');return false">
+    <img src="images/ASSR/logo-securite-routiere.png" alt="" width="105" height="105" class="floatleft" />
+    education-securite-routiere
+    </a>
+</p>
+
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />
                   </div>

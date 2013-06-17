@@ -100,7 +100,7 @@ while ($row = $results->fetch()) {?>
         $i = 0;
         if($results_img){
         while ( $picture = $stmt->fetch() ) { ?>
-            <img src="<?php echo str_replace('##TYPE##','thumb1',$picture['path']) ?>" alt="<?php echo $picture['title'] ?>" />
+            <img src="<?php echo strtolower(str_replace('##TYPE##','thumb1',$picture['path'])) ?>" alt="<?php echo $picture['title'] ?>" />
         <?php break;
         } ?>
         </div>
@@ -114,11 +114,11 @@ while ($row = $results->fetch()) {?>
             $stmt->closeCursor();
             $results_img = $stmt->execute(array(':id' => $row['id']));
             while ( $picture = $stmt->fetch() ) {
-?><a href="<?php echo str_replace('##TYPE##','big',$picture['path']) ?>"
+?><a href="<?php echo strtolower(str_replace('##TYPE##','big',$picture['path'])) ?>"
    title="<?php echo $picture['title'] ?>"
    rel="shadowbox[<?php echo $row['title'] ?>]"
    class="galerie-photos-vignette-lien"
-   ><img src="<?php echo str_replace('##TYPE##','thumb1',$picture['path']) ?>" alt="<?php echo $picture['title'] ?>" class="galerie-photos-vignette" />
+   ><img src="<?php echo strtolower(str_replace('##TYPE##','thumb1',$picture['path'])) ?>" alt="<?php echo $picture['title'] ?>" class="galerie-photos-vignette" />
 </a><?php
 } ?>
         <?php $stmt->closeCursor();
