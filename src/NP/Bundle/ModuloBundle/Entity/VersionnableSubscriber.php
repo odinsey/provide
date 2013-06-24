@@ -34,6 +34,7 @@ class VersionnableSubscriber implements EventSubscriber {
 	$securityContext = $this->container->get('security.context');
 
 	if (
+	    !$securityContext->getToken()->getUser() &&
 	    !$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') &&
 	    method_exists($entity, 'setPublished')
 	) {
@@ -49,8 +50,8 @@ class VersionnableSubscriber implements EventSubscriber {
 		(
 		$args->hasChangedField('title') ||
 		$args->hasChangedField('description') ||
-		$args->hasChangedField('start') ||
-		$args->hasChangedField('stop') ||
+		($args->hasChangedField('start') && ( $args->getOldValue('start') != $args->getNewValue('start') ) ) ||
+		($args->hasChangedField('stop') && ( $args->getOldValue('stop') != $args->getNewValue('stop') ) ) ||
 		$args->hasChangedField('date')
 		)
 	    ) {
@@ -60,6 +61,7 @@ class VersionnableSubscriber implements EventSubscriber {
 		    $entity, array('published' => array($entity->getPublished(), false))
 		);
 		$uow->recomputeSingleEntityChangeSet($md, $entity);
+		$uow->computeChangeSets();
 	    }
 	}
     }
@@ -73,6 +75,7 @@ class VersionnableSubscriber implements EventSubscriber {
 	
 	foreach ($entities AS $entity) {
 	    if (
+		!$securityContext->getToken()->getUser() &&
 		!$securityContext->getToken()->getUser()->hasRole('ROLE_SUPER_ADMIN') &&
 		$entity instanceof Picture &&
 		method_exists($entity->getParent(), 'setPublished')
@@ -82,6 +85,11 @@ class VersionnableSubscriber implements EventSubscriber {
 		    $entity->getParent(), array('published' => array($entity->getParent()->getPublished(), false))
 		);
 		$uow->recomputeSingleEntityChangeSet($md, $entity->getParent());
+		$uow->computeChangeSets();
+//		if( method_exists($entity->getParent(), 'getEvent' ) && ($entity->getParent()->getEvent() instanceof Event)){
+//		    $md = $em->getClassMetadata(get_class($entity->getParent()->getEvent()));
+//		    $uow->recomputeSingleEntityChangeSet($md, $entity->getParent()->getEvent());
+//		}
 	    }
 	}
     }

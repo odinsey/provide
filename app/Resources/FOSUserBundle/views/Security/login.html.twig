@@ -23,8 +23,6 @@
 		 -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
 			  box-shadow: 0 1px 2px rgba(0,0,0,.05);
 	}
-
-	.form-signin
 </style>
 {% endblock %}
 {% block body %}
@@ -57,6 +55,7 @@
 				</div>
 			</div>
 			<input type="submit" class="btn btn-large btn-primary" value="{{ 'login.label.submit'|trans }}" >
+			<a class="btn btn-large btn-secondary" href="{{ path("fos_user_resetting_request") }}" >{{ 'login.forgotten_password'|trans({}, 'CmsAdminBundle') }}</a>
 		</form>
 	</div>
     {% endblock fos_user_content %}

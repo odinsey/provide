@@ -6,14 +6,15 @@ jQuery(document).ready(function() {
     jQuery('div.entity-collections > .collection-fields > .collection-field-row').bind('click',function(){
 	    jQuery('div', this).show('slow');
 	    jQuery('div.entity-collections > .collection-fields > .collection-field-row > div.control-group')
-		    .not('.control-group', this)
+		    .not('div.control-group', this)
 		    .hide('slow');
-    });
+    }).css('cursor','pointer');
     
     jQuery('.add-collection-row:last').on('click',function(){
 	var textarea_new = jQuery('textarea.tinymce:visible');
 	tinyMCE.execCommand("mceAddControl", true, textarea_new.prop('id') );
     });
+       
 });
 /************
  DEBUT DU SCRIPT POUR LE DRAG'N'DROP

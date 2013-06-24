@@ -82,9 +82,9 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 if( !empty($_GET['newspreview']) ){
-    $sql_news = 'SELECT * FROM news as n WHERE n.id = '.$_GET['newspreview'].' ORDER BY n.position';
+    $sql_news = 'SELECT * FROM news as n WHERE n.id = '.$_GET['newspreview'].' ORDER BY n.position DESC';
 }else{
-    $sql_news = 'SELECT * FROM news as n WHERE n.published = 1 ORDER BY n.position';
+    $sql_news = 'SELECT * FROM news as n WHERE n.published = 1 ORDER BY n.position DESC';
 }
 $sql_pictures = 'SELECT p.* FROM news_picture as np, picture as p WHERE p.id = np.picture_id AND np.news_id = :id ORDER BY p.position';
 $results = $pdo->query($sql_news);

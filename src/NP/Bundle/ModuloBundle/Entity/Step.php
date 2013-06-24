@@ -56,7 +56,7 @@ class Step {
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Event", inversedBy="steps", cascade={"all"} )
+     * @ORM\ManyToOne(targetEntity="Event", inversedBy="steps" )
      * @ORM\JoinColumn(onDelete="SET NULL")
      *
      * @var Event
@@ -70,6 +70,7 @@ class Step {
      *      inverseJoinColumns={@ORM\JoinColumn(name="picture_id", referencedColumnName="id", onDelete="CASCADE")}
      * )
      * @ORM\OrderBy({"position" = "ASC"})
+     * @Assert\Valid()
      */
     protected $pictures;
 

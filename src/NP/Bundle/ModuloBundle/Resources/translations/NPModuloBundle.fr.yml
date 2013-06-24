@@ -1,7 +1,7 @@
 gallery.index.title: 'Liste des galeries photos'
 gallery.edit.title: 'Edition de la galerie photos'
-gallery.new.title: 'Nouvelle galerie photos'
-gallery.index.new: 'Nouvelle galerie photos'
+gallery.new.title: 'Nouvelle galerie'
+gallery.index.new: 'Nouvelle galerie'
 gallery.order.title: 'Ordonner les galeries photos'
 gallery.flash.success.delete: 'Galerie suprimée avec succès'
 gallery.flash.success.new: 'Galerie créée avec succès'
@@ -33,10 +33,11 @@ event.flash.success.group.order: Les sorties scolaires ont été ordonnées
 event.form.status.ended: Terminé
 event.form.status.during: En cours
 event.form.status.futur: A venir
+event.archive.title: Liste des archives
 
 news.index.title: 'Liste des actualités'
 news.index.new: 'Nouvelle actualité'
-news.edit.title: 'Edition de l'' actualités'
+news.edit.title: 'Edition de l'' actualité'
 news.edit.preview: 'Aperçu de l''actualité'
 news.new.title: 'Nouvelle actualité'
 news.order.title: 'Ordonner les actualités'
@@ -72,6 +73,7 @@ category.new.title: 'Nouveau groupe de fichiers'
 category.index.title: 'Liste des groupes de fichiers'
 category.edit.title: 'Edition du groupe de fichiers'
 category.order.title: 'Ordonner les groupes de fichiers'
+category.index.new: 'Nouveau groupe'
 category.flash.success.group.delete: 'Groupes de fichiers suprimés avec succès'
 
 global.form_action.delete-picture: Supprimer la photo
@@ -81,3 +83,8 @@ global.form_action.publish_toggle: Publier/Masquer
 global.form_action.delete: Supprimer
 global.form_action.group.none: -- Choisissez une action --
 global.form_action.group.delete: Supprimer
+
+user.new: Nouvel utilisateur
+roles:
+    admin: Rédacteur
+    super_admin: Proviseur

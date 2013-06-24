@@ -16,7 +16,8 @@ class PictureFormType extends AbstractType {
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {
 		$resolver->setDefaults(array(
-			'data_class' => 'NP\Bundle\ModuloBundle\Entity\Picture'
+			'data_class' => 'NP\Bundle\ModuloBundle\Entity\Picture',
+			'cascade_validation' => true
 		));
 	}
 

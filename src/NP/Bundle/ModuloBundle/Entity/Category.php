@@ -54,7 +54,7 @@ class Category {
 
     /**
      * @ORM\OneToMany(targetEntity="Resources", mappedBy="category", cascade={"all"}, orphanRemoval=true)
-     * @ORM\OrderBy({"position" = "ASC"})
+     * @ORM\OrderBy({"position" = "DESC"})
      */
     protected $resources;
 

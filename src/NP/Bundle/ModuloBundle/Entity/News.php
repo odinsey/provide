@@ -5,6 +5,7 @@ namespace NP\Bundle\ModuloBundle\Entity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -79,6 +80,7 @@ class News {
      *      inverseJoinColumns={@ORM\JoinColumn(name="picture_id", referencedColumnName="id", onDelete="CASCADE")}
      * )
      * @ORM\OrderBy({"position" = "ASC"})
+     * @Assert\Valid()
      */
     protected $pictures;
 

@@ -172,9 +172,6 @@ class Picture {
 
     public function buildPath() {
 	$this->path = '/upload/' . $this->getFolderName() . '/' . $this->getFileName();
-	if ($this->parent instanceof Step) {
-	    $this->path = str_replace('/upload/', '/upload/sortie-' . $this->parent->getEvent()->getId() . '/', $this->path);
-	}
     }
 
     public function getFileName() {
@@ -183,7 +180,7 @@ class Picture {
 
     public function getFolderName() {
 	$class = explode('\\', get_class($this->getParent()));
-	return sprintf('%s-%d', strtolower(end($class)), $this->getParent()->getId());
+	return sprintf('%s', strtolower(end($class)));
     }
 
 }

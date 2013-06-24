@@ -7,10 +7,23 @@ label[for$=published] {
     padding-right: 5px;
 }
 
-input[type=text] {
+.form-horizontal:not(.form-signin, .modal)  input[type=text] {
     width: 80%;
 }
 
+.form-horizontal .controls {
+    margin-left:0;
+}
 .table-order tbody tr, .table-order tbody td {
     cursor: ns-resize;
+}
+label.entity-collections {
+    cursor: default;
+}
+.modal .mceLayout {
+    width: 300px!important;
+}
+
+.navbar-text.pull-right a {
+    color: #F80;
 }

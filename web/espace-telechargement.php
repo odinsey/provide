@@ -80,7 +80,7 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 $sql_categories = 'SELECT * FROM resource_category as rc WHERE rc.published = 1 ORDER BY rc.position';
-$sql_ressources = 'SELECT * FROM resources as r WHERE r.published = 1 AND r.category_id = :id ORDER BY r.position';
+$sql_ressources = 'SELECT * FROM resources as r WHERE r.published = 1 AND r.category_id = :id ORDER BY r.position DESC';
 $results = $pdo->query($sql_categories);
 if( $results ){
 while ($row = $results->fetch()) {?>

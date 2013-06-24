@@ -66,7 +66,7 @@
                 </div>
                 <div id="colonne-droite">
                 	<div id="titre"><!-- InstanceBeginEditable name="Titre-Contenu" -->
-                    Sorties Pédagogiques
+                    Sorties Pédagogiques <?php echo !empty($_GET['year']) ? (date('Y',time()) - $_GET['year'] - 1).' - '.(date('Y',time()) - $_GET['year']) : ''; ?>
 					<!-- InstanceEndEditable -->
                   </div>
                   <div id="contenu">
@@ -85,7 +85,11 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 
-$events = 'SELECT * FROM event as e WHERE e.published = 1 ORDER BY e.position';
+$year = (date('n',time()) < 7) ? date('Y',time()) - 1 : date('Y',time());
+if( !empty($_GET['year']) ){
+    $year = $year - $_GET['year'];
+}
+$events = 'SELECT * FROM event as e WHERE e.published = 1 AND e.start > STR_TO_DATE(\''.$year.'-08-01\', \'%Y-%m-%d\') AND e.stop < STR_TO_DATE(\''.($year + 1).'-08-01\', \'%Y-%m-%d\')  ORDER BY e.position';
 $event_steps = 'SELECT * FROM step as s WHERE s.event_id = :id AND s.published = 1 ORDER BY s.date';
 $step_pictures = 'SELECT p.* FROM step_picture as sp, picture as p WHERE p.id = sp.picture_id AND sp.step_id = :id ORDER BY p.position';
 
@@ -144,7 +148,19 @@ while ($row = $results->fetch()) { ?>
 </div>
 <?php }
 $results->closeCursor();
+}else{
+?> <p>Aucune sortie scolaire pour cette année.</p><?php     
 }
+
+$i=2011;
+$year_max = (date('n',time()) < 7) ? date('Y',time()) - 1 : date('Y',time());
+for( $i; $i < $year_max; $i++ ){ ?>  
+    <p><a href="?year=<?php echo ($year_max - $i) ?>" title="" >Archives <?php echo $i ?></a></p>
+<?php }
+
+if( !empty($_GET['year'])){ ?>
+    <p><a href="<?php echo $_SERVER['PHP_SELF'] ?>" title="" >Retour</a></p>
+<?php }
 ?>
 <!-- InstanceEndEditable -->
                   	<br class="clearer" />

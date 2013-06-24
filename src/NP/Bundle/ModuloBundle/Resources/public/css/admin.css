@@ -15,3 +15,7 @@
     background: url(../img/glyphicons-halflings-white.png) no-repeat -377px 14px;
     text-indent: -500000px;
 }
+
+.navbar-text.pull-right a {
+    color: #F80;
+}

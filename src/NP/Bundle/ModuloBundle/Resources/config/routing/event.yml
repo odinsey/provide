@@ -37,3 +37,7 @@ np_modulo_admin_event_publish_toggle:
 np_modulo_admin_event_order:
     pattern: /order
     defaults: { _controller: NPModuloBundle:Event:order }
+    
+np_modulo_admin_event_archive:
+    pattern: /archive
+    defaults: { _controller: NPModuloBundle:Event:archive }
